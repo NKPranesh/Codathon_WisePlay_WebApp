@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/animation.css";
 
 const animation = () => {
   let animate = () => {
@@ -13,12 +14,12 @@ const animation = () => {
   return (
     <div className="ANOuterDiv">
       <iframe
-        id="Animation"
-        src="building_sunset_copy/index.html"
+        className="HomeAnimation"
+        src="home/index.html"
         height="650px"
-        width="1000px"
+        width="800px"
+        frameBorder="0"
       ></iframe>
-      <button onClick={animate}>Click</button>
     </div>
   );
 };

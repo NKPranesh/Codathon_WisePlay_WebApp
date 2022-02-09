@@ -9,12 +9,7 @@
         height: 100%;
         margin: 0;
         position: fixed;
-        background: rgba(
-          53.56217118716537,
-          54.31341371625892,
-          64.29420731707319,
-          0
-        );
+        background: rgba(38, 38, 80, 0);
       }
       canvas {
         width: 100%;
@@ -44,7 +39,7 @@
         height: 100%;
       }
     </style>
-    <title>Building Sunset</title>
+    <title>Beta - Girl Butterflies</title>
     <link
       rel="icon"
       type="image/png"
@@ -63,30 +58,11 @@
   <body>
     <div id="container">
       <canvas id="canvas3d"></canvas>
-
-      <a class="spline-watermark" href="https://spline.design">
-        <img
-          src="https://app.spline.design/_assets/_icons/icon_favicon32x32.png"
-        />
-      </a>
     </div>
     <script type="module">
       import { Application } from "./runtime.js";
       const app = new Application();
       app.load("./scene.json");
-
-      window.addEventListener("message", handleMessage);
-      function handleMessage(evt) {
-        var msg = JSON.parse(evt.data);
-        if (
-          typeof msg === "object" &&
-          msg.type &&
-          msg.type === "KeyboardEvent"
-        ) {
-          window.dispatchEvent(new KeyboardEvent("keydown", { key: "a" }));
-          console.log("adkgch");
-        }
-      }
     </script>
   </body>
 </html>

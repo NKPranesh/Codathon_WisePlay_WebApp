@@ -1,0 +1,77 @@
+.PNNavbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px -5px rgb(50 50 93 / 25%),
+    0 4px 3px -5px rgb(0 0 0 / 30%);
+  padding: 5px 0px;
+}
+
+.PNBox1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+
+.PNBox2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.PNScore,
+.PNTimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PNQuestionnobox {
+  border: 3.5px solid black;
+  padding: 8px 6px;
+  margin: 0px 12px;
+}
+
+.PNPresentQuestion {
+  font-size: 22px;
+}
+
+.PNLogo {
+  margin: 0px 12px;
+}
+
+.PNScore,
+.PNTimer,
+.PNExitButton {
+  margin: 0px 28px;
+}
+
+.PNScore img,
+.PNScore span,
+.PNTimer img,
+.PNTimer span {
+  margin: 0 3px;
+}
+
+.PNExitButton {
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+  padding: 8px 30px;
+  cursor: pointer;
+}
+
+.PNLogo img {
+  height: 50px;
+}
+
+.PNScore img,
+.PNTimer img {
+  height: 35px;
+}

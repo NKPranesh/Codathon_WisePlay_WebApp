@@ -1,0 +1,14 @@
+.PGMainDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.PGLeftDiv {
+  margin-left: 50px;
+  transform: translateY(-50px);
+}
+
+.Butterflies {
+  transform: translate(350px, 50px);
+}

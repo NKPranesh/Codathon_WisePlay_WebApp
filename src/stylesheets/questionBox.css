@@ -1,0 +1,63 @@
+.QBMainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #707070;
+  border-radius: 18px;
+  box-shadow: -2px 0px 19px -5px rgba(0, 0, 0, 0.83);
+  -webkit-box-shadow: -2px 0px 19px -5px rgba(0, 0, 0, 0.83);
+  -moz-box-shadow: -2px 0px 19px -5px rgba(0, 0, 0, 0.83);
+  height: 480px;
+  width: 450px;
+  padding: 25px;
+  font-weight: 500;
+  color: rgb(26, 25, 25);
+}
+
+.QBSituationDiv {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0px 15px;
+}
+
+.QBQuestionDiv {
+  text-align: center;
+}
+
+.QBQuestion {
+  margin-bottom: 40px;
+  padding: 0px 15px;
+}
+
+.QBOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.QBOptionsTop,
+.QBOptionsBottom {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.QBButtonDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.QBNextButton {
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #4033a3;
+  padding: 8px 30px;
+  cursor: pointer;
+  margin: 0px 15px;
+}
