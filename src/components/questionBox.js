@@ -1,7 +1,7 @@
 import React from "react";
 import "../stylesheets/questionBox.css";
 
-const QuestionBox = () => {
+const QuestionBox = (props) => {
   let questions = [
     "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
   ];
@@ -37,7 +37,14 @@ const QuestionBox = () => {
         </div>
       </div>
       <div className="QBButtonDiv">
-        <button className="QBNextButton">Next</button>
+        <button
+          className="QBNextButton"
+          onClick={() => {
+            props.animate();
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

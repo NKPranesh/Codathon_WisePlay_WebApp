@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrimaryGame from "./Containers/PrimaryGame";
+import LandingPage from "./Containers/LandingPage";
 import "./App.css";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PrimaryGame />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/primarygame" element={<PrimaryGame />} />
         </Routes>
       </BrowserRouter>
     </div>

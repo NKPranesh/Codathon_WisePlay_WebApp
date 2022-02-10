@@ -1,0 +1,67 @@
+.LNMainDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* justify-content: space-between; */
+  padding: 6px 0px;
+  box-shadow: 0 4px 6px -5px rgb(50 50 93 / 25%),
+    0 4px 3px -5px rgb(0 0 0 / 30%);
+}
+
+.LNLinksDiv,
+.LNLogoDiv,
+.LNButtonsDiv {
+  width: 300px;
+}
+
+.LNLogoDiv img {
+  height: 50px;
+}
+
+.LNLinksDiv a {
+  color: black;
+  text-decoration: none;
+  margin: 0px 20px;
+  color: #18191f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.LNLinksDiv a:hover {
+  color: #8c30f5;
+}
+
+.LNButtonsDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.LNButton a {
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+  border-color: transparent;
+  background: linear-gradient(to right, #f1e4ff, #f1e4ff);
+  color: #8c30f5;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 32px;
+}
+
+.LNButton a:hover {
+  background: linear-gradient(to right, #e9d8fb, #e9d8fb);
+}
+
+.LNButton {
+  margin: 0px 15px;
+}
+
+.LNSignupButton a {
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
+  color: white;
+}
+
+.LNSignupButton a:hover {
+  background: linear-gradient(to right, #9d50f5, #9d50f5);
+}

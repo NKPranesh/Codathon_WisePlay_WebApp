@@ -1,0 +1,56 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Student from "../media/student.svg";
+import Dashboard from "../media/Dashboard.svg";
+import "../stylesheets/landingBody.css";
+
+const LandingBody = () => {
+  return (
+    <div className="LBMainDiv">
+      <div class="LBIntroDiv">
+        <div class="LBIntroText">
+          <span>Assess your self from any corner of the world</span>
+        </div>
+        <div class="LBIntroButton">
+          <Link to="/">Start Using</Link>
+        </div>
+        <div className="LBIntroImage">
+          <img src={Student} alt="img" />
+        </div>
+      </div>
+      <div class="LBBannerDiv">
+        <div className="LBBannerTopDiv">
+          <span className="LBBannerTopH1">Are already using</span>
+          <span className="LBBannerTopH2">
+            We have been working with some 500 clients
+          </span>
+        </div>
+        <div className="LBBannerBottomDiv">
+          <span>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </span>
+        </div>
+      </div>
+      <div className="LBDashboardDiv">
+        <div className="LBDashboardTextDiv">
+          <span className="LBDashboardTextH1">
+            Intuitive dashboard for monitoring
+          </span>
+          <span className="LBDashboardTextB">
+            Track sales and customers on any device, a very simple and intuitive
+            interface where you will not have any difficulties, as well as
+            advanced teamwork
+          </span>
+        </div>
+        <div className="LBDashboardImgDiv">
+          <img src={Dashboard} alt="img" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LandingBody;

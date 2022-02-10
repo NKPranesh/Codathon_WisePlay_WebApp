@@ -1,0 +1,127 @@
+/* --------------- Intro Div --------------- */
+
+.LBIntroDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 96px;
+}
+
+.LBIntroText {
+  font-size: 72px;
+  color: #18191f;
+  text-align: center;
+  font-weight: bold;
+  width: 1040px;
+  margin-bottom: 55px;
+}
+
+.LBIntroButton {
+  margin-bottom: 60px;
+}
+
+.LBIntroButton a {
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+  border-color: transparent;
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
+  color: white;
+  font-weight: bold;
+  padding: 18px 40px;
+  font-size: 20px;
+}
+.LBIntroButton a:hover {
+  background: linear-gradient(to right, #9d50f5, #9d50f5);
+}
+
+.LBIntroImage img {
+  height: 366px;
+  transform: translateY(4px);
+}
+
+/* ---------------Banner Div --------------- */
+
+.LBBannerDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
+  padding: 50px 0px;
+}
+
+.LBBannerTopDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.LBBannerTopH1 {
+  font-size: 48px;
+  color: white;
+  font-weight: 600;
+}
+
+.LBBannerTopH2 {
+  font-size: 24px;
+  color: white;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.LBBannerBottomDiv {
+  text-align: center;
+  width: 940px;
+  color: white;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+/* ---------------Dashboard Div --------------- */
+
+.LBDashboardDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 88px;
+}
+
+.LBDashboardTextDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  justify-content: space-around;
+  padding-bottom: 250px;
+}
+
+.LBDashboardTextH1 {
+  width: 460px;
+  font-size: 40px;
+  color: #18191f;
+  font-weight: bolder;
+}
+
+.LBDashboardTextB {
+  width: 450px;
+  font-size: 16px;
+  color: #43444b;
+  font-weight: 500;
+}
+
+.LBDashboardImgDiv {
+  background: linear-gradient(to right, #f6efff, #f6efff);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 350px;
+}
+
+.LBDashboardImgDiv img {
+  height: 450px;
+  transform: translateY(-160px);
+}
