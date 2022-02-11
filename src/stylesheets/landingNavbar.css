@@ -5,6 +5,7 @@
   justify-content: space-around;
   /* justify-content: space-between; */
   padding: 6px 0px;
+  max-height: 60px;
   box-shadow: 0 4px 6px -5px rgb(50 50 93 / 25%),
     0 4px 3px -5px rgb(0 0 0 / 30%);
 }

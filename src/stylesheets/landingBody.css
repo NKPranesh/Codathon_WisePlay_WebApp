@@ -77,9 +77,31 @@
   width: 940px;
   color: white;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
+.LBBannerBottomDiv img {
+  height: 30px;
+}
+
+.LBLinkedinImg {
+  height: 40px !important;
+}
+
+.LBIconDiv {
+  border-radius: 8px;
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  box-shadow: 0px 15px 15px 0px #18191f;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
 /* ---------------Dashboard Div --------------- */
 
 .LBDashboardDiv {
@@ -126,7 +148,7 @@
   transform: translateY(-160px);
 }
 /* --------------- Advantage div --------------- */
-.LBadvantagediv{
+.LBadvantagediv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,22 +157,30 @@
   padding-top: 80px;
   /* padding-bottom: 80px; */
 }
-.LBAdvantageMainHeading{
+
+.LBImgDiv {
+  /* background-color: #8c30f5; */
+  margin-left: 25px;
+  margin-top: 40px;
+}
+
+.LBAdvantageMainHeading {
   font-size: 40px;
   font-weight: 800;
   padding-bottom: 30px;
 }
-.LBAdvantages{
+.LBAdvantages {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 80%;
+  margin-top: 20px;
   justify-content: space-around;
   margin-left: 100px;
   margin-right: 100px;
   margin-bottom: 100px;
 }
-.LBAdvantageBox
-{
+.LBAdvantageBox {
   background-color: white;
   color: black;
   margin: 10px;
@@ -159,17 +189,94 @@
   align-items: flex-start;
   border-radius: 10px;
 }
-.LBAdvantageHeading{
+.LBAdvantageHeading {
   font-size: 24px;
   font-weight: 600;
-  padding: 25px;
+  padding-left: 25px;
+  margin-top: 40px;
 }
-.LBAdvantagedesc{
+.LBAdvantagedesc {
   /* font-size: 14px; */
   font-weight: 400;
-  padding: 25px;
+  width: 280px;
+  padding: 0px 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
-.LBfaqbox{
+
+/* --------------- Categories div --------------- */
+
+.LBcategorydiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: linear-gradient(to right, #f4f5f7, #f4f5f7);
+}
+
+.LBcategoryheading {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 80px;
+}
+
+.LBCategoryrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.LBCategorybox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.LBcategoryhead {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.LBcategorydesc {
+  color: #18191f;
+  width: 350px;
+}
+
+.LBcategoryimage {
+  height: 320px;
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LBStudentDiv {
+  background: linear-gradient(to right, #a0dcff, #a0dcff);
+}
+
+.LBSkateGirlDiv {
+  background: linear-gradient(to right, #fdd9d9, #fdd9d9);
+}
+
+.LBcategoryimage img {
+  height: 340px;
+}
+
+.LBSkateGirlImg {
+  height: 300px !important;
+}
+
+/* --------------- FAQ div --------------- */
+
+.LBfaqbox {
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 25%;
@@ -180,7 +287,8 @@
   height: 10%;
   flex-direction: column;
 }
-.LBfaqheading{
+
+.LBfaqheading {
   text-align: center;
   color: black;
   font-size: 100%;
@@ -191,7 +299,8 @@
   font-size: 40px;
   line-height: 54px;
 }
-.LBfaqquestionbox{
+
+.LBfaqquestionbox {
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
@@ -200,68 +309,33 @@
   margin: 10px;
   margin-bottom: 20px;
 }
-.LBfaqquestion{
+
+.LBfaqquestion {
   margin: 20px;
   font-family: Inter;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
 }
-.LBline{
+
+.LBline {
   border-top: 1px solid #a8a8a8e8;
   width: auto;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 0 20px;
 }
-.LBfaqanswer{
+
+.LBfaqanswer {
   font-family: Inter;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
   margin: 20px;
 }
-.LBfaq{
+
+.LBfaq {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 200px;
-  padding-right: 200px;
-}
-.LBcategorydiv{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 80px;
-}
-.LBcategoryheading{
-  font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 80px;
-}
-.LBCategoryrow{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-.LBCategorybox{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.LBcategoryhead{
-  font-size: 24px;
-  font-weight: 600;
-}
-.LBcategorydesc{
-  color: #a5a1c1;
-}
-.LBcategoryimage img{
-  width: 540px;
-  height: 380px;
+  padding: 40px 200px;
 }

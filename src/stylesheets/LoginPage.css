@@ -1,0 +1,11 @@
+.LPBodyDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 66px - 160px + 75px);
+}
+
+.LPBodyDiv img {
+  height: 350px;
+}

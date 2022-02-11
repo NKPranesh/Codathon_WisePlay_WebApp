@@ -1,0 +1,122 @@
+.rsMaindiv {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------- Congo Div ------- */
+.rscongodiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rscongoh {
+  margin-top: 20px;
+}
+.rscongoh span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.rscongotext {
+  margin-top: 10px;
+  width: 290px;
+  text-align: center;
+}
+.rscongotext span {
+  font-size: 16px;
+  color: #18191f;
+}
+
+.rssucessimg img {
+  height: 150px;
+}
+
+/* ------- Score Div ------- */
+
+.rsscorediv {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rsscoreh span {
+  font-size: 28px;
+  font-weight: bold;
+}
+.rsscoreh {
+  margin-bottom: 10;
+}
+.rsscorerow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80vw;
+}
+.rsscoregraph {
+  width: 500px;
+  height: 265px;
+  background-color: #0058ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rsscoregraph span {
+  font-size: 38px;
+  color: white;
+}
+
+hr.rounded {
+  border-left: 3px solid #bbb;
+  border-radius: 5px;
+  height: 240px;
+}
+
+.rscertificatepreview img {
+  height: 340px;
+}
+
+/* ------- Share Div ------- */
+
+.rssharerow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 90vw;
+  margin-bottom: 40px;
+}
+.rssharebutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #8c30f5;
+  text-decoration: none;
+  border-radius: 8px;
+  border-color: transparent;
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 25px;
+  cursor: pointer;
+}
+
+.rssharebutton:hover {
+  background: linear-gradient(to right, #9d50f5, #9d50f5);
+}
+
+.rssharebutton span {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.rssharebutton img {
+  height: 24px;
+  margin-right: 2px;
+}

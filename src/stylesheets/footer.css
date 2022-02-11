@@ -1,0 +1,87 @@
+.footerMainDiv {
+  position: relative;
+  background: linear-gradient(#011021, #011021),
+    url("../media/FooterBackground.png");
+  width: 100%;
+  /* margin-top: 8%; */
+  display: flex;
+  justify-content: center;
+  height: 160px;
+}
+.footerDisplay1366Div {
+  width: 1366px;
+  box-sizing: border-box;
+  padding: 0 8%;
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+/*---------Footer Intro Div---------*/
+.footerIntroDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 25%;
+}
+.footerIntroLogo {
+  width: 180px;
+}
+.footerIntroBody {
+  color: #a9b2bc;
+  font-size: 12px;
+  margin-top: 3%;
+  white-space: pre-line;
+}
+/*---------Footer Links Div---------*/
+.footerLinksDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footerLinksSocialDiv {
+  width: 110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footerLinksSocialDiv img {
+  width: 30px;
+  cursor: pointer;
+}
+.footerLinksCompanyDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8%;
+}
+.footerLinkCompany {
+  color: #a9b2bc;
+  font-size: 12px;
+  margin-top: 3%;
+  cursor: pointer;
+}
+.footerLinkCompany:hover {
+  color: #e2e8f0;
+}
+/*---------Footer Contact Div---------*/
+.footerContactDiv {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.footerContactTitle {
+  color: white;
+  font-weight: bold;
+}
+.footerContactContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  color: #a9b2bc;
+  font-size: 12px;
+}
+.footerContactContent span {
+  margin-top: 2%;
+}

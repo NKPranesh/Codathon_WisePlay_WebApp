@@ -16,19 +16,19 @@ const LandingNavbar = () => {
           <a href="#" className="LNLink">
             <span>About</span>
           </a>
-          <a href="#" className="LNLink">
+          <a href="#LBDashboardID" className="LNLink">
             <span>Overview</span>
           </a>
-          <a href="#" className="LNLink">
+          <a href="#LBFaqID" className="LNLink">
             <span>FAQ</span>
           </a>
         </div>
         <div className="LNButtonsDiv">
           <div className="LNLoginButton LNButton">
-            <Link to="/"> Login</Link>
+            <Link to="/login"> Login</Link>
           </div>
           <div className="LNSignupButton LNButton">
-            <Link to="/"> Signup</Link>
+            <Link to="/signup"> Signup</Link>
           </div>
         </div>
       </div>

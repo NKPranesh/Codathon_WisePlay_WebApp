@@ -1,0 +1,11 @@
+.SPBodyDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 66px - 160px + 75px);
+}
+
+.SPBodyDiv img {
+  height: 350px;
+}

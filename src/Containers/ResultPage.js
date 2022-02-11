@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import certificate from "../media/certificate.jpeg";
 import facebook from "../media/facebook-share-button.svg";
 import linkedin from "../media/linkedin-share-button.svg";
@@ -6,25 +6,16 @@ import twitter from "../media/twitter-share-button.svg";
 import cancelicon from "../media/cancelicon.svg";
 import Logo from "../media/logo.svg";
 import sucess from "../media/Sucess.svg";
-import "../stylesheets/resultpage.css";
+import LandingNavbar from "../components/landingNavbar";
 import share from "../media/Share.svg";
 import html2canvas from "html2canvas";
+import "../stylesheets/resultpage.css";
 
 const opencertificate = () => {
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
   var img = document.getElementById("rsCertificate");
-  ctx.drawImage(
-    img,
-    0,
-    0,
-    img.width,
-    img.height,
-    0,
-    0,
-    c.width,
-    c.height
-  );
+  ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, c.width, c.height);
   ctx.font = "50px Arial";
   ctx.fillText("Pranesh", 410, 260);
   ctx.font = "30px Arial";
@@ -46,7 +37,7 @@ const opencertificate = () => {
     })
     .then((image) => {
       console.log(image);
-       saveAs(image, "Certificate.jpeg");
+      saveAs(image, "Certificate.jpeg");
       // html.style.width = null;
       // body.style.width = null;
     });
@@ -73,20 +64,19 @@ const saveAs = (blob, fileName) => {
   elem.remove();
 };
 
-const facebookshare= ()=>{
-    var data = document.getElementById("myCanvas");
-    var text="";
+const facebookshare = () => {
+  var data = document.getElementById("myCanvas");
+  var text = "";
   html2canvas(data)
     .then((canvas) => {
       var image = canvas.toDataURL("image/jpeg", 1.0);
       return image;
     })
     .then((image) => {
-        text=image;
+      text = image;
       console.log(image);
-
     });
-}
+};
 
 const ResultPage = () => {
   return (
@@ -125,7 +115,13 @@ const ResultPage = () => {
               </span>
             </div>
             <div className="rssharerowicon">
-              <div onClick={() =>{facebookshare()}}><img src={facebook} /></div>
+              <div
+                onClick={() => {
+                  facebookshare();
+                }}
+              >
+                <img src={facebook} />
+              </div>
               <img src={twitter} />
               <img src={linkedin} />
             </div>
@@ -133,14 +129,7 @@ const ResultPage = () => {
         </div>
       </div>
       <div className="rsmain">
-        <div className="rsNavBar">
-          <div className="rsLogo">
-            <img src={Logo} />
-          </div>
-          <div className="rsLogout">
-            <a href="#">Logout</a>
-          </div>
-        </div>
+        <LandingNavbar />
         <div className="rsMaindiv">
           <div className="rscongodiv">
             <div className="rssucessimg">
