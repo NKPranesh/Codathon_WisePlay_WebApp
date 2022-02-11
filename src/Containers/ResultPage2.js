@@ -9,8 +9,10 @@ import "../stylesheets/ResultPage2.css";
 
 const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
+  window.onload= function()
+  {
 
-  var c = document.getElementById("rscertificatepreview");
+    var c = document.getElementById("rscertificatepreview");
   var ctx = c.getContext("2d");
   var img = document.getElementById("rsCertificate");
   ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, c.width, c.height);
@@ -24,6 +26,7 @@ const ResultPage = () => {
   ctx.fillText("100%", 383, 235);
   ctx.font = "10px Arial";
   ctx.fillText("09-02-2022", 120, 275);
+  }
   return (
     <div className="RPMainDiv">
       <LandingNavbar />
@@ -60,6 +63,7 @@ const ResultPage = () => {
             <canvas id="rscertificatepreview" width="481px" height="340px">
               Your browser does not support the HTML5 canvas tag.
             </canvas>
+          
           </div>
         </div>
         <div className="rssharerow">
