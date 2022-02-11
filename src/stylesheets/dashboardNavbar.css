@@ -1,0 +1,37 @@
+.dbNavdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 230px;
+    height: 100%;
+    box-shadow: 6px 0px 6px -5px rgb(50 50 93 / 25%),
+    6px 0px 3px -5px rgb(0 0 0 / 30%);
+}
+.dbNavdiv a{
+    text-decoration: none;
+    color: #000;
+}
+.dblogo{
+    margin-bottom: 20px;
+}
+.dbNavbarComponent{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    height: 52;
+    align-items: center;
+    width: 230px;
+}
+.dbNavbarComponent:hover{
+    color: blue;
+}
+.dbNavabarCompimg{
+    margin: 10px;
+    width: 24px;
+    height: 24px;
+}
+.dbNavbarComptext span{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Inter;
+}

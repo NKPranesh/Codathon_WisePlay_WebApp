@@ -49,6 +49,41 @@ const LandingBody = () => {
           <img src={Dashboard} alt="img" />
         </div>
       </div>
+      <div className="LBadvantagediv">
+        <div className="LBAdvantageMainHeading">
+          <span>The advantages of our product</span>
+        </div>
+        <div className="LBAdvantages">
+          <div className="LBAdvantageBox">
+            <div className="LBAdvantageHeading">
+              <span>Fast response</span>
+            </div>
+            <div className="LBAdvantagedesc">
+              <span>Works quickly both in the browser and on the desktop application of your computer</span>
+            </div>
+          </div>
+          <div className="LBAdvantageBox">
+            <div className="LBAdvantageHeading">
+              <span>Fast response</span>
+            </div>
+            <div className="LBAdvantagedesc">
+              <span>Works quickly both in the browser and on the desktop application of your computer</span>
+            </div>
+          </div>
+          <div className="LBAdvantageBox">
+            <div className="LBAdvantageHeading">
+              <span>Fast response</span>
+            </div>
+            <div className="LBAdvantagedesc">
+              <span>Works quickly both in the browser and on the desktop application of your computer</span>
+            </div>
+          </div>
+        </div>
+        <div class="LBIntroButton">
+          <Link to="/">Start Using</Link>
+        </div>
+      </div>
+      
     </div>
   );
 };

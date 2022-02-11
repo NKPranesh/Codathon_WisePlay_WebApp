@@ -125,3 +125,47 @@
   height: 450px;
   transform: translateY(-160px);
 }
+/* --------------- Advantage div --------------- */
+.LBadvantagediv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0b0d17;
+  color: white;
+  padding-top: 80px;
+  /* padding-bottom: 80px; */
+}
+.LBAdvantageMainHeading{
+  font-size: 40px;
+  font-weight: 800;
+  padding-bottom: 30px;
+}
+.LBAdvantages{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+}
+.LBAdvantageBox
+{
+  background-color: white;
+  color: black;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+}
+.LBAdvantageHeading{
+  font-size: 24px;
+  font-weight: 600;
+  padding: 25px;
+}
+.LBAdvantagedesc{
+  /* font-size: 14px; */
+  font-weight: 400;
+  padding: 25px;
+}
