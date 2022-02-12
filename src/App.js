@@ -5,6 +5,7 @@ import DashboardPage from "./Containers/DashboardPage";
 import ResultPage from "./Containers/ResultPage2";
 import LoginPage from "./Containers/LoginPage";
 import SignupPage from "./Containers/SignupPage";
+import SecondaryGame from "./Containers/SecondaryGame";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/resultpage" element={<ResultPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/secondarygame" element={<SecondaryGame/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,0 +1,89 @@
+.SNNavbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px -5px rgb(50 50 93 / 25%),
+      0 4px 3px -5px rgb(0 0 0 / 30%);
+    padding: 5px 0px;
+  }
+  
+  .SNBox1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+  }
+  
+  .SNBox2, .SNStreakScore {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .SNScore,
+  .SNTimer,
+  .SNStreak {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .SNQuestionnobox {
+    border: 3.5px solid black;
+    padding: 8px 6px;
+    margin: 0px 12px;
+  }
+  
+  .SNPresentQuestion {
+    font-size: 22px;
+  }
+  
+  .SNLogo {
+    margin: 0px 12px;
+  }
+  
+  .SNStreak,
+  .SNScore,
+  .SNTimer,
+  .SNExitButton {
+    margin: 0px 28px;
+  }
+  
+  .SNScore img,
+  .SNScore span,
+  .SNTimer img,
+  .SNTimer span,
+  .SNStreak p {
+    margin: 0 3px;
+  }
+  
+  .SNExitButton {
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: 8px 30px;
+    cursor: pointer;
+  }
+  
+  .SNLogo img {
+    height: 50px;
+  }
+  
+  .SNScore img,
+  .SNTimer img {
+    height: 35px;
+  }
+
+  .SNStreak img {
+    height: 25px;
+  }
+
+  .SNStreakScore span {
+    transform: translateY(3px);
+  }
+  
