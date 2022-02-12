@@ -46,7 +46,7 @@ const ResultPage = () => {
             onClick={() => {
               setPopupDisplay(true);
               var square = document.getElementById("RPMainDiv");
-              square.style.filter="blur(8px)";
+              square.style.filter="blur(6px)";
               square.style.height="100vh";
               square.style.overflow="hidden";
             }}

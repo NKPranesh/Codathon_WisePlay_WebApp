@@ -1,10 +1,10 @@
 .SPOuterDiv {
   display: block;
   position: fixed;
-  top: 0;
-  left: 25%;
-  width: 500px;
-  height: 700px;
+  top: -13%;
+  left: 30%;
+  width: 600px;
+  height: 900px;
   overflow: auto;
   transition: all 0.3s linear;
   display: flex;
@@ -14,11 +14,56 @@
 
 .SPMainDiv {
   background-color: white;
-  box-shadow: rgba(48, 27, 27, 0.35) 0px 5px 15px;
+  box-shadow: rgba(48, 27, 27, 0.35) 0px 5px 15px inset;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px 100px;
 }
 
 .SPCertificateDiv img{
   align-items: center;
-  width: 300px;
-  height: 200px;
+  width: 450px;
+  height: 300px;
+}
+
+.SPHeadDiv {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.SPCloseDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.SPCloseDiv img {
+  width: 22px;
+  height: 22px;
+}
+
+.SPCertificateDiv img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SPTextDiv{
+  text-align: center;
+  padding: 0px 25px 25px 25px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.SPLinksDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.SPLinksDiv img {
+  width: 100px;
 }
