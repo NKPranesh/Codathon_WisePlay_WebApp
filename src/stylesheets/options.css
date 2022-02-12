@@ -1,0 +1,62 @@
+.OPMainDiv {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.OPOptions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenlySS;
+    gap: 20px;
+}
+
+.OPOptions span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 300px;
+    height: 280px;
+    
+
+}
+
+.OPA {
+    background-color: #e2ab48;
+    
+}
+
+.OPB {
+    background-color: #c55c6c;
+}
+
+.OPC {
+    background-color: #509aa5;
+}
+
+.OPD {
+    background-color: #406ca9;
+}
+
+.OPOptions input {
+    outline: inherit;
+    cursor: pointer;
+    
+}
+
+.OPNextButton {
+    outline-style: none;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #4033a3;
+    padding: 8px 30px;
+    cursor: pointer;
+    margin: 0px 15px;
+  }
