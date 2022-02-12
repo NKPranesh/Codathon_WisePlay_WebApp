@@ -48,15 +48,18 @@
     
 }
 
-.OPNextButton {
-    outline-style: none;
+.OPButtonDiv {
     display: flex;
-    align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.OPNextButton {
     border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    background-color: #4033a3;
-    padding: 8px 30px;
-    cursor: pointer;
-    margin: 0px 15px;
+  color: white;
+  font-weight: bold;
+  background-color: #4033a3;
+  padding: 8px 30px;
+  cursor: pointer;
+  margin: 0px 15px;
   }
