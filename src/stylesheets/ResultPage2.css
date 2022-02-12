@@ -79,7 +79,9 @@ hr.rounded {
 .rscertificatepreview img {
   height: 340px;
 }
-
+.rshideimage{
+  display: none;
+}
 /* ------- Share Div ------- */
 
 .rssharerow {
