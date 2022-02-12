@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../media/logo.svg";
 import Homeicon from "../media/homeicon.svg";
 import Bargraphicon from "../media/bargrapghicon.svg";
@@ -6,6 +6,8 @@ import Profileicon from "../media/profileicon.svg";
 import Logouticon from "../media/logouticon.svg";
 import "../stylesheets/dashboardNavbar.css";
 const DashboardNavbar = () => {
+  let [selected, setSelected] = useState("home");
+
   return (
     <div>
       <div className="dbNavdiv">
@@ -13,8 +15,16 @@ const DashboardNavbar = () => {
           <img src={Logo} />
         </div>
         <a href="#">
-          <div className="dbNavbarComponent">
-          <div className="dbLine"></div>
+          <div
+            className={
+              selected === "home"
+                ? "dbNavbarComponent Selected"
+                : "dbNavbarComponent"
+            }
+            onClick={() => {
+              setSelected("home");
+            }}
+          >
             <div className="dbNavabarCompimg">
               <img src={Homeicon} />
             </div>
@@ -24,7 +34,16 @@ const DashboardNavbar = () => {
           </div>
         </a>
         <a href="#">
-          <div className="dbNavbarComponent">
+          <div
+            className={
+              selected === "dashboard"
+                ? "dbNavbarComponent Selected"
+                : "dbNavbarComponent"
+            }
+            onClick={() => {
+              setSelected("dashboard");
+            }}
+          >
             <div className="dbNavabarCompimg">
               <img src={Bargraphicon} />
             </div>
@@ -34,7 +53,16 @@ const DashboardNavbar = () => {
           </div>
         </a>
         <a href="#">
-          <div className="dbNavbarComponent">
+          <div
+            className={
+              selected === "profile"
+                ? "dbNavbarComponent Selected"
+                : "dbNavbarComponent"
+            }
+            onClick={() => {
+              setSelected("profile");
+            }}
+          >
             <div className="dbNavabarCompimg">
               <img src={Profileicon} />
             </div>
@@ -44,7 +72,16 @@ const DashboardNavbar = () => {
           </div>
         </a>
         <a href="#">
-          <div className="dbNavbarComponent">
+          <div
+            className={
+              selected === "logout"
+                ? "dbNavbarComponent Selected"
+                : "dbNavbarComponent"
+            }
+            onClick={() => {
+              setSelected("logout");
+            }}
+          >
             <div className="dbNavabarCompimg">
               <img src={Logouticon} />
             </div>
