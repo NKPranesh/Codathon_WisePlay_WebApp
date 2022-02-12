@@ -1,65 +1,67 @@
 .OPMainDiv {
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .OPOptions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenlySS;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.OPOptions span{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    width: 300px;
-    height: 280px;
-    
-
+.OPOptions span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 500;
+  width: 300px;
+  height: 280px;
 }
 
 .OPA {
-    background-color: #e2ab48;
-    
+  background-color: #e2ab48;
 }
 
 .OPB {
-    background-color: #c55c6c;
+  background-color: #c55c6c;
 }
 
 .OPC {
-    background-color: #509aa5;
+  background-color: #509aa5;
 }
 
 .OPD {
-    background-color: #406ca9;
+  background-color: #406ca9;
 }
 
 .OPOptions input {
-    outline: inherit;
-    cursor: pointer;
-    
+  outline: inherit;
+  cursor: pointer;
 }
 
 .OPButtonDiv {
-    display: flex;
+  display: flex;
   justify-content: flex-end;
-  margin-top: 15px;
+  margin: 15px;
 }
 
 .OPNextButton {
-    border-radius: 5px;
+  color: black;
+  border-radius: 8px;
+  border-color: transparent;
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
   color: white;
-  font-weight: bold;
-  background-color: #4033a3;
-  padding: 8px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 32px;
   cursor: pointer;
-  margin: 0px 15px;
-  }
+}
+
+.OPNextButton:hover {
+  background: linear-gradient(to right, #9d50f5, #9d50f5);
+}

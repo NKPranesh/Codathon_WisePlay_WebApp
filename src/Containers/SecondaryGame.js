@@ -5,13 +5,14 @@ import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 
 const SecondaryGame = () => {
-  
   return (
     <div className="SGOuterDiv">
       <SecondaryNavbar />
       <div className="SGMainDiv">
+        <div className="SGInnerDiv">
           <Question />
           <Options />
+        </div>
       </div>
     </div>
   );

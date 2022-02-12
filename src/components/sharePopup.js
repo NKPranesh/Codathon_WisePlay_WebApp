@@ -15,7 +15,7 @@ const SharePopup = (props) => {
             src={Cancelicon}
             alt="img"
             onClick={() => {
-              props.close();
+              props.close(false);
             }}
           />
         </div>
