@@ -7,6 +7,7 @@ import Cancelicon from "../media/cancelicon.svg";
 import "../stylesheets/sharePopup.css";
 
 const SharePopup = (props) => {
+  console.log(props);
   return (
     <div className="SPOuterDiv">
       <div className="SPMainDiv">
@@ -15,7 +16,13 @@ const SharePopup = (props) => {
             src={Cancelicon}
             alt="img"
             onClick={() => {
-              props.close(false);
+
+              props.close();
+              var square = document.getElementById("RPMainDiv");
+              square.style.filter="";
+              square.style.height="";
+              square.style.overflow="";
+
             }}
           />
         </div>

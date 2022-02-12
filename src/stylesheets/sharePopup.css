@@ -2,17 +2,23 @@
   display: block;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  -webkit-transition: 0.5s;
+  left: 25%;
+  width: 500px;
+  height: 700px;
   overflow: auto;
   transition: all 0.3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .SPMainDiv {
   background-color: white;
+  box-shadow: rgba(48, 27, 27, 0.35) 0px 5px 15px;
+}
+
+.SPCertificateDiv img{
+  align-items: center;
+  width: 300px;
+  height: 200px;
 }

@@ -5,7 +5,7 @@ import linkedin from "../media/linkedin-share-button.svg";
 import twitter from "../media/twitter-share-button.svg";
 import cancelicon from "../media/cancelicon.svg";
 import Logo from "../media/logo.svg";
-import sucess from "../media/Sucess.svg";
+import sucess from "../media/Success.svg";
 import LandingNavbar from "../components/landingNavbar";
 import share from "../media/Share.svg";
 import html2canvas from "html2canvas";

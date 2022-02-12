@@ -27,7 +27,8 @@ const ResultPage = () => {
     ctx.fillText("09-02-2022", 120, 275);
   };
   return (
-    <div className="RPMainDiv">
+    <>
+    <div id="RPMainDiv">
       <LandingNavbar />
       <div className="rsMaindiv">
         <div className="rscongodiv">
@@ -69,6 +70,12 @@ const ResultPage = () => {
             className="rssharebutton"
             onClick={() => {
               setPopupDisplay(true);
+
+              var square = document.getElementById("RPMainDiv");
+              square.style.filter="blur(8px)";
+              square.style.height="100vh";
+              square.style.overflow="hidden";
+
             }}
           >
             <img src={Share} />
@@ -77,8 +84,9 @@ const ResultPage = () => {
         </div>
       </div>
       <Footer />
-      {popupDisplay && <SharePopup close={setPopupDisplay} />}
     </div>
+    {popupDisplay && <SharePopup close={setPopupDisplay} />}
+    </>
   );
 };
 
