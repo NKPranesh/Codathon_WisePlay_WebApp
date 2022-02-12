@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Animation from "../components/animation";
 import QuestionBox from "../components/questionBox";
 import PrimaryNavbar from "../components/primaryNavbar";
@@ -6,7 +6,9 @@ import "../stylesheets/PrimaryGame.css";
 
 const PrimaryGame = () => {
   let animate = () => {
-    let frame = document.getElementById("HomeAnimation").contentDocument;
+    let frame = document.getElementById(
+      "HomeAnimation" + popOut
+    ).contentDocument;
     let newEvent = new KeyboardEvent("keydown", {
       key: "a",
       code: "KeyA",
@@ -25,6 +27,8 @@ const PrimaryGame = () => {
     console.log("hello");
   };
 
+  let [popOut, setPopOut] = useState(1);
+
   return (
     <div className="PGOuterDiv">
       <PrimaryNavbar />
@@ -37,9 +41,13 @@ const PrimaryGame = () => {
             width="250px"
             frameBorder="0"
           ></iframe>
-          <QuestionBox animate={animate} />
+          <QuestionBox
+            animate={animate}
+            setPopOut={setPopOut}
+            popOut={popOut}
+          />
         </div>
-        <Animation />
+        <Animation popOut={popOut} />
       </div>
     </div>
   );
