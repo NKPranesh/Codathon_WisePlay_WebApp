@@ -1,0 +1,55 @@
+.dbNavdiv {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  background-color: white;
+  align-items: flex-start;
+  height: 100vh;
+  box-shadow: 6px 0px 6px -5px rgb(50 50 93 / 25%),
+    6px 0px 3px -5px rgb(0 0 0 / 30%);
+}
+
+.dbNavdiv a {
+  text-decoration: none;
+  color: #000;
+}
+.dblogo {
+  margin-bottom: 10px;
+}
+.dblogo img {
+  height: 45px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.dbNavbarComponent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18px 5px;
+  width: 170px;
+}
+.dbNavbarComponent:hover {
+  background-color: #ecf4ff;
+}
+
+.Selected {
+  background-color: #ecf4ff;
+  border-left: 4px solid #8c30f5;
+  width: calc(170px - 4px);
+}
+
+.dbNavabarCompimg img {
+  margin: 2px 14px;
+  height: 22px;
+}
+.dbNavbarComptext span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dbNavbarComptext {
+  transform: translateY(-2px);
+}

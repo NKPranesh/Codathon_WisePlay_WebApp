@@ -1,0 +1,100 @@
+.DBContentDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 180px;
+  background-color: #edf2fc;
+}
+
+.DBTopNav {
+  padding: 14px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: white;
+  box-shadow: 0 6px 6px -5px rgb(50 50 93 / 25%),
+    0 4px 3px -5px rgb(0 0 0 / 30%);
+}
+
+.DBContent {
+  margin: 1.5% 1.5%;
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.DBTestText {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.DBTestFIled {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.DBStoryMode,
+.DBNormalMode {
+  margin-top: 20px;
+  width: 50%;
+  height: 220px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  padding-bottom: 0px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.DBStoryMode img {
+  height: 220px;
+  align-items: center;
+}
+.DBNormalMode img {
+  height: 260px;
+  transform: translateY(-26px);
+  align-items: center;
+}
+
+.DBStoryheading {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.DBStoryInfo {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 40px;
+  font-weight: 500;
+}
+.DBStartButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5px;
+}
+.DBStartButton button {
+  all: unset;
+  cursor: pointer;
+  border-radius: 5px;
+  background: linear-gradient(to right, #8c30f5, #8c30f5);
+  color: rgb(245, 241, 241);
+  padding: 10px 25px;
+  cursor: pointer;
+  margin: 0px 15px;
+  font-weight: 600;
+}
+
+.DBStartButton button:hover {
+  background: linear-gradient(to right, #9d50f5, #9d50f5);
+}
+
+.DBResult {
+  padding: 10px 5px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
