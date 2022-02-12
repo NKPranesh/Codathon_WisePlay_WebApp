@@ -16,11 +16,13 @@ const SharePopup = (props) => {
             src={Cancelicon}
             alt="img"
             onClick={() => {
+
               props.close();
               var square = document.getElementById("RPMainDiv");
               square.style.filter="";
               square.style.height="";
               square.style.overflow="";
+
             }}
           />
         </div>
