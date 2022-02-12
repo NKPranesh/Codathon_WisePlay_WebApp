@@ -4,6 +4,7 @@ import Homeicon from "../media/homeicon.svg";
 import Bargraphicon from "../media/bargrapghicon.svg";
 import Profileicon from "../media/profileicon.svg";
 import Logouticon from "../media/logouticon.svg";
+import "../stylesheets/dashboardNavbar.css";
 const DashboardNavbar = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const DashboardNavbar = () => {
         </div>
         <a href="#">
           <div className="dbNavbarComponent">
+          <div className="dbLine"></div>
             <div className="dbNavabarCompimg">
               <img src={Homeicon} />
             </div>

@@ -1,10 +1,12 @@
 import React from "react";
+import DashboardContent from "../components/dashboardContent";
 import DashboardNavbar from "../components/dashboarfNavbar";
-import "../stylesheets/dashboardNavbar.css"
+import "../stylesheets/DashboardPage.css"
 const DashboardPage = () => {
     return (
-      <div>
+      <div className="DBPageDiv">
         <DashboardNavbar/>
+        <DashboardContent/>
       </div>
     );
   };

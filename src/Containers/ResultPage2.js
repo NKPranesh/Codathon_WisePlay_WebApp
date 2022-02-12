@@ -11,7 +11,8 @@ const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
 
   return (
-    <div className="RPMainDiv">
+    <>
+    <div id="RPMainDiv">
       <LandingNavbar />
       <div className="rsMaindiv">
         <div className="rscongodiv">
@@ -44,7 +45,10 @@ const ResultPage = () => {
             className="rssharebutton"
             onClick={() => {
               setPopupDisplay(true);
-              console.log(popupDisplay);
+              var square = document.getElementById("RPMainDiv");
+              square.style.filter="blur(8px)";
+              square.style.height="100vh";
+              square.style.overflow="hidden";
             }}
           >
             <img src={Share} />
@@ -53,8 +57,9 @@ const ResultPage = () => {
         </div>
       </div>
       <Footer />
-      {popupDisplay && <SharePopup close={setPopupDisplay} />}
     </div>
+    {popupDisplay && <SharePopup close={setPopupDisplay} />}
+    </>
   );
 };
 
