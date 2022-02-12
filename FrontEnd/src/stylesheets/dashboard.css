@@ -1,0 +1,105 @@
+.DBMainDiv {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.DBHeadDiv {
+  margin-bottom: 25px;
+}
+
+.DBHeadDiv span {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.DBOverallStatsDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.DBGraphDiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 20px;
+  width: 700px;
+}
+
+.DBAverageDiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 20px;
+  width: 300px;
+  height: 350px;
+}
+
+.DBDoughnutDiv {
+  width: 100px;
+  margin: 20px 10px;
+}
+
+.DBAverageTopHead span,
+.DBAverageBottomHead span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.DBBarDiv {
+  width: 400px;
+  margin: 20px 10px;
+}
+
+.DBHistoryDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.DBHistory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 20px;
+  width: 200px;
+}
+
+.AddMargin {
+  margin-left: 20px;
+}
+
+.DBHistoryHead {
+  margin: 2px 0px;
+}
+
+.DBHistoryHead span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.DBHistoryBody {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DBHistoryGraph {
+  width: 70px;
+  margin: 10px 5px;
+  margin-right: 6px;
+}
+
+.DBHistoryText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+
+.DBHistoryText span {
+  font-size: 10px;
+  margin: 2px 0px;
+}
