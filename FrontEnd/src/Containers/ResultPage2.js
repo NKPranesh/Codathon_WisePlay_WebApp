@@ -19,10 +19,10 @@ const ResultPage = () => {
     ctx.fillText("Mani Sai", 210, 130);
     ctx.font = "15px Poppins";
     ctx.fillText("80%", 70, 235);
-    ctx.fillText("67%", 163, 235);
-    ctx.fillText("90%", 223, 235);
-    ctx.fillText("78%", 300, 235);
-    ctx.fillText("93%", 383, 235);
+    ctx.fillText("67%", 169, 235);
+    ctx.fillText("90%", 230, 235);
+    ctx.fillText("78%", 303, 235);
+    ctx.fillText("93%", 384, 235);
     ctx.font = "10px Poppins";
     ctx.fillText("09-02-2022", 120, 275);
   };
