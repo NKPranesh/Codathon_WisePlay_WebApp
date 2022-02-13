@@ -123,6 +123,14 @@ app.post("/login", async (req, res) => {
       sameSite: "none",
     });
     const testsData = user.tests;
+    res.cookie("testsData", testsData, {
+      maxAge: 1 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      //   domain: "connectingworld-api.herokuapp.com",
+      domain: "localhost",
+      secure: true,
+      sameSite: "none",
+    });
     res.status(200).json({ user: user._id, token, testsData });
   } catch (err) {
     res.status(400).json({ error: err.message });
