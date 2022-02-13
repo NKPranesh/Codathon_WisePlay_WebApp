@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Success from "../media/Success.svg";
 import LandingNavbar from "../components/landingNavbar";
 import Certificate from "../media/certificate.jpeg";
@@ -11,6 +12,7 @@ import "../stylesheets/ResultPage2.css";
 let certificateimage='';
 const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
+
   const doughnutData = {
     labels: ["Correct", "Wrong"],
     datasets: [
@@ -21,6 +23,38 @@ const ResultPage = () => {
       },
     ],
   };
+
+
+  const navigate = useNavigate();
+
+  const authenticate = async () => {
+    let isAuthenticated = false;
+
+    await fetch(process.env.React_App_Backend_domain + "/authenticate", {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if ("status" in responseJson) {
+          isAuthenticated = true;
+        }
+      })
+      .catch((error) => {
+        console.log("error");
+        isAuthenticated = false;
+        navigate("/login");
+      });
+
+    return isAuthenticated;
+  };
+
+  useEffect(() => {
+    authenticate();
+  }, []);
+
+
   window.onload = function () {
     var c = document.getElementById("rscertificatepreview");
     var ctx = c.getContext("2d");
@@ -54,23 +88,22 @@ const ResultPage = () => {
   };
   return (
     <>
-    <div id="RPMainDiv">
-      <LandingNavbar />
-      <div className="rsMaindiv">
-        <div className="rscongodiv">
-          <div className="rssucessimg">
-            <img src={Success} />
-          </div>
-          <div className="rscongoh">
-            <span>Congratulations!!</span>
-          </div>
-          <div className="rscongotext">
-            <span> You have successfully completed the assessment test. </span>
-          </div>
-        </div>
-        <div className="rsscorediv">
-          <div className="rsscoreh">
-            <span>Your Score</span>
+      <div id="RPMainDiv">
+        <LandingNavbar />
+        <div className="rsMaindiv">
+          <div className="rscongodiv">
+            <div className="rssucessimg">
+              <img src={Success} />
+            </div>
+            <div className="rscongoh">
+              <span>Congratulations!!</span>
+            </div>
+            <div className="rscongotext">
+              <span>
+                {" "}
+                You have successfully completed the assessment test.{" "}
+              </span>
+            </div>
           </div>
           <div className="rsscorerow">
             <div className="rsscoregraph">
@@ -113,38 +146,43 @@ const ResultPage = () => {
                     </div>
             </div>
             </div>
-            <hr class="rounded" />
-            {/* <div className="rscertificatepreview">
+            <div className="rsscorerow">
+              <div className="rsscoregraph">
+                <span>Score graph Here</span>
+              </div>
+              <hr class="rounded" />
+              {/* <div className="rscertificatepreview">
               <img src={Certificate} />
             </div> */}
-            <img
-              id="rsCertificate"
-              src={Certificate}
-              alt="The Certificate"
-              className="rshideimage"
-            />
-            <canvas id="rscertificatepreview" width="481px" height="340px">
-              Your browser does not support the HTML5 canvas tag.
-            </canvas>
+              <img
+                id="rsCertificate"
+                src={Certificate}
+                alt="The Certificate"
+                className="rshideimage"
+              />
+              <canvas id="rscertificatepreview" width="481px" height="340px">
+                Your browser does not support the HTML5 canvas tag.
+              </canvas>
+            </div>
+          </div>
+          <div className="rssharerow">
+            <div
+              className="rssharebutton"
+              onClick={() => {
+                setPopupDisplay(true);
+
+                var square = document.getElementById("RPMainDiv");
+                square.style.filter = "blur(6px)";
+                square.style.height = "100vh";
+                square.style.overflow = "hidden";
+              }}
+            >
+              <img src={Share} />
+              <span>Share</span>
+            </div>
           </div>
         </div>
-        <div className="rssharerow">
-          <div
-            className="rssharebutton"
-            onClick={() => {
-              setPopupDisplay(true);
-
-              var square = document.getElementById("RPMainDiv");
-              square.style.filter="blur(6px)";
-              square.style.height="100vh";
-              square.style.overflow="hidden";
-
-            }}
-          >
-            <img src={Share} />
-            <span>Share</span>
-          </div>
-        </div>
+        <Footer />
       </div>
       <Footer />
     </div>

@@ -4,9 +4,27 @@ import Homeicon from "../media/homeicon.svg";
 import Bargraphicon from "../media/bargrapghicon.svg";
 import Profileicon from "../media/profileicon.svg";
 import Logouticon from "../media/logouticon.svg";
+import { useNavigate } from "react-router-dom";
 import "../stylesheets/dashboardNavbar.css";
+
 const DashboardNavbar = () => {
   let [selected, setSelected] = useState("home");
+  const navigate = useNavigate();
+
+  let logoutButtonHandle = async () => {
+    await fetch(process.env.React_App_Backend_domain + "/logout", {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -80,6 +98,7 @@ const DashboardNavbar = () => {
             }
             onClick={() => {
               setSelected("logout");
+              logoutButtonHandle();
             }}
           >
             <div className="dbNavabarCompimg">

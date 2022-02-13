@@ -91,10 +91,10 @@ const Dashboard = () => {
   barvalues[j]=0;
   barvalues[j+1]=100;
   const barData = {
-    labels: ["Speed", "Deep Thinking", "Memory","Logical Reasoning","Focus",],
+    labels: ["Speed", "Deep Thinking", "Memory", "Logical Reasoning", "Focus"],
     datasets: [
       {
-        barPercentage:0.1,
+        barPercentage: 0.1,
         categoryPercentage: 1,
         label: "score",
         backgroundColor: "#57B8FF",
@@ -201,16 +201,19 @@ const Dashboard = () => {
                           display: false,
                           color: "#E6E9F4",
                         },
+                        ticks: {
+                          display: false,
+                        },
                       },
                       y: {
-                        ticks:{
-                          stepSize:10
+                        ticks: {
+                          stepSize: 0,
                         },
                         grid: {
                           display: false,
                         },
+                      },
                     },
-                  },
                     plugins: {
                       legend: {
                         display: false,

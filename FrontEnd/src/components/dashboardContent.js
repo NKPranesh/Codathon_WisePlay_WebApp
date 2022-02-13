@@ -4,7 +4,7 @@ import SkaterGirl from "../media/Skater Girl.svg";
 import Student from "../media/Studentimg.svg";
 import Dashboard from "./dashboard";
 
-const DashboardContent = () => {
+const DashboardContent = (props) => {
   return (
     <div className="DBContentDiv">
       <div className="DBTopNav">Welcome Nagveer!!</div>
@@ -44,7 +44,7 @@ const DashboardContent = () => {
             </div>
           </div>
         </div>
-        <Dashboard />
+        <Dashboard testsData={props.testsData} />
       </div>
     </div>
   );
