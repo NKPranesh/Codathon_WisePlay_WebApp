@@ -75,6 +75,7 @@ const ResultPage = () => {
           <div className="rsscorerow">
             <div className="rsscoregraph">
             <div className="rsDoughnutdiv">
+              <div className="rsDoughnutPercentage"><span>78%</span></div>
               <Doughnut
                       className="rsDoughnutScore"
                       data={doughnutData}

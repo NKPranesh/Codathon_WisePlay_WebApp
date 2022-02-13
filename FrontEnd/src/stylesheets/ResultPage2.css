@@ -69,6 +69,13 @@
   display: flex;
   flex-direction: row;
 }
+.rsDoughnutPercentage{
+   position: relative;
+  top: 110px;
+  left: 155px;
+  font-size: 30px;
+  font-weight: bold;
+}
 .rsscoresdiv {
   display: flex;
   flex-direction: column;
