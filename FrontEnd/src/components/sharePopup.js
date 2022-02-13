@@ -7,6 +7,23 @@ import Cancelicon from "../media/cancelicon.svg";
 import "../stylesheets/sharePopup.css";
 
 const SharePopup = (props) => {
+  window.onload = function () {
+    var c1 = document.getElementById("SPCertificate");
+    var ctx1 = c1.getContext("2d");
+    var img = document.getElementById("SPCertificateimg");
+    console.log(img);
+    ctx1.drawImage(img, 0, 0, img.width, img.height, 0, 0, c1.width, c1.height);
+    ctx1.font = "20px Poppins";
+    ctx1.fillText("Mani Sai", 210, 130);
+    ctx1.font = "15px Poppins";
+    ctx1.fillText("80%", 70, 235);
+    ctx1.fillText("67%", 169, 235);
+    ctx1.fillText("90%", 230, 235);
+    ctx1.fillText("78%", 303, 235);
+    ctx1.fillText("93%", 384, 235);
+    ctx1.font = "10px Poppins";
+    ctx1.fillText("09-02-2022", 120, 275);
+  };
   console.log(props);
   return (
     <div className="SPOuterDiv">
@@ -28,7 +45,8 @@ const SharePopup = (props) => {
           <span>Share on Social Media</span>
         </div>
         <div className="SPCertificateDiv">
-          <img src={Certificate} alt="img" />
+          <img src={props.image} alt="img" className="SPhideimg" id="SPCertificateimg"/>
+          {/* <canvas className="SPcertificate" id="SPCertificate"></canvas> */}
         </div>
         <div className="SPTextDiv">
           <span>

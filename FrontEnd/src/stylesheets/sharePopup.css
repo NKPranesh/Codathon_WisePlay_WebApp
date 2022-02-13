@@ -24,8 +24,12 @@
   align-items: center;
   width: 450px;
   height: 300px;
+  display: block;
 }
-
+.SPcertificate{
+  width: 450px;
+  /* height: 300px; */
+}
 .SPHeadDiv {
   text-align: center;
   font-size: 26px;
@@ -45,7 +49,7 @@
 }
 
 .SPCertificateDiv img {
-  display: block;
+  /* display: none; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,3 +71,6 @@
 .SPLinksDiv img {
   width: 100px;
 }
+/* .SPhideimg{
+  display: none;
+} */
