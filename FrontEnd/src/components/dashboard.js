@@ -1,33 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import "../stylesheets/dashboard.css";
 
-const Dashboard = () => {
-  let testdata=[
-    [68,82,57,84,90],
-    [53,42,57,82,53],
-    [85,37,45,98,79],
-    [55,72,64,45,85],
-  ]
-  let i=0,j=0;
-  let linelabel=[];
-  var linedata=[];
-  for(i=0;i<testdata.length;i++)
-  {
-    linelabel[i]="Test"+(i+1);
+const Dashboard = (props) => {
+  let testdata = props.testsData;
+
+  useEffect(() => {
+    console.log(props);
+  }, []);
+
+  let i = 0,
+    j = 0;
+  let linelabel = [];
+  var linedata = [];
+  for (i = 0; i < testdata.length; i++) {
+    linelabel[i] = "Test" + (i + 1);
   }
-  for(i=0;i<testdata.length;i++)
-  {
-    let sum=0;
-    for(j=0;j<5;j++)
-    {
-      sum+=testdata[i][j];
+  for (i = 0; i < testdata.length; i++) {
+    let sum = 0;
+    for (j = 0; j < 5; j++) {
+      sum += testdata[i][j];
     }
-    linedata[i]=sum/5;
+    linedata[i] = sum / 5;
   }
-  linedata[i]=0;
-  linedata[i+1]=100;
+  linedata[i] = 0;
+  linedata[i + 1] = 100;
   const data = {
     labels: linelabel,
     datasets: [
@@ -40,56 +38,50 @@ const Dashboard = () => {
       },
     ],
   };
-  let sum=0;
-  for(i=0;i<linedata.length;i++)
-  {
-    sum+=linedata[i];
+  let sum = 0;
+  for (i = 0; i < linedata.length; i++) {
+    sum += linedata[i];
   }
-  sum/=linedata.length;
-  sum=sum.toFixed(2);
-  const calculatedoughnutdata =(index)=>
-  {
-    let avg=0;
-    for(let i=0;i<5;i++)
-    {
-      avg+=testdata[index][i];
+  sum /= linedata.length;
+  sum = sum.toFixed(2);
+  const calculatedoughnutdata = (index) => {
+    let avg = 0;
+    for (let i = 0; i < 5; i++) {
+      avg += testdata[index][i];
     }
-    avg/=5;
+    avg /= 5;
     return {
       labels: ["Correct", "Wrong"],
       datasets: [
         {
-          data: [avg, (100-avg)],
+          data: [avg, 100 - avg],
           backgroundColor: ["#0058FF", "#F24B0F"],
           hoverOffset: 4,
         },
       ],
     };
-  }
+  };
   const doughnutData = {
     labels: ["Correct", "Wrong"],
     datasets: [
       {
-        data: [sum, (100-sum)],
+        data: [sum, 100 - sum],
         backgroundColor: ["#0058FF", "#F24B0F"],
         hoverOffset: 4,
       },
     ],
   };
-  let barvalues=[0,0,0,0,0];
-  for(i=0;i<testdata.length;i++)
-  {
-    for(j=0;j<5;j++)
-    {
-      barvalues[j]+=testdata[i][j];
+  let barvalues = [0, 0, 0, 0, 0];
+  for (i = 0; i < testdata.length; i++) {
+    for (j = 0; j < 5; j++) {
+      barvalues[j] += testdata[i][j];
     }
   }
-  for(j=0;j<5;j++)
-  {
-    barvalues[j]/=testdata.length;
+  for (j = 0; j < 5; j++) {
+    barvalues[j] /= testdata.length;
   }
-  barvalues[j]=0;
-  barvalues[j+1]=100;
+  barvalues[j] = 0;
+  barvalues[j + 1] = 100;
   const barData = {
     labels: ["Speed", "Deep Thinking", "Memory", "Logical Reasoning", "Focus"],
     datasets: [
@@ -173,7 +165,7 @@ const Dashboard = () => {
                 </div>
                 <div className="DbDoughnutcolordiv">
                   <div className="DbDoughnutcolorboxwrong"></div>
-                  <span>Points Lost {100-sum}%</span>
+                  <span>Points Lost {100 - sum}%</span>
                 </div>
               </div>
             </div>
@@ -189,11 +181,11 @@ const Dashboard = () => {
                   options={{
                     scales: {
                       x: {
-                        ticks:{
-                          maxRotation:0,
-                          minRotation:0,
-                          font:{
-                            size:6,
+                        ticks: {
+                          maxRotation: 0,
+                          minRotation: 0,
+                          font: {
+                            size: 6,
                             // weight:600,
                           },
                         },
@@ -241,7 +233,7 @@ const Dashboard = () => {
                 <div className="DBHistoryGraph">
                   <Doughnut
                     className="DBDoughnutHistory"
-                    data={calculatedoughnutdata(testNo-1)}
+                    data={calculatedoughnutdata(testNo - 1)}
                     options={{
                       cutout: 25,
                       plugins: {
@@ -254,11 +246,11 @@ const Dashboard = () => {
                   />
                 </div>
                 <div className="DBHistoryText">
-                  <span>{"Speed: " + test[0]+"%"}</span>
-                  <span>{"Deep Thinking: " + test[1]+"%"}</span>
-                  <span>{"Memory: " + test[2]+"%"}</span>
-                  <span>{"Logical Reasoning: " + test[3]+"%"}</span>
-                  <span>{"Focus: " + test[4]+"%"}</span>
+                  <span>{"Speed: " + test[0] + "%"}</span>
+                  <span>{"Deep Thinking: " + test[1] + "%"}</span>
+                  <span>{"Memory: " + test[2] + "%"}</span>
+                  <span>{"Logical Reasoning: " + test[3] + "%"}</span>
+                  <span>{"Focus: " + test[4] + "%"}</span>
                 </div>
               </div>
             </div>

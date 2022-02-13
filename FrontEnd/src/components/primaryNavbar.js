@@ -5,36 +5,33 @@ import Logo from "../media/logo.svg";
 import { Link } from "react-router-dom";
 import "../stylesheets/primaryNavbar.css";
 
-
 const CountDown = (props) => {
   const [[m, s], setTime] = useState([props.minutes, props.seconds]);
   props.setMin(m);
   props.setSec(s);
-const tick = () => {
-  if (props.over) return;
-  if (m === 0 && s === 0) props.setOver(true);
-  else if (s == 0) {
-    setTime([m - 1, 59]);
-  } else {
-    setTime([m, s - 1]);
-  }
+  const tick = () => {
+    if (props.over) return;
+    if (m === 0 && s === 0) props.setOver(true);
+    else if (s == 0) {
+      setTime([m - 1, 59]);
+    } else {
+      setTime([m, s - 1]);
+    }
+  };
+
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  });
+
+  return (
+    <React.Fragment>
+      {props.over
+        ? "Time's up!"
+        : `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`}
+    </React.Fragment>
+  );
 };
-
-
-useEffect(() => {
-  const timerID = setInterval(() => tick(), 1000);
-  return () => clearInterval(timerID);
-});
-
-return (
-  <>
-    {props.over ? "Time's up!" : `${
-      m.toString()
-      .padStart(2, '0')}:${s.toString().padStart(2, '0')}`}
-  </>
-);
-};
-
 
 const PrimaryNavbar = (props) => {
   return (
@@ -44,7 +41,9 @@ const PrimaryNavbar = (props) => {
           <img src={Logo} alt="logo" />
         </Link>
         <div className="PNQuestionnobox">
-          <span className="PNPresentQuestion">{props.questionNumber + "/"}</span>
+          <span className="PNPresentQuestion">
+            {props.questionNumber + "/"}
+          </span>
           <span className="PNTotalQuestions">10</span>
         </div>
       </div>
@@ -58,7 +57,14 @@ const PrimaryNavbar = (props) => {
         <div className="PNTimer">
           <img src={Clock} alt="Timer" />
           <span className="detailtext">
-            <CountDown minutes={10} seconds={0}  setMin={props.setMin} setSec={props.setSec} over={props.over} setOver={props.setOver}/>
+            <CountDown
+              minutes={10}
+              seconds={0}
+              setMin={props.setMin}
+              setSec={props.setSec}
+              over={props.over}
+              setOver={props.setOver}
+            />
           </span>
         </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import DashboardContent from "../components/dashboardContent";
 import DashboardNavbar from "../components/dashboarfNavbar";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import "../stylesheets/DashboardPage.css";
 
 const DashboardPage = (props) => {
@@ -30,8 +31,14 @@ const DashboardPage = (props) => {
     return isAuthenticated;
   };
 
+  const fetchTestsData = () => {
+    const cookies = new Cookies();
+    console.log(cookies);
+  };
+
   useEffect(() => {
     authenticate();
+    fetchTestsData();
   }, []);
 
   return (
