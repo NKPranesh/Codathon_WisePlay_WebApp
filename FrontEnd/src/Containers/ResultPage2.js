@@ -104,43 +104,44 @@ const ResultPage = () => {
           </div>
           <div className="rsscorerow">
             <div className="rsscoregraph">
-              <div className="rsDoughnutdiv">
-                <Doughnut
-                  className="rsDoughnutScore"
-                  data={doughnutData}
-                  options={{
-                    cutout: 110,
-                    plugins: {
-                      legend: {
-                        display: false,
-                        position: "right",
-                      },
-                    },
-                  }}
-                />
-                <div className="rsscoresdiv">
-                  <div className="rsscorestatdiv">
-                    <span className="rsscorestath">Speed:</span>
-                    <span className="rsscorestatpercentage">68%</span>
-                  </div>
-                  <div className="rsscorestatdiv">
-                    <span className="rsscorestath">Deep Thinking:</span>
-                    <span className="rsscorestatpercentage">76%</span>
-                  </div>
-                  <div className="rsscorestatdiv">
-                    <span className="rsscorestath">Memory:</span>
-                    <span className="rsscorestatpercentage">43%</span>
-                  </div>
-                  <div className="rsscorestatdiv">
-                    <span className="rsscorestath">Logical Reasoning:</span>
-                    <span className="rsscorestatpercentage">78%</span>
-                  </div>
-                  <div className="rsscorestatdiv">
-                    <span className="rsscorestath">Focus:</span>
-                    <span className="rsscorestatpercentage">90%</span>
-                  </div>
-                </div>
-              </div>
+            <div className="rsDoughnutdiv">
+              <div className="rsDoughnutPercentage"><span>78%</span></div>
+              <Doughnut
+                      className="rsDoughnutScore"
+                      data={doughnutData}
+                      options={{
+                        cutout: 110,
+                        plugins: {
+                          legend: {
+                            display: false,
+                            position: "right",
+                          },
+                        },
+                      }}
+                    />
+                    <div className="rsscoresdiv">
+                      <div className="rsscorestatdiv">
+                        <span className="rsscorestath">Speed:</span>
+                        <span className="rsscorestatpercentage">68%</span>
+                      </div>
+                      <div className="rsscorestatdiv">
+                        <span className="rsscorestath">Deep Thinking:</span>
+                        <span className="rsscorestatpercentage">76%</span>
+                      </div>
+                      <div className="rsscorestatdiv">
+                        <span className="rsscorestath">Memory:</span>
+                        <span className="rsscorestatpercentage">43%</span>
+                      </div>
+                      <div className="rsscorestatdiv">
+                        <span className="rsscorestath">Logical Reasoning:</span>
+                        <span className="rsscorestatpercentage">78%</span>
+                      </div>
+                      <div className="rsscorestatdiv">
+                        <span className="rsscorestath">Focus:</span>
+                        <span className="rsscorestatpercentage">90%</span>
+                      </div>
+                    </div>
+            </div>
             </div>
             <div className="rsscorerow">
               <hr class="rounded" />
