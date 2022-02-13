@@ -17,6 +17,22 @@ const QuestionBox = (props) => {
     "Father10 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
   ];
 
+  let options = [
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+    ['2.56','2.56','2.56','2.56'],
+  ];
+
+  let answerOptions =['a','a','a','a','a','a','a','a','a','a',];
+  let optionsOpted = [];
+
   let situations = [
     "Hey Nagveer, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
     "Hey Nagveer2, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",

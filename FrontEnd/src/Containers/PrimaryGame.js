@@ -7,12 +7,10 @@ import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
 const PrimaryGame = () => {
-<<<<<<< HEAD
   const [min,setMin]=useState(0);
   const [sec,setSec]=useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
   const [score, setScore]= useState(0);
-=======
   const navigate = useNavigate();
 
   const authenticate = async () => {
@@ -42,7 +40,6 @@ const PrimaryGame = () => {
     authenticate();
   }, []);
 
->>>>>>> upstream/main
   let animate = () => {
     let frame = document.getElementById(
       "HomeAnimation" + popOut
