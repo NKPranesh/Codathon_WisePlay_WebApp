@@ -7,10 +7,10 @@ import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
 const PrimaryGame = () => {
-  const [min,setMin]=useState(0);
-  const [sec,setSec]=useState(0);
+  const [min, setMin] = useState(0);
+  const [sec, setSec] = useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
-  const [score, setScore]= useState(0);
+  const [score, setScore] = useState(0);
   const navigate = useNavigate();
 
   const authenticate = async () => {
@@ -67,35 +67,46 @@ const PrimaryGame = () => {
 
   return (
     <div className="PGOuterDiv">
-      <PrimaryNavbar questionNumber={questionNumber} score={score} min={min} sec={sec}setMin={setMin} setSec={setSec} over={over} setOver={setOver}/>
+      <PrimaryNavbar
+        questionNumber={questionNumber}
+        score={score}
+        min={min}
+        sec={sec}
+        setMin={setMin}
+        setSec={setSec}
+        over={over}
+        setOver={setOver}
+      />
       <div className="PGMainDiv">
-      {!over ?
-      <>
-        <div className="PGLeftDiv">
-          <iframe
-            className="Butterflies"
-            src="butterflies/index.html"
-            height="150px"
-            width="250px"
-            frameBorder="0"
-          ></iframe>
-          <QuestionBox
-            animate={animate}
-            setPopOut={setPopOut}
-            popOut={popOut}
-            setQuestionNumber={setQuestionNumber}
-            questionNumber={questionNumber}
-            setMin={setMin}
-            score={score}
-            setScore={setScore}
-            setSec={setSec} min={min} sec={sec}
-
-            
-          />
-        </div>
-        <Animation popOut={popOut} />
-        </>
-        : <RedirectToHomePage/> }
+        {!over ? (
+          <React.Fragment>
+            <div className="PGLeftDiv">
+              <iframe
+                className="Butterflies"
+                src="butterflies/index.html"
+                height="150px"
+                width="250px"
+                frameBorder="0"
+              ></iframe>
+              <QuestionBox
+                animate={animate}
+                setPopOut={setPopOut}
+                popOut={popOut}
+                setQuestionNumber={setQuestionNumber}
+                questionNumber={questionNumber}
+                setMin={setMin}
+                score={score}
+                setScore={setScore}
+                setSec={setSec}
+                min={min}
+                sec={sec}
+              />
+            </div>
+            <Animation popOut={popOut} />
+          </React.Fragment>
+        ) : (
+          <RedirectToHomePage />
+        )}
       </div>
     </div>
   );

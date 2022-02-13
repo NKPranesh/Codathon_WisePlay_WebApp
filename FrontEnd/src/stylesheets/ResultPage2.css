@@ -59,17 +59,38 @@
 }
 .rsscoregraph {
   width: 500px;
-  height: 265px;
-  background-color: #0058ff;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-.rsscoregraph span {
-  font-size: 38px;
-  color: white;
+.rsDoughnutdiv {
+  width: 250px;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: row;
 }
-
+.rsscoresdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.rsscorestatdiv {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rsscorestath {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.rsscorestatpercentage {
+  font-size: 18px;
+  margin-left: 5px;
+}
 hr.rounded {
   border-left: 3px solid #bbb;
   border-radius: 5px;
@@ -79,7 +100,7 @@ hr.rounded {
 .rscertificatepreview img {
   height: 340px;
 }
-.rshideimage{
+.rshideimage {
   display: none;
 }
 /* ------- Share Div ------- */

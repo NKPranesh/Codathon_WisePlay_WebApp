@@ -6,10 +6,23 @@ import Certificate from "../media/certificate.jpeg";
 import Share from "../media/Share.svg";
 import Footer from "../components/footer";
 import SharePopup from "../components/sharePopup";
+import { Doughnut } from "react-chartjs-2";
+import html2canvas from "html2canvas";
 import "../stylesheets/ResultPage2.css";
-
+let certificateimage = "";
 const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
+
+  const doughnutData = {
+    labels: ["Correct", "Wrong"],
+    datasets: [
+      {
+        data: [78, 22],
+        backgroundColor: ["#0058FF", "#F24B0F"],
+        hoverOffset: 4,
+      },
+    ],
+  };
 
   const navigate = useNavigate();
 
@@ -55,9 +68,23 @@ const ResultPage = () => {
     ctx.fillText("93%", 384, 235);
     ctx.font = "10px Poppins";
     ctx.fillText("09-02-2022", 120, 275);
+    var data = document.getElementById("rscertificatepreview");
+    html2canvas(data)
+      .then((canvas) => {
+        var image = canvas.toDataURL("image/jpeg", 1.0);
+        console.log(image);
+        certificateimage = image;
+        return image;
+      })
+      .then((image) => {
+        console.log(image);
+        // saveAs(image, "Certificate.jpeg");
+        // html.style.width = null;
+        // body.style.width = null;
+      });
   };
   return (
-    <>
+    <React.Fragment>
       <div id="RPMainDiv">
         <LandingNavbar />
         <div className="rsMaindiv">
@@ -75,14 +102,47 @@ const ResultPage = () => {
               </span>
             </div>
           </div>
-          <div className="rsscorediv">
-            <div className="rsscoreh">
-              <span>Your Score</span>
+          <div className="rsscorerow">
+            <div className="rsscoregraph">
+              <div className="rsDoughnutdiv">
+                <Doughnut
+                  className="rsDoughnutScore"
+                  data={doughnutData}
+                  options={{
+                    cutout: 110,
+                    plugins: {
+                      legend: {
+                        display: false,
+                        position: "right",
+                      },
+                    },
+                  }}
+                />
+                <div className="rsscoresdiv">
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Speed:</span>
+                    <span className="rsscorestatpercentage">68%</span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Deep Thinking:</span>
+                    <span className="rsscorestatpercentage">76%</span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Memory:</span>
+                    <span className="rsscorestatpercentage">43%</span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Logical Reasoning:</span>
+                    <span className="rsscorestatpercentage">78%</span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Focus:</span>
+                    <span className="rsscorestatpercentage">90%</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="rsscorerow">
-              <div className="rsscoregraph">
-                <span>Score graph Here</span>
-              </div>
               <hr class="rounded" />
               {/* <div className="rscertificatepreview">
               <img src={Certificate} />
@@ -117,8 +177,10 @@ const ResultPage = () => {
         </div>
         <Footer />
       </div>
-      {popupDisplay && <SharePopup close={setPopupDisplay} />}
-    </>
+      {popupDisplay && (
+        <SharePopup close={setPopupDisplay} image={certificateimage} />
+      )}
+    </React.Fragment>
   );
 };
 
