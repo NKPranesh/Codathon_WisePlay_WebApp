@@ -3,7 +3,8 @@ import { Line, Doughnut, Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import "../stylesheets/dashboard.css";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  let tests = props.testsData;
   let historyData = [
     {
       speed: "10%",
@@ -59,16 +60,16 @@ const Dashboard = () => {
   };
 
   const barData = {
-    labels: ["Speed", "Deep Thinking", "Memory","Logical Reasoning","Focus",],
+    labels: ["Speed", "Deep Thinking", "Memory", "Logical Reasoning", "Focus"],
     datasets: [
       {
-        barPercentage:0.1,
+        barPercentage: 0.1,
         categoryPercentage: 1,
         label: "score",
         backgroundColor: "#57B8FF",
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 0,
-        data: [65, 59, 80, 81, 56],
+        data: [65, 59, 80, 81, 56, 100],
       },
     ],
   };
@@ -161,16 +162,19 @@ const Dashboard = () => {
                           display: false,
                           color: "#E6E9F4",
                         },
+                        ticks: {
+                          display: false,
+                        },
                       },
                       y: {
-                        ticks:{
-                          stepSize:10
+                        ticks: {
+                          stepSize: 0,
                         },
                         grid: {
                           display: false,
                         },
+                      },
                     },
-                  },
                     plugins: {
                       legend: {
                         display: false,

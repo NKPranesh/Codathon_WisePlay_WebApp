@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/loginBox.css";
 
-const LoginBox = () => {
+const LoginBox = (props) => {
   const [error, setError] = useState("");
   const [errorDisplay, setErrorDisplay] = useState("none");
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const LoginBox = () => {
         if ("user" in responseJson) {
           setErrorDisplay("none");
           setError("");
+          props.setTestsData(responseJson.testsData);
           navigate("/dashboard");
         }
       })

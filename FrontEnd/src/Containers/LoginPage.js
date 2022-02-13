@@ -6,7 +6,7 @@ import LoginPageImg from "../media/LoginPageImg.svg";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/LoginPage.css";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const navigate = useNavigate();
 
   const authenticate = async () => {
@@ -41,7 +41,7 @@ const LoginPage = () => {
       <LandingNavbar />
       <div className="LPBodyDiv">
         <img src={LoginPageImg} alt="img" />
-        <LoginBox />
+        <LoginBox setTestsData={props.setTestsData} />
       </div>
       <Footer />
     </div>

@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     required: [true, "Please enter your name"],
     minlength: [4, "Name should have atleast 4 characters"],
   },
+  tests: {
+    type: Array,
+    required: true,
+  },
   flag: {
     type: Number,
     required: true,

@@ -8,17 +8,26 @@ import SignupPage from "./Containers/SignupPage";
 import SecondaryGame from "./Containers/SecondaryGame";
 import Test from "./Containers/Test";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+  let [testsData, setTestsData] = useState([]);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/primarygame" element={<PrimaryGame />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route
+            path="/dashboard"
+            element={<DashboardPage testsData={testsData} />}
+          />
           <Route path="/resultpage" element={<ResultPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage setTestsData={setTestsData} />}
+          />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/test" element={<Test />} />
           <Route path="/secondarygame" element={<SecondaryGame />} />

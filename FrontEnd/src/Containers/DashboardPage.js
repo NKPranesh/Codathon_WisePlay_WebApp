@@ -4,7 +4,7 @@ import DashboardNavbar from "../components/dashboarfNavbar";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/DashboardPage.css";
 
-const DashboardPage = () => {
+const DashboardPage = (props) => {
   const navigate = useNavigate();
 
   const authenticate = async () => {
@@ -37,7 +37,7 @@ const DashboardPage = () => {
   return (
     <div className="DBPageDiv">
       <DashboardNavbar />
-      <DashboardContent />
+      <DashboardContent testsData={props.testsData} />
     </div>
   );
 };

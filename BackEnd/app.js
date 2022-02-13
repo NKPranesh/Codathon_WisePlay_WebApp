@@ -122,7 +122,8 @@ app.post("/login", async (req, res) => {
       secure: true,
       sameSite: "none",
     });
-    res.status(200).json({ user: user._id, token });
+    const testsData = user.tests;
+    res.status(200).json({ user: user._id, token, testsData });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -130,6 +131,10 @@ app.post("/login", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   const { email, password, name } = req.body;
+  const tests = [
+    [68, 68, 98, 67, 87],
+    [67, 78, 45, 65, 90],
+  ];
   const flag = 0;
 
   try {
@@ -137,6 +142,7 @@ app.post("/signup", async (req, res) => {
       email,
       password,
       name,
+      tests,
       flag,
     });
     const token = createToken(user._id);
@@ -168,4 +174,24 @@ app.get("/logout", (req, res) => {
 
 app.get("/authenticate", requireAuth, (req, res) => {
   res.json({ status: "authenticated" });
+});
+
+// ----------------------Other Routes----------------------
+
+app.post("/newTestData", async (req, res) => {
+  let token = req.cookies.jwt;
+  let newTestData = req.body.newTestData;
+  if (token) {
+    jwt.verify(token, "philanterfakadi", async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let user = await User.findById(decodedToken.id);
+        user.tests.push(newTestData);
+        await user.save().then((data) => {
+          res.status(200).json({ success: "success" });
+        });
+      }
+    });
+  }
 });
