@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Animation from "../components/animation";
 import QuestionBox from "../components/questionBox";
 import PrimaryNavbar from "../components/primaryNavbar";
@@ -6,10 +7,42 @@ import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
 const PrimaryGame = () => {
+<<<<<<< HEAD
   const [min,setMin]=useState(0);
   const [sec,setSec]=useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
   const [score, setScore]= useState(0);
+=======
+  const navigate = useNavigate();
+
+  const authenticate = async () => {
+    let isAuthenticated = false;
+
+    await fetch(process.env.React_App_Backend_domain + "/authenticate", {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if ("status" in responseJson) {
+          isAuthenticated = true;
+        }
+      })
+      .catch((error) => {
+        console.log("error");
+        isAuthenticated = false;
+        navigate("/login");
+      });
+
+    return isAuthenticated;
+  };
+
+  useEffect(() => {
+    authenticate();
+  }, []);
+
+>>>>>>> upstream/main
   let animate = () => {
     let frame = document.getElementById(
       "HomeAnimation" + popOut

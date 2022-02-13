@@ -35,12 +35,46 @@
   width: 300px;
   height: 350px;
 }
-
+.DBAverageTopChart{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
 .DBDoughnutDiv {
   width: 100px;
   margin: 20px 10px;
 }
-
+.DBDoughnutcolorMainDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: inherit;
+}
+.DbDoughnutcolordiv{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.DbDoughnutcolordiv span{
+  font-size: 10px;
+}
+.DbDoughnutcolorboxcorrect{
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background-color: #0058FF;
+}
+.DbDoughnutcolorboxwrong{
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background-color: #F24B0F;
+}
 .DBAverageTopHead span,
 .DBAverageBottomHead span {
   font-size: 16px;
@@ -48,7 +82,7 @@
 }
 
 .DBBarDiv {
-  width: 400px;
+  width: 300px;
   margin: 20px 10px;
 }
 

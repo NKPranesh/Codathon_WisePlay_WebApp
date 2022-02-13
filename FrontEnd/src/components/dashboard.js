@@ -3,7 +3,8 @@ import { Line, Doughnut, Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import "../stylesheets/dashboard.css";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  let tests = props.testsData;
   let historyData = [
     {
       speed: "10%",
@@ -35,11 +36,11 @@ const Dashboard = () => {
     },
   ];
   const data = {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    labels: ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6"],
     datasets: [
       {
         label: "My First Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40, 0],
+        data: [65, 59, 80, 81, 56, 55, 0],
         fill: false,
         borderColor: "#0058FF",
         tension: 0.5,
@@ -48,30 +49,27 @@ const Dashboard = () => {
   };
 
   const doughnutData = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels: ["Correct", "Wrong"],
     datasets: [
       {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
+        data: [78, 22],
+        backgroundColor: ["#0058FF", "#F24B0F"],
         hoverOffset: 4,
       },
     ],
   };
 
   const barData = {
-    labels: ["January", "February", "March"],
+    labels: ["Speed", "Deep Thinking", "Memory", "Logical Reasoning", "Focus"],
     datasets: [
       {
-        label: "Rainfall",
-        backgroundColor: "rgba(75,192,192,1)",
+        barPercentage: 0.1,
+        categoryPercentage: 1,
+        label: "score",
+        backgroundColor: "#57B8FF",
         borderColor: "rgba(0,0,0,1)",
-        borderWidth: 2,
-        data: [65, 59, 80, 81, 56],
+        borderWidth: 0,
+        data: [65, 59, 80, 81, 56, 100],
       },
     ],
   };
@@ -99,16 +97,15 @@ const Dashboard = () => {
                   grid: {
                     display: false,
                   },
+                  title: {
+                    display: true,
+                    text: "Score",
+                  },
                 },
               },
               plugins: {
-                title: {
-                  display: true,
-                  text: "Cryptocurrency prices",
-                },
                 legend: {
-                  display: true,
-                  position: "top",
+                  display: false,
                 },
               },
             }}
@@ -125,14 +122,28 @@ const Dashboard = () => {
                   className="DBDoughnut"
                   data={doughnutData}
                   options={{
+                    cutout: 40,
                     plugins: {
                       legend: {
+                        labels: {
+                          boxWidth: 10,
+                        },
                         display: false,
                         position: "right",
                       },
                     },
                   }}
                 />
+              </div>
+              <div className="DBDoughnutcolorMainDiv">
+                <div className="DbDoughnutcolordiv">
+                  <div className="DbDoughnutcolorboxcorrect"></div>
+                  <span>Points Scored 78%</span>
+                </div>
+                <div className="DbDoughnutcolordiv">
+                  <div className="DbDoughnutcolorboxwrong"></div>
+                  <span>Points Lost 22%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -145,14 +156,29 @@ const Dashboard = () => {
                 <Bar
                   data={barData}
                   options={{
-                    title: {
-                      display: true,
-                      text: "Average Rainfall per month",
-                      fontSize: 20,
+                    scales: {
+                      x: {
+                        grid: {
+                          display: false,
+                          color: "#E6E9F4",
+                        },
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                      y: {
+                        ticks: {
+                          stepSize: 0,
+                        },
+                        grid: {
+                          display: false,
+                        },
+                      },
                     },
-                    legend: {
-                      display: true,
-                      position: "right",
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
                     },
                   }}
                 />
@@ -178,6 +204,7 @@ const Dashboard = () => {
                     className="DBDoughnutHistory"
                     data={doughnutData}
                     options={{
+                      cutout: 25,
                       plugins: {
                         legend: {
                           display: false,
