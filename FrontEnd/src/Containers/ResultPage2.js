@@ -12,12 +12,13 @@ import "../stylesheets/ResultPage2.css";
 let certificateimage = "";
 const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
-
+  let testData=[68,76,43,78,90];
+ let sum=testData.reduce((accumulator, curr) => accumulator + curr)/5;
   const doughnutData = {
     labels: ["Correct", "Wrong"],
     datasets: [
       {
-        data: [78, 22],
+        data: [sum, 100-sum],
         backgroundColor: ["#0058FF", "#F24B0F"],
         hoverOffset: 4,
       },
@@ -54,6 +55,11 @@ const ResultPage = () => {
   }, []);
 
   window.onload = function () {
+    var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+today = mm + '-' + dd + '-' + yyyy;
     var c = document.getElementById("rscertificatepreview");
     var ctx = c.getContext("2d");
     var img = document.getElementById("rsCertificate");
@@ -61,13 +67,13 @@ const ResultPage = () => {
     ctx.font = "20px Poppins";
     ctx.fillText("Mani Sai", 210, 130);
     ctx.font = "15px Poppins";
-    ctx.fillText("80%", 70, 235);
-    ctx.fillText("67%", 169, 235);
-    ctx.fillText("90%", 230, 235);
-    ctx.fillText("78%", 303, 235);
-    ctx.fillText("93%", 384, 235);
+    ctx.fillText(testData[0]+"%", 70, 235);
+    ctx.fillText(testData[1]+"%", 169, 235);
+    ctx.fillText(testData[2]+"%", 230, 235);
+    ctx.fillText(testData[3]+"%", 303, 235);
+    ctx.fillText(testData[4]+"%", 384, 235);
     ctx.font = "10px Poppins";
-    ctx.fillText("09-02-2022", 120, 275);
+    ctx.fillText(today, 120, 275);
     var data = document.getElementById("rscertificatepreview");
     html2canvas(data)
       .then((canvas) => {
@@ -105,7 +111,7 @@ const ResultPage = () => {
           <div className="rsscorerow">
             <div className="rsscoregraph">
             <div className="rsDoughnutdiv">
-              <div className="rsDoughnutPercentage"><span>78%</span></div>
+              <div className="rsDoughnutPercentage"><span>{sum+'%'}</span></div>
               <Doughnut
                       className="rsDoughnutScore"
                       data={doughnutData}
@@ -122,23 +128,23 @@ const ResultPage = () => {
                     <div className="rsscoresdiv">
                       <div className="rsscorestatdiv">
                         <span className="rsscorestath">Speed:</span>
-                        <span className="rsscorestatpercentage">68%</span>
+                        <span className="rsscorestatpercentage">{testData[0]+'%'}</span>
                       </div>
                       <div className="rsscorestatdiv">
                         <span className="rsscorestath">Deep Thinking:</span>
-                        <span className="rsscorestatpercentage">76%</span>
+                        <span className="rsscorestatpercentage">{testData[1]+'%'}</span>
                       </div>
                       <div className="rsscorestatdiv">
                         <span className="rsscorestath">Memory:</span>
-                        <span className="rsscorestatpercentage">43%</span>
+                        <span className="rsscorestatpercentage">{testData[2]+'%'}</span>
                       </div>
                       <div className="rsscorestatdiv">
                         <span className="rsscorestath">Logical Reasoning:</span>
-                        <span className="rsscorestatpercentage">78%</span>
+                        <span className="rsscorestatpercentage">{testData[3]+'%'}</span>
                       </div>
                       <div className="rsscorestatdiv">
                         <span className="rsscorestath">Focus:</span>
-                        <span className="rsscorestatpercentage">90%</span>
+                        <span className="rsscorestatpercentage">{testData[4]+'%'}</span>
                       </div>
                     </div>
             </div>
