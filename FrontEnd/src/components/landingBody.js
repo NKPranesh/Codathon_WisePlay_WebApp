@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Student from "../media/student.svg";
 import Dashboard from "../media/Dashboard.svg";
-import "../stylesheets/landingBody.css";
 import skatergirl from "../media/Skater Girl.svg";
 import Studentimg from "../media/Studentimg.svg";
 import Facebook from "../media/Facebook.svg";
@@ -11,7 +10,7 @@ import Linkedin from "../media/linkedin.svg";
 import AdvantageImg1 from "../media/advantageImg1.png";
 import AdvantageImg2 from "../media/advantageImg2.png";
 import AdvantageImg3 from "../media/advantageImg3.png";
-
+import "../stylesheets/landingBody.css";
 const LandingBody = () => {
   return (
     <div className="LBMainDiv">

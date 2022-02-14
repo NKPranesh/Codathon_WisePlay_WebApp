@@ -85,3 +85,37 @@
 .footerContactContent span {
   margin-top: 2%;
 }
+@media screen and (max-width: 1920px)
+{
+  .footerDisplay1366Div{
+    width: 1900px;
+  }
+}
+@media screen and (max-width: 1792px)
+{
+  .footerDisplay1366Div{
+    width: 1700px;
+  }
+}
+@media screen and (max-width: 1680px)
+{
+  .footerDisplay1366Div{
+    width: 1660px;
+  }
+}
+@media screen and (max-width: 1440px)
+{
+  .footerDisplay1366Div{
+    width: 1420px;
+  }
+}
+@media screen and (max-width: 1366px){
+  .footerDisplay1366Div{
+    width: 1300px;
+  }
+}
+@media screen and (max-width: 1080px){
+  .footerDisplay1366Div{
+    width: 1070px;
+  }
+}

@@ -257,7 +257,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .LBStudentDiv {
   background: linear-gradient(to right, #a0dcff, #a0dcff);
 }
@@ -338,4 +337,88 @@
   justify-content: center;
   align-items: center;
   padding: 40px 200px;
+}
+@media screen and (max-width: 1920px)
+{
+  .LBcategoryimage{
+    width: 600px;
+    height: 360px;
+  }
+  .LBAdvantageBox{
+    width: 430px;
+    height: 300px;
+  }
+  .LBBannerBottomDiv{
+    width: 1550px;
+  }
+}
+@media screen and (max-width: 1792px)
+{
+  .LBcategoryimage{
+    width: 550px;
+    height: 340px;
+  }
+  .LBAdvantageBox{
+    width: 400px;
+    height: 280px;
+  }
+  .LBBannerBottomDiv{
+    width: 1500px;
+  }
+}
+@media screen and (max-width: 1680px)
+{
+  .LBcategoryimage{
+    width: 500px;
+    height: 320px;
+  }
+  .LBAdvantageBox{
+    width: 370px;
+    height: 260px;
+  }
+  .LBBannerBottomDiv{
+    width: 1450px;
+  }
+}
+@media screen and (max-width: 1400px)
+{
+  .LBcategoryimage{
+    width: 450px;
+    height: 300px;
+  }
+  .LBAdvantageBox{
+    width: 320px;
+    height: 250px;
+  }
+  .LBBannerBottomDiv{
+    width: 1350px;
+  }
+}
+@media screen and (max-width: 1366px)
+{
+  .LBcategoryimage{
+    width: 440px;
+    height: 300px;
+  }
+  .LBAdvantageBox{
+    width: 300px;
+    height: 250px;
+  }
+  .LBBannerBottomDiv{
+    width: 1100px;
+  }
+}
+@media screen and (max-width: 1080px)
+{
+  .LBcategoryimage{
+    width: 400px;
+    height: 280px;
+  }
+  .LBAdvantageBox{
+    width: 300px;
+    height: 250px;
+  }
+  .LBBannerBottomDiv{
+    width: 1030px;
+  }
 }

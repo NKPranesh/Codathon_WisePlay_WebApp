@@ -50,6 +50,7 @@ const Dashboard = (props) => {
       avg += testdata[index][i];
     }
     avg /= 5;
+    avg=avg.toFixed(2);
     return {
       labels: ["Correct", "Wrong"],
       datasets: [
@@ -141,6 +142,9 @@ const Dashboard = (props) => {
             </div>
             <div className="DBAverageTopChart">
               <div className="DBDoughnutDiv">
+                <div className="DBAveragepercent">
+                  <span>{sum+"%"}</span>
+                </div>
                 <Doughnut
                   className="DBDoughnut"
                   data={doughnutData}
@@ -231,6 +235,9 @@ const Dashboard = (props) => {
               </div>
               <div className="DBHistoryBody">
                 <div className="DBHistoryGraph">
+                  <div className="DBHistorypercent">
+                    <span>{(test.reduce((accumulator, curr) => accumulator + curr)/5).toFixed(2)+"%"}</span>
+                  </div>
                   <Doughnut
                     className="DBDoughnutHistory"
                     data={calculatedoughnutdata(testNo - 1)}
@@ -246,11 +253,11 @@ const Dashboard = (props) => {
                   />
                 </div>
                 <div className="DBHistoryText">
-                  <span>{"Speed: " + test[0] + "%"}</span>
-                  <span>{"Deep Thinking: " + test[1] + "%"}</span>
-                  <span>{"Memory: " + test[2] + "%"}</span>
-                  <span>{"Logical Reasoning: " + test[3] + "%"}</span>
-                  <span>{"Focus: " + test[4] + "%"}</span>
+                  <span>{"Speed: " + test[0].toFixed(2) + "%"}</span>
+                  <span>{"Deep Thinking: " + test[1].toFixed(2) + "%"}</span>
+                  <span>{"Memory: " + test[2].toFixed(2) + "%"}</span>
+                  <span>{"Logical Reasoning: " + test[3].toFixed(2) + "%"}</span>
+                  <span>{"Focus: " + test[4].toFixed(2) + "%"}</span>
                 </div>
               </div>
             </div>
