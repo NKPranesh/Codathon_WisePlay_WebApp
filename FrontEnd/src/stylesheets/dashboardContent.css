@@ -78,6 +78,7 @@
   margin-top: 5px;
 }
 .DBStartButton button {
+  text-decoration: none;
   all: unset;
   cursor: pointer;
   border-radius: 5px;
@@ -97,4 +98,8 @@
   padding: 10px 5px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.DBStartButton a {
+  text-decoration: none;
 }
