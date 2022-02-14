@@ -5,15 +5,24 @@ import Linkedin from "../media/linkedin-share-button.svg";
 import Twitter from "../media/twitter-share-button.svg";
 import Cancelicon from "../media/cancelicon.svg";
 import "../stylesheets/sharePopup.css";
-
-import {FacebookIcon, FacebookShareButton} from "react-share";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share";
 
 const SharePopup = (props) => {
+  console.log(props.image);
+  const file = new Blob([props.image], { type: "text/plain" });
+  let imageurl = URL.createObjectURL(file);
+  console.log(imageurl);
   window.onload = function () {
     var c1 = document.getElementById("SPCertificate");
     var ctx1 = c1.getContext("2d");
     var img = document.getElementById("SPCertificateimg");
-    console.log(img);
+    // console.log(img);
     ctx1.drawImage(img, 0, 0, img.width, img.height, 0, 0, c1.width, c1.height);
     ctx1.font = "20px Poppins";
     ctx1.fillText("Mani Sai", 210, 130);
@@ -47,7 +56,12 @@ const SharePopup = (props) => {
           <span>Share on Social Media</span>
         </div>
         <div className="SPCertificateDiv">
-          <img src={props.image} alt="img" className="SPhideimg" id="SPCertificateimg"/>
+          <img
+            src={props.image}
+            alt="img"
+            className="SPhideimg"
+            id="SPCertificateimg"
+          />
           {/* <canvas className="SPcertificate" id="SPCertificate"></canvas> */}
         </div>
         <div className="SPTextDiv">
@@ -59,15 +73,30 @@ const SharePopup = (props) => {
           </span>
         </div>
         <div className="SPLinksDiv">
-          {/* <img src={Facebook} alt="img" /> */}
-          <FacebookShareButton url={"www.google.com"} picture={PaymentResponse.image}
-          quote={"You can also participate"}
-          width="626"
-          height="436">
-            <FacebookIcon round="true" type="button" />
-   </FacebookShareButton>
-          <img src={Twitter} alt="img" />
-          <img src={Linkedin} alt="img" />
+          <FacebookShareButton
+            url={imageurl}
+            quote={"You can also participate"}
+            width="626"
+            height="436"
+          >
+            <img src={Facebook} alt="img" />
+          </FacebookShareButton>
+          <TwitterShareButton
+            url={imageurl}
+            quote={"Quote"}
+            width="626"
+            height="436"
+          >
+            <img src={Twitter} alt="img" />
+          </TwitterShareButton>
+
+          <LinkedinShareButton
+            url={imageurl}
+            // width="626"
+            // height="436"
+          >
+            <img src={Linkedin} alt="img" />
+          </LinkedinShareButton>
         </div>
       </div>
     </div>
