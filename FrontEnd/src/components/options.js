@@ -122,7 +122,7 @@ const Options = (props) => {
                 square.style.height = "";
                 square.style.overflow = "";
                 
-              },100000);
+              },5000);
 
               props.setQuestionNumber(props.questionNumber + 1);
                 props.setScore(props.score + (props.min * 60 + props.sec) * 10);

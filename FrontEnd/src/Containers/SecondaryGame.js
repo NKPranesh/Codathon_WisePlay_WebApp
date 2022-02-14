@@ -6,6 +6,7 @@ import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 import "../stylesheets/question.css";
 import Meme from "../components/meme";
+import RedirectToHomePage from "../components/redirectToHomePage";
 
 let scores=[0,0,0,0,0];
 const SecondaryGame = () => {
