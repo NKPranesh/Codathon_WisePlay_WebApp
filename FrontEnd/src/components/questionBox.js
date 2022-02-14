@@ -158,6 +158,8 @@ const QuestionBox = (props) => {
             time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
     if(answers[9]==document.querySelector('input[name="options"]:checked').value){
       optionsOpted[9]=1;
+      props.setFocus(props.focus+((100-time[9])*optionsOpted[9])/(2*ratio[(9)%5]));
+          props.setIsExit(true);
           }
           }}>
             Submit

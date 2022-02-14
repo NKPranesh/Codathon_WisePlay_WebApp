@@ -20,7 +20,7 @@ const Profile = () => {
                             <p>Email: <span>meghana@gmail.com</span></p>
                         </div>
                     </div>
-                    <hr class="PRrounded" />
+                    <hr className="PRrounded" />
                 </div>
                 
                 <div className='PRRightDiv'>

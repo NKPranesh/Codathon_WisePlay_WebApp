@@ -47,7 +47,10 @@ const PrimaryGame = () => {
       });
   };
 
-
+  if(isExit)
+  {
+    submitButtonHandle();
+  }
 
   const authenticate = async () => {
     let isAuthenticated = false;
@@ -103,6 +106,7 @@ const PrimaryGame = () => {
   return (
     <div className="PGOuterDiv">
       <PrimaryNavbar
+
         setIsExit={setIsExit}
         questionNumber={questionNumber}
         score={score}
@@ -125,6 +129,7 @@ const PrimaryGame = () => {
                 frameBorder="0"
               ></iframe>
               <QuestionBox
+              setIsExit={setIsExit}
                 setSpeed={setSpeed}
                 setDeep={setDeep}
                 setMemory={setMemory}
