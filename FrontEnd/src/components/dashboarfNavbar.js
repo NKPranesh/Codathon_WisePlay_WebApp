@@ -51,7 +51,7 @@ const DashboardNavbar = () => {
             </div>
           </div>
         </a>
-        <a href="#">
+        <a href="#DBMainDivID">
           <div
             className={
               selected === "dashboard"
@@ -70,7 +70,7 @@ const DashboardNavbar = () => {
             </div>
           </div>
         </a>
-        <a href="#">
+        <a href="#PRHeadDivID">
           <div
             className={
               selected === "profile"

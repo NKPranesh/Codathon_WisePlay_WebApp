@@ -3,6 +3,7 @@ import "../stylesheets/dashboardContent.css";
 import SkaterGirl from "../media/Skater Girl.svg";
 import Student from "../media/Studentimg.svg";
 import Dashboard from "./dashboard";
+import Profile from "./profile";
 
 const DashboardContent = (props) => {
   return (
@@ -45,6 +46,7 @@ const DashboardContent = (props) => {
           </div>
         </div>
         <Dashboard testsData={props.testsData} />
+        <Profile/>
       </div>
     </div>
   );

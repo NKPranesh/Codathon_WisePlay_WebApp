@@ -4,14 +4,17 @@ import Coins from "../media/coins.svg";
 import Logo from "../media/logo.svg";
 import { Link } from "react-router-dom";
 import "../stylesheets/primaryNavbar.css";
+import SubmitButtonHandle from "./questionBox.js";
 
 const CountDown = (props) => {
   const [[m, s], setTime] = useState([props.minutes, props.seconds]);
+  console.log(props.over);
   props.setMin(m);
   props.setSec(s);
   const tick = () => {
     if (props.over) return;
-    if (m === 0 && s === 0) props.setOver(true);
+    if (m === 0 && s === 0) 
+    {props.setOver(true);}
     else if (s == 0) {
       setTime([m - 1, 59]);
     } else {
@@ -68,7 +71,7 @@ const PrimaryNavbar = (props) => {
           </span>
         </div>
 
-        <button className="PNExitButton">Exit</button>
+        <button className="PNExitButton" onClick={SubmitButtonHandle}>Exit</button>
       </div>
     </div>
   );
