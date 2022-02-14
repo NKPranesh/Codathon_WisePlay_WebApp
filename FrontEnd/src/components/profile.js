@@ -13,7 +13,7 @@ const Profile = () => {
                 <div className='PRLeftDiv'>
                     <div className='PRprofile'>
                         <div className='PRProfilePic'>
-                            <span>N</span>
+                            <span>M</span>
                         </div>
                         <div className='PRDetails'>
                             <p>Name: <span>Meghana</span></p>
