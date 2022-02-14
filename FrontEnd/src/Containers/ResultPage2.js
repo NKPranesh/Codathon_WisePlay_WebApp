@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Success from "../media/Success.svg";
-import LandingNavbar from "../components/landingNavbar";
+import ResultNavbar from "../components/resultpageNavbar";
 import Certificate from "../media/certificate.jpeg";
 import Share from "../media/Share.svg";
 import Footer from "../components/footer";
@@ -72,12 +72,12 @@ const ResultPage = () => {
     html2canvas(data)
       .then((canvas) => {
         var image = canvas.toDataURL("image/jpeg", 1.0);
-        console.log(image);
+        // console.log(image);
         certificateimage = image;
         return image;
       })
       .then((image) => {
-        console.log(image);
+        // console.log(image);
         // saveAs(image, "Certificate.jpeg");
         // html.style.width = null;
         // body.style.width = null;
@@ -86,7 +86,7 @@ const ResultPage = () => {
   return (
     <React.Fragment>
       <div id="RPMainDiv">
-        <LandingNavbar />
+        <ResultNavbar/>
         <div className="rsMaindiv">
           <div className="rscongodiv">
             <div className="rssucessimg">
@@ -179,7 +179,7 @@ const ResultPage = () => {
         <Footer />
       </div>
       {popupDisplay && (
-        <SharePopup close={setPopupDisplay} image={certificateimage} />
+        <SharePopup close={setPopupDisplay} image={certificateimage}/>
       )}
     </React.Fragment>
   );

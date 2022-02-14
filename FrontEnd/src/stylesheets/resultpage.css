@@ -1,0 +1,40 @@
+.RSMainDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    padding: 6px 0px;
+    max-height: 60px;
+    box-shadow: 0 4px 6px -5px rgb(50 50 93 / 25%),
+      0 4px 3px -5px rgb(0 0 0 / 30%);
+  }
+  
+  .RSLogoDiv {
+    margin-left: 50px;
+    width: 300px;
+  }
+  
+  .RSLogoDiv img {
+    height: 50px;
+  }
+  .RSButton a {
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+    border-color: transparent;
+    background: linear-gradient(to right, #8c30f5, #8c30f5);
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 12px 20px;
+  }
+  
+  .RSButton a:hover {
+    background: linear-gradient(to right, #9d50f5, #9d50f5);
+  }
+  
+  .RSButton {
+    margin: 0px 50px;
+
+  }

@@ -136,3 +136,15 @@
   font-size: 10px;
   margin: 2px 0px;
 }
+.DBHistorypercent{
+  position: relative;
+  top: 42px;
+  left: 14px;
+  font-size: 13px;
+}
+.DBAveragepercent{
+  position: relative;
+  top: 60px;
+  left: 25px;
+  font-weight: bold;
+}
