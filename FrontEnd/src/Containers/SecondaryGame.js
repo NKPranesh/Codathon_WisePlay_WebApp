@@ -5,9 +5,11 @@ import Question from "../components/question";
 import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 import "../stylesheets/question.css";
+import Meme from "../components/meme";
 
 let scores=[0,0,0,0,0];
 const SecondaryGame = () => {
+  const [popupDisplay, setPopupDisplay]=useState(false);
   let questions = [
     "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
     "Father2 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
@@ -91,7 +93,8 @@ const SecondaryGame = () => {
     authenticate();
   }, []);
   return (
-    <div className="SGOuterDiv">
+    <React.Fragment>
+    <div className="SGOuterDiv" id="SGMainDivID">
       <SecondaryNavbar 
       setIsExit={setIsExit}
       questionNumber={questionNumber}
@@ -111,6 +114,7 @@ const SecondaryGame = () => {
             {questions[questionNumber-1]}
         </div>
           <Options 
+          setPopupDisplay={setPopupDisplay}
           setIsExit={setIsExit}
           setSpeed={setSpeed}
           setDeep={setDeep}
@@ -137,6 +141,10 @@ const SecondaryGame = () => {
         )}
       </div>
     </div>
+    {popupDisplay &&(
+      <Meme />
+    )}
+    </React.Fragment>
   );
 };
 
