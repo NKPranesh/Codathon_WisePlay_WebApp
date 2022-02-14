@@ -70,8 +70,12 @@ const PrimaryNavbar = (props) => {
             />
           </span>
         </div>
-
-        <button className="PNExitButton" onClick={SubmitButtonHandle}>Exit</button>
+(
+        <button className="PNExitButton" onClick={()=>{
+          props.setIsExit(true);
+        }
+          
+        }>Exit</button>
       </div>
     </div>
   );

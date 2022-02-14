@@ -6,12 +6,48 @@ import PrimaryNavbar from "../components/primaryNavbar";
 import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
+
+let scores=[0,0,0,0,0];
 const PrimaryGame = () => {
+  const [speed,setSpeed] = useState(0);
+  const [deep,setDeep] = useState(0);
+  const [memory,setMemory] = useState(0);
+  const [focus,setFocus] = useState(0);
+  const [logic,setLogic] = useState(0);
+  let [score,setScore]=useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
-  const [score, setScore] = useState(0);
   const navigate = useNavigate();
+  const [isExit,setIsExit] = useState(false);
+
+  let submitButtonHandle = async () => {
+    scores[0] = speed;
+    scores[1] = deep;
+    scores[2] = memory;
+    scores[3] = logic;
+    scores[4] = focus;
+
+    await fetch(process.env.React_App_Backend_domain + "/newTestData", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({
+        newTestData: scores,
+      }),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setTimeout(() => {
+          navigate("/resultpage");
+        }, 4001);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
 
   const authenticate = async () => {
     let isAuthenticated = false;
@@ -61,13 +97,13 @@ const PrimaryGame = () => {
     frame.dispatchEvent(newEvent);
     console.log("hello");
   };
-
+  console.log([speed,deep,memory,logic,focus]);
   let [popOut, setPopOut] = useState(1);
   const [over, setOver] = useState(false);
-
   return (
     <div className="PGOuterDiv">
       <PrimaryNavbar
+        setIsExit={setIsExit}
         questionNumber={questionNumber}
         score={score}
         min={min}
@@ -89,6 +125,17 @@ const PrimaryGame = () => {
                 frameBorder="0"
               ></iframe>
               <QuestionBox
+                setSpeed={setSpeed}
+                setDeep={setDeep}
+                setMemory={setMemory}
+                setFocus={setFocus}
+                setLogic={setLogic}
+                speed={speed}
+                memory={memory}
+                logic={logic}
+                deep={deep}
+                focus={focus}
+                // exitHandle ={exitHandle}
                 animate={animate}
                 setPopOut={setPopOut}
                 popOut={popOut}
