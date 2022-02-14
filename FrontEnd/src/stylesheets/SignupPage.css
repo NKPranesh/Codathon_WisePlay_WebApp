@@ -9,3 +9,10 @@
 .SPBodyDiv img {
   height: 350px;
 }
+@media screen and (max-width: 1366px) {
+  .SPBodyDiv {
+    height: min-content;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}

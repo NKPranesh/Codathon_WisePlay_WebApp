@@ -9,3 +9,24 @@
 .LPBodyDiv img {
   height: 350px;
 }
+@media screen and (max-width: 1440px) {
+  .LPBodyDiv {
+    height: max-content;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .LPBodyDiv {
+    height: max-content;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .LPBodyDiv {
+    /* height: min-content; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
