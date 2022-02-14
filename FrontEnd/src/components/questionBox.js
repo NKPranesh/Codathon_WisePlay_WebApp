@@ -4,6 +4,7 @@ import "../stylesheets/questionBox.css";
 
 let flag = 0;
 var time = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const QuestionBox = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
   let questions = [
@@ -32,8 +33,6 @@ const QuestionBox = (props) => {
     ['2.56','2.56','2.56','2.56'],
   ];
 
-  let answerOptions =['a','a','a','a','a','a','a','a','a','a',];
-  let optionsOpted = [];
   let answers = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a"];
 
   let situations = [
@@ -54,11 +53,11 @@ const QuestionBox = (props) => {
   let submitButtonHandle = async () => {
     time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
     let score = [];
-    score[0] = (200 - time[0] - time[5]) / 2;
-    score[1] = (200 - time[1] / 4 - time[6] / 4) / 2;
-    score[2] = (200 - time[2] / 2 - time[7] / 2) / 2;
-    score[3] = (200 - time[3] / 3 - time[8] / 3) / 2;
-    score[4] = (200 - time[4] / 2 - time[9] / 2) / 2;
+    score[0] = (200 - time[0]*optionsOpted[0] - time[5]*optionsOpted[5]) / 2;
+    score[1] = (200 - time[1]*optionsOpted[1] / 4 - time[6]*optionsOpted[6] / 4) / 2;
+    score[2] = (200 - time[2]*optionsOpted[2] / 2 - time[7]*optionsOpted[7] / 2) / 2;
+    score[3] = (200 - time[3]*optionsOpted[3] / 3 - time[8]*optionsOpted[8] / 3) / 2;
+    score[4] = (200 - time[4]*optionsOpted[4] / 2 - time[9]*optionsOpted[9] / 2) / 2;
 
     await fetch(process.env.React_App_Backend_domain + "/newTestData", {
       method: "post",
@@ -99,7 +98,7 @@ const QuestionBox = (props) => {
           </div>
           <div className="QBOptionsBottom">
             <span>
-              <input type="radio" value="c" name="options" /> 2.56
+              <input type="radio" value="c" name="options"/> 2.56
             </span>
             <span>
               <input type="radio" value="d" name="options" /> 2.56
@@ -112,10 +111,12 @@ const QuestionBox = (props) => {
           <button
             className="QBNextButton"
             onClick={() => {
+              if(answers[props.questionNumber - 1]==document.querySelector('input[name="options"]:checked').value){
+                optionsOpted[props.questionNumber - 1]=1;
+              }
               time[props.questionNumber - 1] =
                 prevMin * 60 + prevSec - (props.min * 60 + props.sec);
               setPrevTime([props.min, props.sec]);
-              console.log(time);
               flag = flag + 1;
               if (flag % 2 == 0) {
                 props.animate();
@@ -146,12 +147,8 @@ const QuestionBox = (props) => {
                   );
                 }, 4001);
               } else {
-                setTimeout(() => {
                   props.setQuestionNumber(props.questionNumber + 1);
-                  props.setScore(
-                    props.score + (props.min * 60 + props.sec) * 10
-                  );
-                }, 1001);
+                  props.setScore(props.score + (props.min * 60 + props.sec) * 10);
               }
             }}
           >

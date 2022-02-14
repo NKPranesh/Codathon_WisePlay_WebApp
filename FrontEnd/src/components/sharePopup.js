@@ -6,6 +6,8 @@ import Twitter from "../media/twitter-share-button.svg";
 import Cancelicon from "../media/cancelicon.svg";
 import "../stylesheets/sharePopup.css";
 
+import {FacebookIcon, FacebookShareButton} from "react-share";
+
 const SharePopup = (props) => {
   window.onload = function () {
     var c1 = document.getElementById("SPCertificate");
@@ -57,7 +59,13 @@ const SharePopup = (props) => {
           </span>
         </div>
         <div className="SPLinksDiv">
-          <img src={Facebook} alt="img" />
+          {/* <img src={Facebook} alt="img" /> */}
+          <FacebookShareButton url={"www.google.com"} picture={PaymentResponse.image}
+          quote={"You can also participate"}
+          width="626"
+          height="436">
+            <FacebookIcon round="true" type="button" />
+   </FacebookShareButton>
           <img src={Twitter} alt="img" />
           <img src={Linkedin} alt="img" />
         </div>
