@@ -99,7 +99,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="DBMainDiv">
+    <div className="DBMainDiv" id="DBMainDivID">
       <div className="DBHeadDiv">
         <span>Dashboard</span>
       </div>

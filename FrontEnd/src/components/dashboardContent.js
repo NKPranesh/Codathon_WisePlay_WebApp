@@ -3,6 +3,8 @@ import "../stylesheets/dashboardContent.css";
 import SkaterGirl from "../media/Skater Girl.svg";
 import Student from "../media/Studentimg.svg";
 import Dashboard from "./dashboard";
+import Profile from "./profile";
+import { Link } from "react-router-dom";
 
 const DashboardContent = (props) => {
   return (
@@ -22,7 +24,9 @@ const DashboardContent = (props) => {
                     customers on any device.
                   </p>
                   <div className="DBStartButton">
+                  <Link to="/primarygame">
                     <button>Start Test</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -37,7 +41,9 @@ const DashboardContent = (props) => {
                     customers on any device.
                   </p>
                   <div className="DBStartButton">
+                  <Link to="/secondarygame">
                     <button>Start Test</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -45,6 +51,7 @@ const DashboardContent = (props) => {
           </div>
         </div>
         <Dashboard testsData={props.testsData} />
+        <Profile/>
       </div>
     </div>
   );

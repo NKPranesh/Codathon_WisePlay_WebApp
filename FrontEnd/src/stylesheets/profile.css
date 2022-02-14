@@ -1,0 +1,144 @@
+.PRMainDiv {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 25px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .PRHeadDiv {
+    margin-bottom: -30px;
+  }
+  
+  .PRHeadDiv span {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  hr.PRrounded {
+    border-left: 2px solid #bbb;
+    border-radius: 5px;
+    height: 310px;
+    margin-left: 100px;
+    padding-top: 100px;
+  }
+
+  .PRInnerDiv {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap:  100px;
+      padding: 50px;
+      margin-top: 0px;
+      padding-left: 100px;
+  }
+
+  .PRRightDiv {
+      display: flex;
+      flex-direction: column;
+      /* transform: translateX(-280px); */
+      justify-content: flex-start;
+      gap: 30px;
+      margin-top: 10px;
+  }
+
+
+  .PREdit{
+      margin-bottom: 50px;
+      font-size: 24px;
+    font-weight: bold;
+  }
+
+  .PREditDetails {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .PREditDetails p {
+        font-size: 20px;
+        font-weight: bold;
+  }
+
+  .PRLeftDiv{
+      display: flex;
+      flex-direction: row;
+  }
+
+  .PRInput {
+    border-color: rgba(140, 48, 245, 0.4);
+    border-width: 1px;
+    border-radius: 6px;
+    padding: 8px 6px;
+    width: 200px;
+    margin-top: 2px;
+    margin-left: 8px;
+    height: 20px;
+  }
+
+  .PRProfile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+  }
+  .PRProfilePic {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    background-color: #F7EEFF;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+.PRDetails p {
+    font-weight: bold;
+}
+
+.PRDetails span {
+    font-weight: 400;
+}
+
+.PRProfilePic span {
+    position: relative;
+    top: 45px;
+    left:52px;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.PRDropdown {
+    border-color: rgba(140, 48, 245, 0.4);
+    border-width: 1px;
+    border-radius: 6px;
+    padding: 8px 6px;
+    width: 200px;
+    margin-top: 2px;
+    margin-left: 8px;
+    height: 35px;
+}
+
+.PRDetails {
+    margin-top: 10px;
+    text-align: center;
+    margin-left: -30px;
+}
+
+.PRExitButtonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.PRExitButton {
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: 8px 30px;
+    cursor: pointer;
+  }
