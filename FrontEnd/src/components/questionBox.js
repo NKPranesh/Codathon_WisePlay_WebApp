@@ -52,6 +52,9 @@ const QuestionBox = (props) => {
 
   let submitButtonHandle = async () => {
     time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
+    if(answers[9]==document.querySelector('input[name="options"]:checked').value){
+      optionsOpted[9]=1;
+    }
     let score = [];
     score[0] = (200 - time[0]*optionsOpted[0] - time[5]*optionsOpted[5]) / 2;
     score[1] = (200 - time[1]*optionsOpted[1] / 4 - time[6]*optionsOpted[6] / 4) / 2;
@@ -128,10 +131,14 @@ const QuestionBox = (props) => {
                   newAnimation.classList.remove("popInLeft");
                 }, 10001);
                 setTimeout(() => {
+                  document.getElementsByClassName('QBNextButton')[0].style.display="none";
+                }, 1000);
+                setTimeout(() => {
                   let animation = document.getElementsByClassName(
                     "Animation" + props.popOut
                   )[0];
                   animation.classList.add("popOutRight");
+                  document.getElementsByClassName('QBNextButton')[0].style.display="";
                 }, 4000);
 
                 setTimeout(() => {
