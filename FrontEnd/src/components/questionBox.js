@@ -5,6 +5,7 @@ import "../stylesheets/questionBox.css";
 let flag = 0;
 var time = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let ratio=[1,4,2,3,2];
 const QuestionBox = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
   let questions = [
@@ -50,36 +51,6 @@ const QuestionBox = (props) => {
 
   const navigate = useNavigate();
 
-  let submitButtonHandle = async () => {
-    time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
-    if(answers[9]==document.querySelector('input[name="options"]:checked').value){
-      optionsOpted[9]=1;
-    }
-    let score = [];
-    score[0] = (200 - time[0]*optionsOpted[0] - time[5]*optionsOpted[5]) / 2;
-    score[1] = (200 - time[1]*optionsOpted[1] / 4 - time[6]*optionsOpted[6] / 4) / 2;
-    score[2] = (200 - time[2]*optionsOpted[2] / 2 - time[7]*optionsOpted[7] / 2) / 2;
-    score[3] = (200 - time[3]*optionsOpted[3] / 3 - time[8]*optionsOpted[8] / 3) / 2;
-    score[4] = (200 - time[4]*optionsOpted[4] / 2 - time[9]*optionsOpted[9] / 2) / 2;
-
-    await fetch(process.env.React_App_Backend_domain + "/newTestData", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({
-        newTestData: score,
-      }),
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        setTimeout(() => {
-          navigate("/resultpage");
-        }, 4001);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <div className="QBMainDiv">
@@ -93,18 +64,18 @@ const QuestionBox = (props) => {
         <div className="QBOptions">
           <div className="QBOptionsTop">
             <span>
-              <input type="radio" value="a" name="options" /> 2.56
+              <input type="radio" value="a" name="options" /> {options[props.questionNumber-1][0]}
             </span>
             <span>
-              <input type="radio" value="b" name="options" /> 2.56
+              <input type="radio" value="b" name="options" /> {options[props.questionNumber-1][1]}
             </span>
           </div>
           <div className="QBOptionsBottom">
             <span>
-              <input type="radio" value="c" name="options"/> 2.56
+              <input type="radio" value="c" name="options"/> {options[props.questionNumber-1][2]}
             </span>
             <span>
-              <input type="radio" value="d" name="options" /> 2.56
+              <input type="radio" value="d" name="options" /> {options[props.questionNumber-1][3]}
             </span>
           </div>
         </div>
@@ -119,6 +90,26 @@ const QuestionBox = (props) => {
               }
               time[props.questionNumber - 1] =
                 prevMin * 60 + prevSec - (props.min * 60 + props.sec);
+                if((props.questionNumber - 1)%5 == 0)
+                {
+                  props.setSpeed(props.speed+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                }
+                else if((props.questionNumber - 1)%5 == 1)
+                {
+                  props.setDeep(props.deep+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                }
+                else if((props.questionNumber - 1)%5 == 2)
+                {
+                  props.setMemory(props.memory+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                }
+                else if((props.questionNumber - 1)%5 == 3)
+                {
+                  props.setLogic(props.logic+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                }
+                else if((props.questionNumber - 1)%5 == 4)
+                {
+                  props.setFocus(props.focus+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                }
               setPrevTime([props.min, props.sec]);
               flag = flag + 1;
               if (flag % 2 == 0) {
@@ -162,7 +153,14 @@ const QuestionBox = (props) => {
             Next
           </button>
         ) : (
-          <button className="QBNextButton" onClick={submitButtonHandle}>
+          <button className="QBNextButton" onClick={()=>{
+            time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
+    if(answers[9]==document.querySelector('input[name="options"]:checked').value){
+      optionsOpted[9]=1;
+      props.setFocus(props.focus+((100-time[9])*optionsOpted[9])/(2*ratio[(9)%5]));
+          }
+          props.setIsExit(true);
+          }}>
             Submit
           </button>
         )}
