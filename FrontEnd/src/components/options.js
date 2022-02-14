@@ -1,7 +1,7 @@
+
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/options.css";
-
 
 let flag = 0;
 var time = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -156,7 +156,7 @@ const Options = (props) => {
               setTimeout(()=> {
                 props.setIsExit(true);
               },1000);
-                  
+
           }}>
             Submit
           </button>)
