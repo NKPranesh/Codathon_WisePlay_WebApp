@@ -51,7 +51,6 @@ const QuestionBox = (props) => {
 
   const navigate = useNavigate();
 
-  let next
 
   return (
     <div className="QBMainDiv">
@@ -65,18 +64,18 @@ const QuestionBox = (props) => {
         <div className="QBOptions">
           <div className="QBOptionsTop">
             <span>
-              <input type="radio" value="a" name="options" /> 2.56
+              <input type="radio" value="a" name="options" /> {options[props.questionNumber-1][0]}
             </span>
             <span>
-              <input type="radio" value="b" name="options" /> 2.56
+              <input type="radio" value="b" name="options" /> {options[props.questionNumber-1][1]}
             </span>
           </div>
           <div className="QBOptionsBottom">
             <span>
-              <input type="radio" value="c" name="options"/> 2.56
+              <input type="radio" value="c" name="options"/> {options[props.questionNumber-1][2]}
             </span>
             <span>
-              <input type="radio" value="d" name="options" /> 2.56
+              <input type="radio" value="d" name="options" /> {options[props.questionNumber-1][3]}
             </span>
           </div>
         </div>
@@ -159,8 +158,8 @@ const QuestionBox = (props) => {
     if(answers[9]==document.querySelector('input[name="options"]:checked').value){
       optionsOpted[9]=1;
       props.setFocus(props.focus+((100-time[9])*optionsOpted[9])/(2*ratio[(9)%5]));
-          props.setIsExit(true);
           }
+          props.setIsExit(true);
           }}>
             Submit
           </button>

@@ -40,9 +40,9 @@ const PrimaryNavbar = (props) => {
   return (
     <div className="PNNavbox">
       <div className="PNBox1">
-        <Link to="/" className="PNLogo">
+        <div className="PNLogo">
           <img src={Logo} alt="logo" />
-        </Link>
+        </div>
         <div className="PNQuestionnobox">
           <span className="PNPresentQuestion">
             {props.questionNumber + "/"}
@@ -52,10 +52,6 @@ const PrimaryNavbar = (props) => {
       </div>
 
       <div className="PNBox2">
-        {/* <div className="PNScore">
-          <img src={Coins} alt="coins" />
-          <span className="detailtext">{props.score}</span>
-        </div> */}
 
         <div className="PNTimer">
           <img src={Clock} alt="Timer" />

@@ -98,9 +98,7 @@ const PrimaryGame = () => {
       which: 65,
     });
     frame.dispatchEvent(newEvent);
-    console.log("hello");
   };
-  console.log([speed,deep,memory,logic,focus]);
   let [popOut, setPopOut] = useState(1);
   const [over, setOver] = useState(false);
   return (
