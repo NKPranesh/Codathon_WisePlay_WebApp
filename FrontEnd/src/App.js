@@ -9,6 +9,7 @@ import SecondaryGame from "./Containers/SecondaryGame";
 import Test from "./Containers/Test";
 import "./App.css";
 import { useState } from "react";
+import Profile from "./components/profile";
 
 function App() {
   let [testsData, setTestsData] = useState([]);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/test" element={<Test />} />
           <Route path="/secondarygame" element={<SecondaryGame />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -7,7 +7,7 @@ import Logouticon from "../media/logouticon.svg";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/dashboardNavbar.css";
 
-const DashboardNavbar = () => {
+const DashboardNavbar = (props) => {
   let [selected, setSelected] = useState("home");
   const navigate = useNavigate();
 
@@ -41,6 +41,7 @@ const DashboardNavbar = () => {
             }
             onClick={() => {
               setSelected("home");
+              props.setIsProfile(false);
             }}
           >
             <div className="dbNavabarCompimg">
@@ -60,6 +61,7 @@ const DashboardNavbar = () => {
             }
             onClick={() => {
               setSelected("dashboard");
+              props.setIsProfile(false);
             }}
           >
             <div className="dbNavabarCompimg">
@@ -70,7 +72,7 @@ const DashboardNavbar = () => {
             </div>
           </div>
         </a>
-        <a href="#PRHeadDivID">
+        <a href="#">
           <div
             className={
               selected === "profile"
@@ -79,6 +81,7 @@ const DashboardNavbar = () => {
             }
             onClick={() => {
               setSelected("profile");
+              props.setIsProfile(true);
             }}
           >
             <div className="dbNavabarCompimg">
@@ -98,6 +101,7 @@ const DashboardNavbar = () => {
             }
             onClick={() => {
               setSelected("logout");
+              props.setIsProfile(false);
               logoutButtonHandle();
             }}
           >

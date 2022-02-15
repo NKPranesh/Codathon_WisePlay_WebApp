@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../stylesheets/dashboardContent.css";
 import SkaterGirl from "../media/Skater Girl.svg";
 import Student from "../media/Studentimg.svg";
@@ -7,10 +7,13 @@ import Profile from "./profile";
 import { Link } from "react-router-dom";
 
 const DashboardContent = (props) => {
+  
   return (
     <div className="DBContentDiv">
       <div className="DBTopNav">Welcome Nagveer!!</div>
       <div className="DBContent">
+        { !props.isprofile ? (
+          <React.Fragment>
         <div className="DBTestArea">
           <span className="DBTestText">Take a test today.</span>
           <div className="DBTestFIled">
@@ -53,7 +56,10 @@ const DashboardContent = (props) => {
           </div>
         </div>
         <Dashboard testsData={props.testsData} />
+        </React.Fragment> )
+        :
         <Profile/>
+  }
       </div>
     </div>
   );

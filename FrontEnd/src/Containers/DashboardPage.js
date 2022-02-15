@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardContent from "../components/dashboardContent";
 import DashboardNavbar from "../components/dashboarfNavbar";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import "../stylesheets/DashboardPage.css";
 
 const DashboardPage = (props) => {
   const navigate = useNavigate();
+  let [isprofile,setIsProfile]=useState(false);
 
   const authenticate = async () => {
     let isAuthenticated = false;
@@ -43,8 +44,8 @@ const DashboardPage = (props) => {
 
   return (
     <div className="DBPageDiv">
-      <DashboardNavbar />
-      <DashboardContent testsData={props.testsData} />
+      <DashboardNavbar setIsProfile={setIsProfile}/>
+      <DashboardContent testsData={props.testsData} isprofile={isprofile}/>
     </div>
   );
 };
