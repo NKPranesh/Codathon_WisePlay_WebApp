@@ -65,3 +65,27 @@
 .OPNextButton:hover {
   background: linear-gradient(to right, #9d50f5, #9d50f5);
 }
+
+@media screen and (max-width: 1336px) {
+  .OPOptions span {
+    width: 280px;
+    height: 260px;
+  }
+  
+}
+
+@media screen and (max-width: 1236px) {
+  .OPOptions span {
+    width: 260px;
+    height: 240px;
+  }
+  
+}
+
+@media screen and (max-width: 1136px) {
+  .OPOptions span {
+    width: 240px;
+    height: 220px;
+  }
+  
+}
