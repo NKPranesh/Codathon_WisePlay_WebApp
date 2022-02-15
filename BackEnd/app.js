@@ -256,3 +256,7 @@ app.post("/saveProfile", async (req, res) => {
     });
   }
 });
+
+app.get("/test", (req, res) => {
+  res.json({ msg: "Working good" });
+});
