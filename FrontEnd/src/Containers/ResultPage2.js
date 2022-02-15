@@ -9,22 +9,21 @@ import SharePopup from "../components/sharePopup";
 import { Doughnut } from "react-chartjs-2";
 import html2canvas from "html2canvas";
 import "../stylesheets/ResultPage2.css";
-let certificateimage = "";
 const ResultPage = () => {
+
   let [popupDisplay, setPopupDisplay] = useState(false);
-  let testData=[68,76,43,78,90];
- let sum=testData.reduce((accumulator, curr) => accumulator + curr)/5;
+  let testData = [68, 76, 43, 78, 90];
+  let sum = testData.reduce((accumulator, curr) => accumulator + curr) / 5;
   const doughnutData = {
     labels: ["Correct", "Wrong"],
     datasets: [
       {
-        data: [sum, 100-sum],
+        data: [sum, 100 - sum],
         backgroundColor: ["#0058FF", "#F24B0F"],
         hoverOffset: 4,
       },
     ],
   };
-
   const navigate = useNavigate();
 
   const authenticate = async () => {
@@ -53,13 +52,13 @@ const ResultPage = () => {
   useEffect(() => {
     authenticate();
   }, []);
+  setTimeout(()=>{
 
-  window.onload = function () {
     var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-today = mm + '-' + dd + '-' + yyyy;
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+    today = mm + "-" + dd + "-" + yyyy;
     var c = document.getElementById("rscertificatepreview");
     var ctx = c.getContext("2d");
     var img = document.getElementById("rsCertificate");
@@ -67,11 +66,11 @@ today = mm + '-' + dd + '-' + yyyy;
     ctx.font = "20px Poppins";
     ctx.fillText("Mani Sai", 210, 130);
     ctx.font = "15px Poppins";
-    ctx.fillText(testData[0]+"%", 70, 235);
-    ctx.fillText(testData[1]+"%", 169, 235);
-    ctx.fillText(testData[2]+"%", 230, 235);
-    ctx.fillText(testData[3]+"%", 303, 235);
-    ctx.fillText(testData[4]+"%", 384, 235);
+    ctx.fillText(testData[0] + "%", 70, 235);
+    ctx.fillText(testData[1] + "%", 169, 235);
+    ctx.fillText(testData[2] + "%", 230, 235);
+    ctx.fillText(testData[3] + "%", 303, 235);
+    ctx.fillText(testData[4] + "%", 384, 235);
     ctx.font = "10px Poppins";
     ctx.fillText(today, 120, 275);
     var data = document.getElementById("rscertificatepreview");
@@ -88,11 +87,12 @@ today = mm + '-' + dd + '-' + yyyy;
         // html.style.width = null;
         // body.style.width = null;
       });
-  };
+
+  },1000)
   return (
     <React.Fragment>
       <div id="RPMainDiv">
-        <ResultNavbar/>
+        <ResultNavbar />
         <div className="rsMaindiv">
           <div className="rscongodiv">
             <div className="rssucessimg">
@@ -110,44 +110,56 @@ today = mm + '-' + dd + '-' + yyyy;
           </div>
           <div className="rsscorerow">
             <div className="rsscoregraph">
-            <div className="rsDoughnutdiv">
-              <div className="rsDoughnutPercentage"><span>{sum+'%'}</span></div>
-              <Doughnut
-                      className="rsDoughnutScore"
-                      data={doughnutData}
-                      options={{
-                        cutout: 110,
-                        plugins: {
-                          legend: {
-                            display: false,
-                            position: "right",
-                          },
-                        },
-                      }}
-                    />
-                    <div className="rsscoresdiv">
-                      <div className="rsscorestatdiv">
-                        <span className="rsscorestath">Speed:</span>
-                        <span className="rsscorestatpercentage">{testData[0]+'%'}</span>
-                      </div>
-                      <div className="rsscorestatdiv">
-                        <span className="rsscorestath">Deep Thinking:</span>
-                        <span className="rsscorestatpercentage">{testData[1]+'%'}</span>
-                      </div>
-                      <div className="rsscorestatdiv">
-                        <span className="rsscorestath">Memory:</span>
-                        <span className="rsscorestatpercentage">{testData[2]+'%'}</span>
-                      </div>
-                      <div className="rsscorestatdiv">
-                        <span className="rsscorestath">Logical Reasoning:</span>
-                        <span className="rsscorestatpercentage">{testData[3]+'%'}</span>
-                      </div>
-                      <div className="rsscorestatdiv">
-                        <span className="rsscorestath">Focus:</span>
-                        <span className="rsscorestatpercentage">{testData[4]+'%'}</span>
-                      </div>
-                    </div>
-            </div>
+              <div className="rsDoughnutdiv">
+                <div className="rsDoughnutPercentage">
+                  <span>{sum + "%"}</span>
+                </div>
+                <Doughnut
+                  className="rsDoughnutScore"
+                  data={doughnutData}
+                  options={{
+                    cutout: 110,
+                    plugins: {
+                      legend: {
+                        display: false,
+                        position: "right",
+                      },
+                    },
+                  }}
+                />
+                <div className="rsscoresdiv">
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Speed:</span>
+                    <span className="rsscorestatpercentage">
+                      {testData[0] + "%"}
+                    </span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Deep Thinking:</span>
+                    <span className="rsscorestatpercentage">
+                      {testData[1] + "%"}
+                    </span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Memory:</span>
+                    <span className="rsscorestatpercentage">
+                      {testData[2] + "%"}
+                    </span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Logical Reasoning:</span>
+                    <span className="rsscorestatpercentage">
+                      {testData[3] + "%"}
+                    </span>
+                  </div>
+                  <div className="rsscorestatdiv">
+                    <span className="rsscorestath">Focus:</span>
+                    <span className="rsscorestatpercentage">
+                      {testData[4] + "%"}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="rsscorerow">
               <hr className="rounded" />
@@ -185,7 +197,7 @@ today = mm + '-' + dd + '-' + yyyy;
         <Footer />
       </div>
       {popupDisplay && (
-        <SharePopup close={setPopupDisplay} image={certificateimage}/>
+        <SharePopup close={setPopupDisplay} image={certificateimage} />
       )}
     </React.Fragment>
   );
