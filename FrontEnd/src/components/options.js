@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/options.css";
 
@@ -37,6 +38,7 @@ const Options = (props) => {
   };
 
   return (
+    <React.Fragment>
     <div className="OPMainDiv">
       <div className="OPOptions">
         <span
@@ -109,12 +111,27 @@ const Options = (props) => {
             setPrevTime([props.min, props.sec]);
             flag = flag + 1;
             if (flag % 2 == 0) {
+              props.setPopupDisplay(true);
+              var square = document.getElementById("SGMainDivID");
+              square.style.filter = "blur(6px)";
+                square.style.height = "100vh";
+                square.style.overflow = "hidden";
+              setTimeout(() => {
+                props.setPopupDisplay(false);
+                square.style.filter = "";
+                square.style.height = "";
+                square.style.overflow = "";
+                
+              },5000);
+
               props.setQuestionNumber(props.questionNumber + 1);
                 props.setScore(props.score + (props.min * 60 + props.sec) * 10);
             } else {
                 props.setQuestionNumber(props.questionNumber + 1);
                 props.setScore(props.score + (props.min * 60 + props.sec) * 10);
             }
+            move("OPE");
+            selectedOption='e';
           }}
           >Next</button>)
           :
@@ -124,7 +141,22 @@ const Options = (props) => {
               optionsOpted[9]=1;
               props.setFocus(props.focus+((100-time[9])*optionsOpted[9])/(2*ratio[(9)%5]));
                   }
-                  props.setIsExit(true);
+                  props.setPopupDisplay(true);
+              var square = document.getElementById("SGMainDivID");
+              square.style.filter = "blur(6px)";
+                square.style.height = "100vh";
+                square.style.overflow = "hidden";
+              setTimeout(() => {
+                props.setPopupDisplay(false);
+                square.style.filter = "";
+                square.style.height = "";
+                square.style.overflow = "";
+                
+              },5000);
+              setTimeout(()=> {
+                props.setIsExit(true);
+              },1000);
+
           }}>
             Submit
           </button>)
@@ -132,6 +164,8 @@ const Options = (props) => {
         </div>
       </div>
     </div>
+    
+    </React.Fragment>
   );
 };
 
