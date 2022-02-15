@@ -12,17 +12,17 @@ const Options = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
   let questionOptions = [
     ['2.56','2.56','2.56','2.56'],
+    ['Brother','Uncle','Cousin','Father'],
     ['2.56','2.56','2.56','2.56'],
+    ['15','14','13','12'],
+    ['NASA has a budget of $17 billion','The cost of making one space shuttle can be used for other constructive work.','The money spent on NASA can be used otherwise.','Space exploration is costly and some people are worried.'],
     ['2.56','2.56','2.56','2.56'],
+    ['15 m West','30 m East','30 m West','45 m East'],
     ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
+    ['OEP','NEO','MEN','PFQ'],
     ['2.56','2.56','2.56','2.56'],
   ];
-  let answers = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a"];
+  let answers = ["a", "d", "a", "a", "d", "a", "d", "a", "b", "a"];
 
   const navigate = useNavigate();
   let move = (className) => {
