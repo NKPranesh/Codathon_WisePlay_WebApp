@@ -35,7 +35,7 @@
   width: 300px;
   height: 350px;
 }
-.DBAverageTopChart{
+.DBAverageTopChart {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,14 +45,14 @@
   width: 100px;
   margin: 20px 10px;
 }
-.DBDoughnutcolorMainDiv{
+.DBDoughnutcolorMainDiv {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   height: inherit;
 }
-.DbDoughnutcolordiv{
+.DbDoughnutcolordiv {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -60,20 +60,20 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.DbDoughnutcolordiv span{
+.DbDoughnutcolordiv span {
   font-size: 10px;
 }
-.DbDoughnutcolorboxcorrect{
+.DbDoughnutcolorboxcorrect {
   width: 12px;
   height: 12px;
   margin-right: 5px;
-  background-color: #0058FF;
+  background-color: #0058ff;
 }
-.DbDoughnutcolorboxwrong{
+.DbDoughnutcolorboxwrong {
   width: 12px;
   height: 12px;
   margin-right: 5px;
-  background-color: #F24B0F;
+  background-color: #f24b0f;
 }
 .DBAverageTopHead span,
 .DBAverageBottomHead span {
@@ -136,13 +136,13 @@
   font-size: 10px;
   margin: 2px 0px;
 }
-.DBHistorypercent{
+.DBHistorypercent {
   position: relative;
   top: 42px;
   left: 14px;
   font-size: 13px;
 }
-.DBAveragepercent{
+.DBAveragepercent {
   position: relative;
   top: 60px;
   left: 25px;

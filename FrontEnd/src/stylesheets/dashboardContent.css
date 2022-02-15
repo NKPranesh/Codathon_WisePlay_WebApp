@@ -3,6 +3,7 @@
   flex-direction: column;
   margin-left: 180px;
   background-color: #edf2fc;
+  width: 100%;
 }
 
 .DBTopNav {
@@ -102,4 +103,20 @@
 
 .DBStartButton a {
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .DBStoryMode,
+.DBNormalMode {
+  margin-top: 20px;
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  padding-bottom: 0px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 }

@@ -203,3 +203,32 @@ app.post("/newTestData", async (req, res) => {
     });
   }
 });
+
+app.get("/dashboard", async (req, res) => {
+  let token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, "philanterfakadi", async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let user = await User.findById(decodedToken.id);
+        res.status(200).json({ name: user.name, testsData: user.tests });
+      }
+    });
+  }
+});
+
+app.get("/resultData", async (req, res) => {
+  let token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, "philanterfakadi", async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let user = await User.findById(decodedToken.id);
+        let lastTestData = user.tests[user.tests.length - 1];
+        res.status(200).json({ name: user.name, lastTestData });
+      }
+    });
+  }
+});

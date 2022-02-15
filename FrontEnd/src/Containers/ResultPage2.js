@@ -9,22 +9,59 @@ import SharePopup from "../components/sharePopup";
 import { Doughnut } from "react-chartjs-2";
 import html2canvas from "html2canvas";
 import "../stylesheets/ResultPage2.css";
-const ResultPage = () => {
 
+let certificateimage = "";
+const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
-  let testData = [68, 76, 43, 78, 90];
-  let sum = testData.reduce((accumulator, curr) => accumulator + curr) / 5;
-  const doughnutData = {
+  let [testData, setTestData] = useState([]);
+  let [name, setName] = useState("");
+  let sum = 0;
+  let [doughnutData, setDoughnutData] = useState({
     labels: ["Correct", "Wrong"],
     datasets: [
       {
-        data: [sum, 100 - sum],
+        data: [10, 90],
         backgroundColor: ["#0058FF", "#F24B0F"],
         hoverOffset: 4,
       },
     ],
-  };
+  });
+
   const navigate = useNavigate();
+
+  const getData = async () => {
+    await fetch(process.env.React_App_Backend_domain + "/resultData", {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setName(responseJson.name);
+        setTestData(responseJson.lastTestData);
+        for (let i = 0; i < responseJson.lastTestData.length; i++) {
+          sum = sum + responseJson.lastTestData[i];
+        }
+        sum = (sum / 5).toFixed(2);
+        console.log(sum);
+        setDoughnutData({
+          labels: ["Correct", "Wrong"],
+          datasets: [
+            {
+              data: [sum, 100 - sum],
+              backgroundColor: ["#0058FF", "#F24B0F"],
+              hoverOffset: 4,
+            },
+          ],
+        });
+        console.log(responseJson);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+
+    return 1;
+  };
 
   const authenticate = async () => {
     let isAuthenticated = false;
@@ -50,10 +87,10 @@ const ResultPage = () => {
   };
 
   useEffect(() => {
+    getData();
     authenticate();
   }, []);
-  setTimeout(()=>{
-
+  setTimeout(() => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -64,7 +101,7 @@ const ResultPage = () => {
     var img = document.getElementById("rsCertificate");
     ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, c.width, c.height);
     ctx.font = "20px Poppins";
-    ctx.fillText("Mani Sai", 210, 130);
+    ctx.fillText(name, 210, 130);
     ctx.font = "15px Poppins";
     ctx.fillText(testData[0] + "%", 70, 235);
     ctx.fillText(testData[1] + "%", 169, 235);
@@ -87,8 +124,7 @@ const ResultPage = () => {
         // html.style.width = null;
         // body.style.width = null;
       });
-
-  },1000)
+  }, 1000);
   return (
     <React.Fragment>
       <div id="RPMainDiv">
