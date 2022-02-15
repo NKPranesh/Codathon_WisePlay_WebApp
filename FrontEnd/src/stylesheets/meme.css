@@ -1,6 +1,12 @@
 .MMImage {
     filter: blur(0px);
     position: fixed;
-    top: 120px;
-    left: 382px;
+    top: 80px;
+    left: 490px;
+    background-color: #655BC4;
+    border-radius: 15px;
+}
+.MMImage img{
+    padding: 25px;
+    width: 500px;
 }

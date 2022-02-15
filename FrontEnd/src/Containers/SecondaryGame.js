@@ -8,9 +8,11 @@ import "../stylesheets/question.css";
 import Meme from "../components/meme";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
-let scores=[0,0,0,0,0];
+let scores = [0, 0, 0, 0, 0];
+let count = 0;
+let qno = 0;
 const SecondaryGame = () => {
-  const [popupDisplay, setPopupDisplay]=useState(false);
+  const [popupDisplay, setPopupDisplay] = useState(false);
   let questions = [
     "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
     "Father2 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
@@ -23,26 +25,16 @@ const SecondaryGame = () => {
     "Father9 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
     "Father10 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
   ];
-  const [speed,setSpeed] = useState(0);
-  const [deep,setDeep] = useState(0);
-  const [memory,setMemory] = useState(0);
-  const [focus,setFocus] = useState(0);
-  const [logic,setLogic] = useState(0);
-  let [score,setScore]=useState(0);
+  let [score, setScore] = useState(0);
+  let [trait, setTrait] = useState(5);
+  let [timetaken, setTimetaken] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
   const navigate = useNavigate();
-  const [isExit,setIsExit] = useState(false);
+  const [isExit, setIsExit] = useState(false);
   const [over, setOver] = useState(false);
-
   let submitButtonHandle = async () => {
-    scores[0] = speed;
-    scores[1] = deep;
-    scores[2] = memory;
-    scores[3] = logic;
-    scores[4] = focus;
-
     await fetch(process.env.React_App_Backend_domain + "/newTestData", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -61,12 +53,15 @@ const SecondaryGame = () => {
         console.log(error);
       });
   };
-
-  if(isExit)
-  {
+  if (isExit && count == 0) {
+    count++;
     submitButtonHandle();
   }
-
+  if (trait < 5 && qno != questionNumber) {
+    scores[trait] += timetaken;
+    setTrait(5);
+    qno = questionNumber;
+  }
   const authenticate = async () => {
     let isAuthenticated = false;
 
@@ -95,56 +90,47 @@ const SecondaryGame = () => {
   }, []);
   return (
     <React.Fragment>
-    <div className="SGOuterDiv" id="SGMainDivID">
-      <SecondaryNavbar 
-      setIsExit={setIsExit}
-      questionNumber={questionNumber}
-      score={score}
-      min={min}
-      sec={sec}
-      setMin={setMin}
-      setSec={setSec}
-      over={over}
-      setOver={setOver}
-      />
-      <div className="SGMainDiv">
-      {!over ? (
-        <React.Fragment>
-        <div className="SGInnerDiv">
-        <div className="QNQuestion">
-            {questions[questionNumber-1]}
-        </div>
-          <Options 
-          setPopupDisplay={setPopupDisplay}
+      <div className="SGOuterDiv" id="SGMainDivID">
+        <SecondaryNavbar
           setIsExit={setIsExit}
-          setSpeed={setSpeed}
-          setDeep={setDeep}
-          setMemory={setMemory}
-          setFocus={setFocus}
-          setLogic={setLogic}
-          speed={speed}
-          memory={memory}
-          logic={logic}
-          deep={deep}
-          focus={focus}
-          setQuestionNumber={setQuestionNumber}
           questionNumber={questionNumber}
-          setMin={setMin}
           score={score}
-          setScore={setScore}
-          setSec={setSec}
           min={min}
-          sec={sec}/>
+          sec={sec}
+          setMin={setMin}
+          setSec={setSec}
+          over={over}
+          setOver={setOver}
+        />
+        <div className="SGMainDiv">
+          {!over ? (
+            <React.Fragment>
+              <div className="SGInnerDiv">
+                <div className="QNQuestion">
+                  {questions[questionNumber - 1]}
+                </div>
+                <Options
+                  setPopupDisplay={setPopupDisplay}
+                  setIsExit={setIsExit}
+                  setTimetaken={setTimetaken}
+                  setTrait={setTrait}
+                  setQuestionNumber={setQuestionNumber}
+                  questionNumber={questionNumber}
+                  setMin={setMin}
+                  score={score}
+                  setScore={setScore}
+                  setSec={setSec}
+                  min={min}
+                  sec={sec}
+                />
+              </div>
+            </React.Fragment>
+          ) : (
+            <RedirectToHomePage />
+          )}
         </div>
-        </React.Fragment>
-        ) : (
-          <RedirectToHomePage />
-        )}
       </div>
-    </div>
-    {popupDisplay &&(
-      <Meme />
-    )}
+      {popupDisplay && <Meme memeNumber={questionNumber}/>}
     </React.Fragment>
   );
 };
