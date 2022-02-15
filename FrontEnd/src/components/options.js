@@ -120,12 +120,14 @@ const Options = (props) => {
               square.style.filter = "blur(6px)";
                 square.style.height = "100vh";
                 square.style.overflow = "hidden";
+                square.style.pointerEvents="none";
               setTimeout(() => {
                 props.setPopupDisplay(false);
                 square.style.filter = "";
                 square.style.height = "";
-                square.style.overflow = "";                
-              },5000);
+                square.style.overflow = "";
+                square.style.pointerEvents="";                
+              },2000);
               props.setQuestionNumber(props.questionNumber + 1);
                 props.setScore(props.score + (props.min * 60 + props.sec) * 10);
             } else {
@@ -152,12 +154,13 @@ const Options = (props) => {
               square.style.filter = "blur(6px)";
                 square.style.height = "100vh";
                 square.style.overflow = "hidden";
+                square.style.pointerEvents="none";
               setTimeout(() => {
                 props.setPopupDisplay(false);
                 square.style.filter = "";
                 square.style.height = "";
                 square.style.overflow = "";
-                
+                square.style.pointerEvents="";  
               },2000);
               setTimeout(()=> {
                 props.setIsExit(true);

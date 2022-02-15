@@ -6,14 +6,12 @@ import PrimaryNavbar from "../components/primaryNavbar";
 import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
-
+let qno = 0;
+let count=0;
 let scores=[0,0,0,0,0];
 const PrimaryGame = () => {
-  const [speed,setSpeed] = useState(0);
-  const [deep,setDeep] = useState(0);
-  const [memory,setMemory] = useState(0);
-  const [focus,setFocus] = useState(0);
-  const [logic,setLogic] = useState(0);
+  let [trait, setTrait] = useState(5);
+  let [timetaken, setTimetaken] = useState(0);
   let [score,setScore]=useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
@@ -22,12 +20,6 @@ const PrimaryGame = () => {
   const [isExit,setIsExit] = useState(false);
 
   let submitButtonHandle = async () => {
-    scores[0] = speed;
-    scores[1] = deep;
-    scores[2] = memory;
-    scores[3] = logic;
-    scores[4] = focus;
-
     await fetch(process.env.React_App_Backend_domain + "/newTestData", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -47,11 +39,15 @@ const PrimaryGame = () => {
       });
   };
 
-  if(isExit)
-  {
+  if (isExit && count == 0) {
+    count++;
     submitButtonHandle();
   }
-
+  if (trait < 5 && qno != questionNumber) {
+    scores[trait] += timetaken;
+    setTrait(5);
+    qno = questionNumber;
+  }
   const authenticate = async () => {
     let isAuthenticated = false;
 
@@ -128,16 +124,8 @@ const PrimaryGame = () => {
               ></iframe>
               <QuestionBox
               setIsExit={setIsExit}
-                setSpeed={setSpeed}
-                setDeep={setDeep}
-                setMemory={setMemory}
-                setFocus={setFocus}
-                setLogic={setLogic}
-                speed={speed}
-                memory={memory}
-                logic={logic}
-                deep={deep}
-                focus={focus}
+              setTimetaken={setTimetaken}
+              setTrait={setTrait}
                 // exitHandle ={exitHandle}
                 animate={animate}
                 setPopOut={setPopOut}

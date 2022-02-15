@@ -130,7 +130,7 @@ const SecondaryGame = () => {
           )}
         </div>
       </div>
-      {popupDisplay && <Meme />}
+      {popupDisplay && <Meme memeNumber={questionNumber}/>}
     </React.Fragment>
   );
 };
