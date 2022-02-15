@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://wiseplay-teamsemicolon.web.app/"
+    "https://wiseplay-teamsemicolon.web.app"
   );
   //test
   // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
