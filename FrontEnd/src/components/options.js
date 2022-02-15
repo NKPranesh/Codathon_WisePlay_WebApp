@@ -83,35 +83,35 @@ const Options = (props) => {
         {props.questionNumber < 10 ? (
           <button className="OPNextButton"
           onClick={() => {
-            console.log([answers[props.questionNumber - 1],selectedOption])
             if(answers[props.questionNumber - 1]==selectedOption){
               optionsOpted[props.questionNumber - 1]=1;
             }
             time[props.questionNumber - 1] =
               prevMin * 60 + prevSec - (props.min * 60 + props.sec);
-              if((props.questionNumber - 1)%5 == 0)
-              {
-                props.setSpeed(props.speed+(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
-                // console.log(props.speed+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-                props.setSpeed(80);
-                console.log("speed "+props.speed);
-              }
-              else if((props.questionNumber - 1)%5 == 1)
-              {
-                props.setDeep(props.deep+(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
-              }
-              else if((props.questionNumber - 1)%5 == 2)
-              {
-                props.setMemory(props.memory+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-              }
-              else if((props.questionNumber - 1)%5 == 3)
-              {
-                props.setLogic(props.logic+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-              }
-              else if((props.questionNumber - 1)%5 == 4)
-              {
-                props.setFocus(props.focus+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-              }
+              props.setTrait((props.questionNumber-1)%5);
+              let minscore=20;
+              minscore= 100-time[props.questionNumber - 1]>minscore? 100-time[props.questionNumber - 1]:minscore;
+              props.setTimetaken((((minscore)*optionsOpted[props.questionNumber - 1])/(2)));
+              // if((props.questionNumber - 1)%5 == 0)
+              // {
+              //   props.setTimetaken((((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
+              // }
+              // else if((props.questionNumber - 1)%5 == 1)
+              // {
+              //   props.setTimetaken((((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
+              // }
+              // else if((props.questionNumber - 1)%5 == 2)
+              // {
+              //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+              // }
+              // else if((props.questionNumber - 1)%5 == 3)
+              // {
+              //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+              // }
+              // else if((props.questionNumber - 1)%5 == 4)
+              // {
+              //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+              // }
             setPrevTime([props.min, props.sec]);
             flag = flag + 1;
             if (flag % 2 == 0) {
@@ -124,10 +124,8 @@ const Options = (props) => {
                 props.setPopupDisplay(false);
                 square.style.filter = "";
                 square.style.height = "";
-                square.style.overflow = "";
-                
+                square.style.overflow = "";                
               },5000);
-
               props.setQuestionNumber(props.questionNumber + 1);
                 props.setScore(props.score + (props.min * 60 + props.sec) * 10);
             } else {
@@ -143,8 +141,12 @@ const Options = (props) => {
             time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
             if(answers[9]==selectedOption){
               optionsOpted[9]=1;
-              props.setFocus(props.focus+((100-time[9])*optionsOpted[9])/(2*ratio[(9)%5]));
+              
                   }
+                  props.setTrait((props.questionNumber-1)%5);
+              let minscore=20;
+              minscore= 105-time[props.questionNumber - 1]>minscore? 105-time[props.questionNumber - 1]:minscore;
+              props.setTimetaken((((minscore)*optionsOpted[props.questionNumber - 1])/(2)));
                   props.setPopupDisplay(true);
               var square = document.getElementById("SGMainDivID");
               square.style.filter = "blur(6px)";
@@ -156,7 +158,7 @@ const Options = (props) => {
                 square.style.height = "";
                 square.style.overflow = "";
                 
-              },5000);
+              },2000);
               setTimeout(()=> {
                 props.setIsExit(true);
               },1000);
