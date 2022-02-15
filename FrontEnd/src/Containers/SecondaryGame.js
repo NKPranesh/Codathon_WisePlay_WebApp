@@ -5,11 +5,14 @@ import Question from "../components/question";
 import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 import "../stylesheets/question.css";
+import Meme from "../components/meme";
+import RedirectToHomePage from "../components/redirectToHomePage";
 
 let scores = [0, 0, 0, 0, 0];
 let count = 0;
 let c = 0;
 const SecondaryGame = () => {
+  const [popupDisplay, setPopupDisplay]=useState(false);
   let questions = [
     "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
     "Father2 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
@@ -90,51 +93,58 @@ const SecondaryGame = () => {
     authenticate();
   }, []);
   return (
-    <div className="SGOuterDiv">
-      <SecondaryNavbar
-        setIsExit={setIsExit}
-        questionNumber={questionNumber}
-        score={score}
-        min={min}
-        sec={sec}
-        setMin={setMin}
-        setSec={setSec}
-        over={over}
-        setOver={setOver}
+    <React.Fragment>
+    <div className="SGOuterDiv" id="SGMainDivID">
+      <SecondaryNavbar 
+      setIsExit={setIsExit}
+      questionNumber={questionNumber}
+      score={score}
+      min={min}
+      sec={sec}
+      setMin={setMin}
+      setSec={setSec}
+      over={over}
+      setOver={setOver}
       />
       <div className="SGMainDiv">
-        {!over ? (
-          <React.Fragment>
-            <div className="SGInnerDiv">
-              <div className="QNQuestion">{questions[questionNumber - 1]}</div>
-              <Options
-                setIsExit={setIsExit}
-                setSpeed={setSpeed}
-                setDeep={setDeep}
-                setMemory={setMemory}
-                setFocus={setFocus}
-                setLogic={setLogic}
-                speed={speed}
-                memory={memory}
-                logic={logic}
-                deep={deep}
-                focus={focus}
-                setQuestionNumber={setQuestionNumber}
-                questionNumber={questionNumber}
-                setMin={setMin}
-                score={score}
-                setScore={setScore}
-                setSec={setSec}
-                min={min}
-                sec={sec}
-              />
-            </div>
-          </React.Fragment>
+      {!over ? (
+        <React.Fragment>
+        <div className="SGInnerDiv">
+        <div className="QNQuestion">
+            {questions[questionNumber-1]}
+        </div>
+          <Options 
+          setPopupDisplay={setPopupDisplay}
+          setIsExit={setIsExit}
+          setSpeed={setSpeed}
+          setDeep={setDeep}
+          setMemory={setMemory}
+          setFocus={setFocus}
+          setLogic={setLogic}
+          speed={speed}
+          memory={memory}
+          logic={logic}
+          deep={deep}
+          focus={focus}
+          setQuestionNumber={setQuestionNumber}
+          questionNumber={questionNumber}
+          setMin={setMin}
+          score={score}
+          setScore={setScore}
+          setSec={setSec}
+          min={min}
+          sec={sec}/>
+        </div>
+        </React.Fragment>
         ) : (
           <RedirectToHomePage />
         )}
       </div>
     </div>
+    {popupDisplay &&(
+      <Meme />
+    )}
+    </React.Fragment>
   );
 };
 

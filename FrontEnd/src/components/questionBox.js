@@ -88,6 +88,7 @@ const QuestionBox = (props) => {
               if(answers[props.questionNumber - 1]==document.querySelector('input[name="options"]:checked').value){
                 optionsOpted[props.questionNumber - 1]=1;
               }
+              
               time[props.questionNumber - 1] =
                 prevMin * 60 + prevSec - (props.min * 60 + props.sec);
                 if((props.questionNumber - 1)%5 == 0)
@@ -143,10 +144,18 @@ const QuestionBox = (props) => {
                   props.setScore(
                     props.score + (props.min * 60 + props.sec) * 10
                   );
+                  var radList = document.getElementsByName('options');
+                for (var i = 0; i < radList.length; i++) {
+                  radList[i].checked = false;
+                }
                 }, 4001);
               } else {
                   props.setQuestionNumber(props.questionNumber + 1);
                   props.setScore(props.score + (props.min * 60 + props.sec) * 10);
+                  var radList = document.getElementsByName('options');
+                for (var i = 0; i < radList.length; i++) {
+                  radList[i].checked = false;
+                }
               }
             }}
           >
