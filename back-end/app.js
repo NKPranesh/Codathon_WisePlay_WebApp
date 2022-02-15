@@ -30,12 +30,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(function (req, res, next) {
-  //   res.setHeader(
-  //     "Access-Control-Allow-Origin",
-  //     "https://connectingworldapp.web.app"
-  //   );
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://wiseplay-teamsemicolon.web.app/"
+  );
   //test
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
 
   // Request methods you wish to allow
   res.setHeader(
@@ -117,20 +117,12 @@ app.post("/login", async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 1 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
+      domain: "wiseplay-api.herokuapp.com",
+      // domain: "localhost",
       secure: true,
       sameSite: "none",
     });
     const testsData = user.tests;
-    res.cookie("testsData", testsData, {
-      maxAge: 1 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
-      secure: true,
-      sameSite: "none",
-    });
     res.status(200).json({ user: user._id, token, testsData });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -156,8 +148,8 @@ app.post("/signup", async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 1 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
+      domain: "wiseplay-api.herokuapp.com",
+      // domain: "localhost",
       secure: true,
       sameSite: "none",
     });
@@ -171,8 +163,8 @@ app.post("/signup", async (req, res) => {
 app.get("/logout", (req, res) => {
   res.cookie("jwt", "", {
     maxAge: 1,
-    // domain: "connectingworld-api.herokuapp.com",
-    domain: "localhost",
+    domain: "wiseplay-api.herokuapp.com",
+    // domain: "localhost",
     secure: true,
     sameSite: "none",
   });
