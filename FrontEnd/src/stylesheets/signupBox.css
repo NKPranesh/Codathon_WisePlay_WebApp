@@ -36,7 +36,9 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
-
+.SBConfirmPasswordDiv{
+  margin-bottom: 0px;
+}
 .SBInput {
   border-color: rgba(140, 48, 245, 0.4);
   border-width: 1px;
@@ -49,7 +51,7 @@
 .SBSignupButtonDiv {
   display: flex;
   justify-content: center;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 .SBSignupButton {
   width: 180px;
@@ -62,4 +64,10 @@
   font-weight: 500;
   margin-top: 20px;
   cursor: pointer;
+}
+.SBsignuptext{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

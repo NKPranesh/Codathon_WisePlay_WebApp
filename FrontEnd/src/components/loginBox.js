@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/loginBox.css";
-
+import { Link } from "react-router-dom";
 const LoginBox = (props) => {
   const [error, setError] = useState("");
   const [errorDisplay, setErrorDisplay] = useState("none");
@@ -57,6 +57,9 @@ const LoginBox = (props) => {
           <button className="LBLoginButton" onClick={loginButtonHandle}>
             Login
           </button>
+        </div>
+        <div className="LBsignuptext">
+          <span>Don't have an account ? <Link to="/signup">Signup</Link></span>
         </div>
       </div>
     </div>

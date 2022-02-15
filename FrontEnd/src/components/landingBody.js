@@ -19,7 +19,7 @@ const LandingBody = () => {
           <span>Assess your self from any corner of the world</span>
         </div>
         <div class="LBIntroButton">
-          <Link to="/">Start Using</Link>
+          <Link to="/signup">Start Using</Link>
         </div>
         <div className="LBIntroImage">
           <img src={Student} alt="img" />
@@ -27,9 +27,9 @@ const LandingBody = () => {
       </div>
       <div class="LBBannerDiv">
         <div className="LBBannerTopDiv">
-          <span className="LBBannerTopH1">Are already using</span>
+          <span className="LBBannerTopH1">Excited to share your result</span>
           <span className="LBBannerTopH2">
-            We have been working with some 500 clients
+            You can use these platforms 
           </span>
         </div>
         <div className="LBBannerBottomDiv">
@@ -50,9 +50,8 @@ const LandingBody = () => {
             Intuitive dashboard for monitoring
           </span>
           <span className="LBDashboardTextB">
-            Track sales and customers on any device, a very simple and intuitive
-            interface where you will not have any difficulties, as well as
-            advanced teamwork
+            Track your test results with our dashboard which provides detailed analysis in each trait
+            and Average scores of all the tests till date along with average categorical score.
           </span>
         </div>
         <div className="LBDashboardImgDiv">
@@ -73,7 +72,7 @@ const LandingBody = () => {
             </div>
             <div className="LBAdvantagedesc">
               <span>
-                Works quickly both in the browser and on the desktop application
+                Works quickly in the browser and on the desktop application
                 of your computer
               </span>
             </div>
@@ -108,7 +107,7 @@ const LandingBody = () => {
           </div>
         </div>
         <div class="LBIntroButton">
-          <Link to="/">Start Using</Link>
+          <Link to="/signup">Start Using</Link>
         </div>
       </div>
       <div className="LBcategorydiv">

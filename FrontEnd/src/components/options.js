@@ -6,9 +6,9 @@ let flag = 0;
 var time = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let ratio=[1,4,2,3,2];
+let selectedOption='e';
 const Options = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
-  let selectedOption='e';
   let questionOptions = [
     ['2.56','2.56','2.56','2.56'],
     ['2.56','2.56','2.56','2.56'],
@@ -81,6 +81,7 @@ const Options = (props) => {
         {props.questionNumber < 10 ? (
           <button className="OPNextButton"
           onClick={() => {
+            console.log([answers[props.questionNumber - 1],selectedOption])
             if(answers[props.questionNumber - 1]==selectedOption){
               optionsOpted[props.questionNumber - 1]=1;
             }
@@ -88,11 +89,14 @@ const Options = (props) => {
               prevMin * 60 + prevSec - (props.min * 60 + props.sec);
               if((props.questionNumber - 1)%5 == 0)
               {
-                props.setSpeed(props.speed+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                props.setSpeed(props.speed+(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
+                // console.log(props.speed+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                props.setSpeed(80);
+                console.log("speed "+props.speed);
               }
               else if((props.questionNumber - 1)%5 == 1)
               {
-                props.setDeep(props.deep+((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
+                props.setDeep(props.deep+(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
               }
               else if((props.questionNumber - 1)%5 == 2)
               {
