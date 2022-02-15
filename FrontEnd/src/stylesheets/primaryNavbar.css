@@ -1,6 +1,7 @@
 .PNNavbox {
   display: flex;
   flex-direction: row;
+  width: 100vw;
   align-items: center;
   justify-content: space-between;
   font-size: 18px;

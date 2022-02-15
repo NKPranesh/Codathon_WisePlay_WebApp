@@ -5,17 +5,30 @@
   justify-content: center;
   color: #eee1ee;
   width: 100%;
-  height: calc(100vh - 74.5px);
 }
 
 .SGInnerDiv {
   background-color: #411d40;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   display: flex;
   gap: 50px;
   border-radius: 8px;
   margin: 1%;
   width: 98%;
   margin: 5px;
+  height: calc(100vh - 74.5px);
 }
 
+@media screen and (max-width: 1920px) {
+  .QNQuestion {
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .QNQuestion {
+    margin-bottom: 60px;
+  }
+}

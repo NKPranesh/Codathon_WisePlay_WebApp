@@ -36,7 +36,7 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
-.SBConfirmPasswordDiv{
+.SBConfirmPasswordDiv {
   margin-bottom: 0px;
 }
 .SBInput {
@@ -65,9 +65,19 @@
   margin-top: 20px;
   cursor: pointer;
 }
-.SBsignuptext{
+.SBsignuptext {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .SBBodyDiv {
+    padding: 35px 0px;
+  }
+
+  .SBHeadDiv {
+    padding: 10px 180px;
+  }
 }

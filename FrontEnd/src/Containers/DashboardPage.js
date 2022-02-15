@@ -9,6 +9,8 @@ const DashboardPage = (props) => {
   const navigate = useNavigate();
   let [isprofile, setIsProfile] = useState(false);
   let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
+  let [difficulty, setDifficulty] = useState("");
   let [testData, setTestData] = useState([]);
 
   const getData = async () => {
@@ -19,9 +21,10 @@ const DashboardPage = (props) => {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson);
         setName(responseJson.name);
         setTestData(responseJson.testsData);
+        setEmail(responseJson.email);
+        setDifficulty(responseJson.difficulty);
       })
       .catch((error) => {
         console.log("error");
@@ -53,15 +56,9 @@ const DashboardPage = (props) => {
     return isAuthenticated;
   };
 
-  const fetchTestsData = () => {
-    const cookies = new Cookies();
-    console.log(cookies);
-  };
-
   useEffect(() => {
     getData();
     authenticate();
-    fetchTestsData();
   }, []);
 
   return (
@@ -71,6 +68,8 @@ const DashboardPage = (props) => {
         isprofile={isprofile}
         name={name}
         testsData={testData}
+        email={email}
+        difficulty={difficulty}
       />
     </div>
   );

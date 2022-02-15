@@ -11,14 +11,14 @@
 }
 @media screen and (max-width: 1440px) {
   .LPBodyDiv {
-    height: max-content;
+    /* height: max-content; */
     margin-top: 25px;
     margin-bottom: 25px;
   }
 }
 @media screen and (max-width: 1366px) {
   .LPBodyDiv {
-    height: max-content;
+    /* height: max-content; */
     margin-top: 25px;
     margin-bottom: 25px;
   }

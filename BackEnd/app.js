@@ -139,10 +139,8 @@ app.post("/login", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   const { email, password, name } = req.body;
-  const tests = [
-    [68, 68, 98, 67, 87],
-    [67, 78, 45, 65, 90],
-  ];
+  const tests = [];
+  const difficulty = "medium";
   const flag = 0;
 
   try {
@@ -151,6 +149,7 @@ app.post("/signup", async (req, res) => {
       password,
       name,
       tests,
+      difficulty,
       flag,
     });
     const token = createToken(user._id);
@@ -212,7 +211,12 @@ app.get("/dashboard", async (req, res) => {
         console.log(err);
       } else {
         let user = await User.findById(decodedToken.id);
-        res.status(200).json({ name: user.name, testsData: user.tests });
+        res.status(200).json({
+          name: user.name,
+          testsData: user.tests,
+          email: user.email,
+          difficulty: user.difficulty,
+        });
       }
     });
   }
@@ -228,6 +232,26 @@ app.get("/resultData", async (req, res) => {
         let user = await User.findById(decodedToken.id);
         let lastTestData = user.tests[user.tests.length - 1];
         res.status(200).json({ name: user.name, lastTestData });
+      }
+    });
+  }
+});
+
+app.post("/saveProfile", async (req, res) => {
+  let token = req.cookies.jwt;
+  let userData = req.body.userData;
+  if (token) {
+    jwt.verify(token, "philanterfakadi", async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let user = await User.findById(decodedToken.id);
+        user.name = userData.name;
+        user.email = userData.email;
+        user.difficulty = userData.difficulty;
+        await user.save().then((data) => {
+          res.status(200).json({ success: "success" });
+        });
       }
     });
   }

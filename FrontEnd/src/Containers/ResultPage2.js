@@ -15,7 +15,7 @@ const ResultPage = () => {
   let [popupDisplay, setPopupDisplay] = useState(false);
   let [testData, setTestData] = useState([]);
   let [name, setName] = useState("");
-  let sum = 0;
+  let [sum, setSum] = useState(0);
   let [doughnutData, setDoughnutData] = useState({
     labels: ["Correct", "Wrong"],
     datasets: [
@@ -39,16 +39,17 @@ const ResultPage = () => {
       .then((responseJson) => {
         setName(responseJson.name);
         setTestData(responseJson.lastTestData);
+        let s = 0;
         for (let i = 0; i < responseJson.lastTestData.length; i++) {
-          sum = sum + responseJson.lastTestData[i];
+          s = s + responseJson.lastTestData[i];
         }
-        sum = (sum / 5).toFixed(2);
-        console.log(sum);
+        s = (s / 5).toFixed(2);
+        setSum(s);
         setDoughnutData({
           labels: ["Correct", "Wrong"],
           datasets: [
             {
-              data: [sum, 100 - sum],
+              data: [s, 100 - s],
               backgroundColor: ["#0058FF", "#F24B0F"],
               hoverOffset: 4,
             },

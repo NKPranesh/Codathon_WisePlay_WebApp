@@ -15,7 +15,6 @@
 
 @media screen and (max-width: 1515px) {
   .PGOuterDiv {
-    width:max-content;
+    width: max-content;
   }
-  
 }
