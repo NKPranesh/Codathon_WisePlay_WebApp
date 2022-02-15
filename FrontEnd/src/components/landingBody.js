@@ -28,9 +28,7 @@ const LandingBody = () => {
       <div class="LBBannerDiv">
         <div className="LBBannerTopDiv">
           <span className="LBBannerTopH1">Excited to share your result</span>
-          <span className="LBBannerTopH2">
-            You can use these platforms 
-          </span>
+          <span className="LBBannerTopH2">You can use these platforms</span>
         </div>
         <div className="LBBannerBottomDiv">
           <div className="LBIconDiv">
@@ -50,8 +48,9 @@ const LandingBody = () => {
             Intuitive dashboard for monitoring
           </span>
           <span className="LBDashboardTextB">
-            Track your test results with our dashboard which provides detailed analysis in each trait
-            and Average scores of all the tests till date along with average categorical score.
+            Track your test results with our dashboard which provides detailed
+            analysis in each trait and Average scores of all the tests till date
+            along with average categorical score.
           </span>
         </div>
         <div className="LBDashboardImgDiv">
@@ -72,8 +71,8 @@ const LandingBody = () => {
             </div>
             <div className="LBAdvantagedesc">
               <span>
-                Works quickly in the browser and on the desktop application
-                of your computer
+                Works quickly in the browser of your computer and gives instant
+                results
               </span>
             </div>
           </div>
@@ -82,12 +81,12 @@ const LandingBody = () => {
               <img src={AdvantageImg2} alt="img" />
             </div>
             <div className="LBAdvantageHeading">
-              <span>Fast response</span>
+              <span>Detailed Analysis</span>
             </div>
             <div className="LBAdvantagedesc">
               <span>
-                Works quickly both in the browser and on the desktop application
-                of your computer
+                Can view performance in traits like speed, memory, focus, deep
+                thinking and logical reasoning
               </span>
             </div>
           </div>
@@ -96,12 +95,12 @@ const LandingBody = () => {
               <img src={AdvantageImg3} alt="img" />
             </div>
             <div className="LBAdvantageHeading">
-              <span>Fast response</span>
+              <span>Share Certificate</span>
             </div>
             <div className="LBAdvantagedesc">
               <span>
-                Works quickly both in the browser and on the desktop application
-                of your computer
+                Can Share his Certificate in Social media sites like Facebook,
+                linkedin, Twitter
               </span>
             </div>
           </div>
@@ -112,7 +111,7 @@ const LandingBody = () => {
       </div>
       <div className="LBcategorydiv">
         <div className="LBcategoryheading">
-          <span>Our Categories of Assesments</span>
+          <span>Our Mode of Assesments</span>
         </div>
         <div className="LBCategoryrow">
           <div className="LBCategorybox">
@@ -123,7 +122,11 @@ const LandingBody = () => {
               <span>Normal Mode</span>
             </div>
             <div className="LBcategorydesc">
-              <span>description of primary student assessment pattern</span>
+              <span>
+                Appropriate colors were used which would keep student more
+                focused and To keep the students motivated memes will be
+                displayed so that the students won't feel bored.
+              </span>
             </div>
           </div>
           <div className="LBCategorybox">
@@ -134,7 +137,11 @@ const LandingBody = () => {
               <span>Story Mode</span>
             </div>
             <div className="LBcategorydesc">
-              <span>description of Secondary student assessment pattern</span>
+              <span>
+                The assessment will be in the form of a story and as the story
+                proceeds some situations arise and logical questions will be
+                asked based on those situations.
+              </span>
             </div>
           </div>
         </div>
@@ -147,29 +154,48 @@ const LandingBody = () => {
         </div>
         <div class="LBfaqquestionbox">
           <div class="LBfaqquestion">
-            <span>Is there any support for your application?</span>
+            <span>
+              Is it possible for me to take the assessment multiple times?
+            </span>
           </div>
           <div class="LBline"></div>
           <div class="LBfaqanswer">
-            <span>answer</span>
+            <span>
+              Yes, you can take the test as many times as you want. At Wiseplay,
+              we believe that constant preparation yields the desired result and
+              thus improves performance. You can also find your performance
+              graph which contains your scores in various assessments.
+            </span>
           </div>
         </div>
         <div class="LBfaqquestionbox">
           <div class="LBfaqquestion">
-            <span>Is there any support for your application?</span>
+            <span>How is the final score determined?</span>
           </div>
           <div class="LBline"></div>
           <div class="LBfaqanswer">
-            <span>answer</span>
+            <span>
+              The number of questions you correctly answer determines your
+              score. You'll be given a score based on how many questions you've
+              answered correctly. We also factored in time, so the faster you
+              solve, the more points you'll get.
+            </span>
           </div>
         </div>
         <div class="LBfaqquestionbox">
           <div class="LBfaqquestion">
-            <span>Is there any support for your application?</span>
+            <span>
+              In these evaluations, what types of skills are typically tested?
+            </span>
           </div>
           <div class="LBline"></div>
           <div class="LBfaqanswer">
-            <span>answer</span>
+            <span>
+              To evaluate a candidate, we consider a variety of factors. Logical
+              reasoning, deep thinking, memory, focus, and speed are some of the
+              aspects. Your final score is determined by the sum of your
+              individual scores in these areas.
+            </span>
           </div>
         </div>
       </div>

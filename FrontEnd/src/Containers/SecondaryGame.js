@@ -10,7 +10,6 @@ import RedirectToHomePage from "../components/redirectToHomePage";
 
 let scores = [0, 0, 0, 0, 0];
 let count = 0;
-let c = 0;
 const SecondaryGame = () => {
   const [popupDisplay, setPopupDisplay]=useState(false);
   let questions = [

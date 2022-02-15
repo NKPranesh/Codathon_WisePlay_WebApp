@@ -20,8 +20,9 @@ const DashboardContent = (props) => {
                 <p className="DBStoryheading">Story Mode</p>
                 <div className="DBStoryContentRight">
                   <p className="DBStoryInfo">
-                    Track sales and customers on any device. Track sales and
-                    customers on any device.
+                  The assessment will be in the form of a story and as the story
+                proceeds some situations arise and logical questions will be
+                asked based on those situations.
                   </p>
                   <div className="DBStartButton">
                   <Link to="/primarygame">
@@ -37,8 +38,9 @@ const DashboardContent = (props) => {
                 <p className="DBStoryheading">Normal Mode</p>
                 <div className="DBStoryContentRight">
                   <p className="DBStoryInfo">
-                    Track sales and customers on any device. Track sales and
-                    customers on any device.
+                  Appropriate colors were used which would keep student more
+                focused and To keep the students motivated memes will be
+                displayed.
                   </p>
                   <div className="DBStartButton">
                   <Link to="/secondarygame">
