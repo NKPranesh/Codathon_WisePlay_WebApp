@@ -28,7 +28,7 @@ const SharePopup = (props) => {
       const progress = Math.round(
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       );
-      console.log(progress);
+      // console.log(progress);
       // setProgress(progress);
     },
     error => {
@@ -43,11 +43,9 @@ const SharePopup = (props) => {
 
              setImageurl(url);
           shareurl=url;
-          console.log(url);
         });
     }
   );}
-  console.log(shareurl);
   return (
     <div className="SPOuterDiv">
       <div className="SPMain">
