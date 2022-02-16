@@ -130,16 +130,16 @@ const QuestionBox = (props) => {
   };
 
   let situations = [
-    "Hey Nagveer, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer2, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer3, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer4, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer5, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer6, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer7, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer8, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer9, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
-    "Hey Nagveer10, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
+    `Hey ${name}, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.`,
+    `Hey ${name}, John remembered the hotel name but he couldn’t recall the hotel location. Help John in remembering the location of the hotel by answering the question mentioned below.`,
+    `Hey ${name}, John has started his journey to the hotel. On his way to hotel he was attacked by a person. Help John to defend himself from the person by answering the question mentioned below.`,
+    `Hey ${name}, John has sucessfully defended himself from the person. Now help him to defeat the person by answering the question mentioned below.`,
+    `Hey ${name}, John has sucessfully defeated the person and continued his journey. After travelling some distance John forgot his way to the hotel. Help him to figure out the solution by answering the below question`,
+    `Hey ${name}, John found a girl on his way who could help him to find his way to the hotel. To get the details of the location the girl asked to solve a problem. Help John in solving the below question`,
+    `Hey ${name}, Finally John reached the hotel. But the hotel was closed. John was waiting for the hotel to open. He was bored and started to solve some questions. He is not able to find the solution of below question.Help John in finding the answer`,
+    `Hey ${name}, John thanks you for answering the question. Now the hotel was opened. Help John to check-in to the hotel by solving the below question`,
+    `Hey ${name}, Finally John checked-in to  the hotel. He was unable to find his room. Help John in finding his room by answering the question mentioned below.`,
+    `Hey ${name}, Thanks for helping to find his room. But the room was completely dark.Help John to switch on the lights by answering the below questions.`,
   ];
   const navigate = useNavigate();
   useEffect(() => {
