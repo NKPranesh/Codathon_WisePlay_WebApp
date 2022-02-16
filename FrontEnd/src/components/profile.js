@@ -1,11 +1,15 @@
-import React, { Profiler } from "react";
+import React, { Profiler, useState } from "react";
+import Loading from "./loading";
 import "../stylesheets/profile.css";
 
 const Profile = (props) => {
+  let [loading, setLoading] = useState(false);
+
   let saveHandle = async () => {
     let name = document.getElementsByClassName("PRInput")[0];
     let email = document.getElementsByClassName("PRInput")[1];
     let difficulty = document.getElementsByClassName("PRDropdown")[0];
+    setLoading(true);
 
     await fetch(process.env.React_App_Backend_domain + "/saveProfile", {
       method: "post",
@@ -20,7 +24,9 @@ const Profile = (props) => {
       }),
     })
       .then((response) => response.json())
-      .then((responseJson) => {})
+      .then((responseJson) => {
+        setLoading(false);
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -116,6 +122,7 @@ const Profile = (props) => {
           </div>
         </div>
       </div>
+      {loading && <Loading />}
     </React.Fragment>
   );
 };

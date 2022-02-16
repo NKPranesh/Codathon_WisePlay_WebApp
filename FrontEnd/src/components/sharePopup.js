@@ -13,39 +13,41 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-let imageuploaded=false;
-let shareurl="";
+let imageuploaded = false;
+let shareurl = "";
 const SharePopup = (props) => {
-  let [imageurl,setImageurl]=useState("");
+  let [imageurl, setImageurl] = useState("");
   // if(!imageuploaded)
-    {
-      imageuploaded=true;
-      let data=props.image;;
-  const uploadTask = storage.ref(`images/${props.name+props.date}`).putString(data.split(",")[1], 'base64', {contentType:'image/jpg'});
-  uploadTask.on(
-    "state_changed",
-    snapshot => {
-      const progress = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-      // console.log(progress);
-      // setProgress(progress);
-    },
-    error => {
-      console.log(error);
-    },
-    () => {
-      storage
-        .ref("images")
-        .child(props.name+props.date)
-        .getDownloadURL()
-        .then(url => {
-
-             setImageurl(url);
-          shareurl=url;
-        });
-    }
-  );}
+  {
+    imageuploaded = true;
+    let data = props.image;
+    const uploadTask = storage
+      .ref(`images/${props.name + props.date}`)
+      .putString(data.split(",")[1], "base64", { contentType: "image/jpg" });
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        // console.log(progress);
+        // setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(props.name + props.date)
+          .getDownloadURL()
+          .then((url) => {
+            setImageurl(url);
+            shareurl = url;
+          });
+      }
+    );
+  }
   return (
     <div className="SPOuterDiv">
       <div className="SPMain">
@@ -89,9 +91,13 @@ const SharePopup = (props) => {
             width="626"
             height="436"
           >
-            <img src={Facebook} alt="img" onClick={()=>{
-              shareurl=imageurl
-            }}/>
+            <img
+              src={Facebook}
+              alt="img"
+              onClick={() => {
+                shareurl = imageurl;
+              }}
+            />
           </FacebookShareButton>
           <TwitterShareButton
             url={imageurl}

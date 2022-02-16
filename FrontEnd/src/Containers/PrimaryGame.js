@@ -3,23 +3,31 @@ import { useNavigate } from "react-router-dom";
 import Animation from "../components/animation";
 import QuestionBox from "../components/questionBox";
 import PrimaryNavbar from "../components/primaryNavbar";
+import Loading from "../components/loading";
 import "../stylesheets/PrimaryGame.css";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
 let qno = 0;
-let count=0;
-let scores=[0,0,0,0,0];
+let count = 0;
+let scores = [0, 0, 0, 0, 0];
 const PrimaryGame = () => {
   let [trait, setTrait] = useState(5);
   let [timetaken, setTimetaken] = useState(0);
-  let [score,setScore]=useState(0);
+  let [score, setScore] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
   let [questionNumber, setQuestionNumber] = useState(1);
   const navigate = useNavigate();
-  const [isExit,setIsExit] = useState(false);
+  const [isExit, setIsExit] = useState(false);
+  let [loading, setLoading] = useState(false);
+  let [animationLoading, setanimationLoading] = useState(true);
+
+  setTimeout(() => {
+    setanimationLoading(false);
+  }, 12000);
 
   let submitButtonHandle = async () => {
+    setLoading(true);
     await fetch(process.env.React_App_Backend_domain + "/newTestData", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -31,6 +39,7 @@ const PrimaryGame = () => {
       .then((response) => response.json())
       .then((responseJson) => {
         setTimeout(() => {
+          setLoading(false);
           navigate("/resultpage");
         }, 4001);
       })
@@ -100,7 +109,6 @@ const PrimaryGame = () => {
   return (
     <div className="PGOuterDiv">
       <PrimaryNavbar
-
         setIsExit={setIsExit}
         questionNumber={questionNumber}
         score={score}
@@ -123,9 +131,9 @@ const PrimaryGame = () => {
                 frameBorder="0"
               ></iframe>
               <QuestionBox
-              setIsExit={setIsExit}
-              setTimetaken={setTimetaken}
-              setTrait={setTrait}
+                setIsExit={setIsExit}
+                setTimetaken={setTimetaken}
+                setTrait={setTrait}
                 // exitHandle ={exitHandle}
                 animate={animate}
                 setPopOut={setPopOut}
@@ -146,6 +154,8 @@ const PrimaryGame = () => {
           <RedirectToHomePage />
         )}
       </div>
+      {loading && <Loading />}
+      {animationLoading && <Loading />}
     </div>
   );
 };

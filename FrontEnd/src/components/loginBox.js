@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/loginBox.css";
 import { Link } from "react-router-dom";
+import Loading from "./loading";
+
 const LoginBox = (props) => {
   const [error, setError] = useState("");
   const [errorDisplay, setErrorDisplay] = useState("none");
+  let [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   let loginButtonHandle = async () => {
     let email = document.getElementsByClassName("LBEmailInput")[0];
     let password = document.getElementsByClassName("LBPasswordInput")[0];
+    setLoading(true);
 
     await fetch(process.env.React_App_Backend_domain + "/login", {
       method: "post",
@@ -30,6 +34,7 @@ const LoginBox = (props) => {
           setErrorDisplay("none");
           setError("");
           props.setTestsData(responseJson.testsData);
+          setLoading(false);
           navigate("/dashboard");
         }
       })
@@ -59,9 +64,12 @@ const LoginBox = (props) => {
           </button>
         </div>
         <div className="LBsignuptext">
-          <span>Don't have an account ? <Link to="/signup">Signup</Link></span>
+          <span>
+            Don't have an account ? <Link to="/signup">Signup</Link>
+          </span>
         </div>
       </div>
+      {loading && <Loading />}
     </div>
   );
 };

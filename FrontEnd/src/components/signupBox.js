@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Loading from "./loading";
 import "../stylesheets/signupBox.css";
 
 const SignupBox = () => {
   const [error, setError] = useState("");
   const [errorDisplay, setErrorDisplay] = useState("none");
   const navigate = useNavigate();
+  let [loading, setLoading] = useState(false);
 
   let signupButtonHandle = async () => {
     let email = document.getElementsByClassName("SBEmailInput")[0];
@@ -20,6 +22,7 @@ const SignupBox = () => {
       setError("Password do not match");
       return;
     }
+    setLoading(true);
 
     await fetch(process.env.React_App_Backend_domain + "/signup", {
       method: "post",
@@ -36,6 +39,7 @@ const SignupBox = () => {
         if ("user" in responseJson) {
           setErrorDisplay("none");
           setError("");
+          setLoading(false);
           navigate("/dashboard");
         } else {
           let errorsArr = Object.values(responseJson.errors);
@@ -87,6 +91,7 @@ const SignupBox = () => {
           </span>
         </div>
       </div>
+      {loading && <Loading />}
     </div>
   );
 };

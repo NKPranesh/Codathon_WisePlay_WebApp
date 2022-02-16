@@ -1,10 +1,10 @@
 import React from "react";
-import DashboardNavbar from "../components/dashboarfNavbar";
+import Loading from "../components/loading";
 
 const Test = () => {
   return (
     <div>
-      <DashboardNavbar />
+      <Loading />
     </div>
   );
 };

@@ -69,10 +69,11 @@
   display: flex;
   flex-direction: row;
 }
-.rsDoughnutPercentage{
-   position: relative;
+
+.rsDoughnutPercentage {
+  position: relative;
   top: 110px;
-  left: 155px;
+  left: 175px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -149,4 +150,23 @@ hr.rounded {
 .rssharebutton img {
   height: 24px;
   margin-right: 2px;
+}
+
+@media screen and (max-width: 1440px) {
+  .rsDoughnutScore {
+    width: 160px !important;
+    height: 160px !important;
+    margin-right: 30px;
+  }
+  .rsDoughnutdiv {
+    width: 280px;
+  }
+  .rsscoregraph {
+    margin-right: 100px;
+  }
+  .rsDoughnutPercentage {
+    top: 65px;
+    left: 125px;
+    font-size: 25px;
+  }
 }
