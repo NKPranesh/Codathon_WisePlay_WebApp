@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-left: 180px;
   background-color: #edf2fc;
-  width: 100%;
+  width: calc(100vw - 180px);
 }
 
 .DBTopNav {

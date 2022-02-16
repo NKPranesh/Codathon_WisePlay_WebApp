@@ -152,7 +152,7 @@ hr.rounded {
   margin-right: 2px;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1550px) {
   .rsDoughnutScore {
     width: 160px !important;
     height: 160px !important;

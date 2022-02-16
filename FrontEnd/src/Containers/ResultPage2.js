@@ -28,6 +28,7 @@ const ResultPage = () => {
     ],
   });
   let [loading, setLoading] = useState(false);
+  let [shareLoading, setShareLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -222,7 +223,10 @@ const ResultPage = () => {
               className="rssharebutton"
               onClick={() => {
                 setPopupDisplay(true);
-
+                setShareLoading(true);
+                setTimeout(() => {
+                  setShareLoading(false);
+                }, 8000);
                 var square = document.getElementById("RPMainDiv");
                 square.style.filter = "blur(6px)";
                 square.style.height = "100vh";
@@ -237,9 +241,15 @@ const ResultPage = () => {
         <Footer />
       </div>
       {popupDisplay && (
-        <SharePopup close={setPopupDisplay} image={certificateimage} name={name} date={new Date()}/>
+        <SharePopup
+          close={setPopupDisplay}
+          image={certificateimage}
+          name={name}
+          date={new Date()}
+        />
       )}
       {loading && <Loading />}
+      {shareLoading && <Loading />}
     </React.Fragment>
   );
 };

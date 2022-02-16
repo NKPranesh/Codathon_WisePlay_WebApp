@@ -66,9 +66,12 @@ const SecondaryGame = () => {
   const [isExit, setIsExit] = useState(false);
   const [over, setOver] = useState(false);
   let [loading, setLoading] = useState(false);
+  let [startLoading, setStartLoading] = useState(true);
+  setTimeout(() => {
+    setStartLoading(false);
+  }, 2000);
   // let [questionOptions,setQuestionoptions] =useState([]);
   // let [answers,setAnswers] =useState([]);
-
 
   const getData = async () => {
     await fetch(process.env.React_App_Backend_domain + "/dashboard", {
@@ -84,17 +87,17 @@ const SecondaryGame = () => {
           setQuestions(easyquestions);
           // setQuestionoptions(easyoptions);
           // setAnswers(easyanswers);
-        } 
+        }
         if (responseJson.difficulty == "medium") {
-           setQuestions(mediumquestions);
+          setQuestions(mediumquestions);
           //  setQuestionoptions(mediumoptions);
           //  setAnswers(mediumanswers);
-         } 
-         if(responseJson.difficulty=="hard") {
-           setQuestions(difficultquestions);
-        //  setQuestionoptions(difficultoptions);
-        //  setAnswers(difficultanswers);
-         }
+        }
+        if (responseJson.difficulty == "hard") {
+          setQuestions(difficultquestions);
+          //  setQuestionoptions(difficultoptions);
+          //  setAnswers(difficultanswers);
+        }
       })
       .catch((error) => {
         console.log("error");
@@ -208,6 +211,7 @@ const SecondaryGame = () => {
       </div>
       {popupDisplay && <Meme memeNumber={questionNumber} />}
       {loading && <Loading />}
+      {startLoading && <Loading />}
     </React.Fragment>
   );
 };

@@ -3,7 +3,7 @@ import "../stylesheets/animation.css";
 
 const animation = (props) => {
   let animationPaths = [
-    "home/index.html",
+    "Home/index.html",
     "Fighter/index.html",
     "Busstop/index.html",
     "Hotel/index.html",

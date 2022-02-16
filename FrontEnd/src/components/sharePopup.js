@@ -13,10 +13,12 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
+
 let imageuploaded = false;
 let shareurl = "";
 const SharePopup = (props) => {
   let [imageurl, setImageurl] = useState("");
+
   // if(!imageuploaded)
   {
     imageuploaded = true;
@@ -87,7 +89,9 @@ const SharePopup = (props) => {
         <div className="SPLinksDiv">
           <FacebookShareButton
             url={shareurl}
-            quote={"You can also participate"}
+            quote={
+              "I have assessed myself in WisePlay. Here are my Results. Its Fun!!"
+            }
             width="626"
             height="436"
           >
@@ -101,7 +105,9 @@ const SharePopup = (props) => {
           </FacebookShareButton>
           <TwitterShareButton
             url={imageurl}
-            quote={"Quote"}
+            quote={
+              "I have assessed myself in WisePlay. Here are my Results. Its Fun!!"
+            }
             width="626"
             height="436"
           >
@@ -110,8 +116,11 @@ const SharePopup = (props) => {
 
           <LinkedinShareButton
             url={imageurl}
-            // width="626"
-            // height="436"
+            width="626"
+            height="436"
+            quote={
+              "I have assessed myself in WisePlay. Here are my Results. Its Fun!!"
+            }
           >
             <img src={Linkedin} alt="img" />
           </LinkedinShareButton>

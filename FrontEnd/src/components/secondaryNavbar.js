@@ -10,9 +10,9 @@ const CountDown = (props) => {
   const [[m, s], setTime] = useState([props.minutes, props.seconds]);
   props.setMin(m);
   props.setSec(s);
+  let count;
   const tick = () => {
-    if(count==0)
-    {
+    if (count == 0) {
       setTimeout(() => {
         if (props.over) return;
         if (m === 0 && s === 0) {
@@ -22,18 +22,17 @@ const CountDown = (props) => {
         } else {
           setTime([m, s - 1]);
         }
-        count+=1;
-      },2000);
-    }
-    else {
+        count += 1;
+      }, 2000);
+    } else {
       if (props.over) return;
-        if (m === 0 && s === 0) {
-          props.setOver(true);
-        } else if (s == 0) {
-          setTime([m - 1, 59]);
-        } else {
-          setTime([m, s - 1]);
-        }
+      if (m === 0 && s === 0) {
+        props.setOver(true);
+      } else if (s == 0) {
+        setTime([m - 1, 59]);
+      } else {
+        setTime([m, s - 1]);
+      }
     }
   };
 
