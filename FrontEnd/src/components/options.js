@@ -11,18 +11,18 @@ let selectedOption='e';
 const Options = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
   let questionOptions = [
-    ['2.56','2.56','2.56','2.56'],
+    ['36','38','40','42'],
     ['Brother','Uncle','Cousin','Father'],
-    ['2.56','2.56','2.56','2.56'],
+    ['The idea of evolution is simple','Evolution is important','It tells us about the origin of life.','By evolution, we can make predictions.'],
     ['15','14','13','12'],
     ['NASA has a budget of $17 billion','The cost of making one space shuttle can be used for other constructive work.','The money spent on NASA can be used otherwise.','Space exploration is costly and some people are worried.'],
-    ['2.56','2.56','2.56','2.56'],
+    ['It is very well written.','Could be better.','It ensures everyone has basic rights.','The marginalized sections of the society don’t enjoy the rights guaranteed by the constitution.'],
     ['15 m West','30 m East','30 m West','45 m East'],
-    ['2.56','2.56','2.56','2.56'],
+    ['13,000','7,000','6 Million','It can’t be determined'],
     ['OEP','NEO','MEN','PFQ'],
-    ['2.56','2.56','2.56','2.56'],
+    ['Sohaib','Harshad','Preksha','Yawer'],
   ];
-  let answers = ["a", "d", "a", "a", "d", "a", "d", "a", "b", "a"];
+  let answers = ["a", "d", "c", "a", "d", "d", "d", "a", "b", "d  "];
 
   const navigate = useNavigate();
   let move = (className) => {

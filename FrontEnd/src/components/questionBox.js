@@ -9,32 +9,32 @@ let ratio=[1,4,2,3,2];
 const QuestionBox = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
   let questions = [
-    "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father2 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father3 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father4 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father5 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father6 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father7 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father8 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father9 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father10 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
+    " [72 – 12 ÷ by 3 – 2 ]+ ( 18 – 6) ÷ 4",
+    "How is father’s brother daughter related to you?",
+    "Many people think of teeth as bone, but they are not made of bones. Actually, they are made of tissues. The main function of teeth is to chew and bite food. Humans have four types of teeth, Incisors, Premolars, Molars and Canines.Teeth are made of …….",
+    "Look at the series 7,14,21,28, … What number should come next?",
+    "Lord Vishnu is one of the most famous Gods in Hinduism. It’s written in the Puranas that the wife of Lord Vishnu is Lakshmi. He is considered to be the sustainer of the world. It’s believed that he lives in the Kshira Sagara that is also known as the ocean of milk. There are many temples related to Lord Vishnu all over India. Badrinath and Jagannath are very famous temples. Who is the wife of Lord Vishnu?",
+    "4(10+15÷5×4-2×2)",
+    "Mr Deepak Mohan walks 5 km towards the south and then turns to the right. After walking 3 km he turns to the left and walks 5 km. What direction is he facing right now?",
+    ". Atul and Pratul are stepbrothers and they are twins. They study in the same class, so sometimes teachers get confused to recognize them. They eat lunch together and play in the playground together. Atul is nine years old and Pratul is eight and a half years old.Who is nine years old?",
+    "B2CD, __________, BCD4, B5CD, BC6D",
+    "Dilip Kumar was a well-known name in the 20th century. He was born in Pakistan. After coming to India, he became a very versatile actor. His real name was Mohammad Yusuf Khan. At the age of 44, he married Saira Banu whose age was 22 years at the time of marriage. Dilip Kumar was honoured with Dadasaheb Phalke in 1995. He played tragic roles in many movies, so he was also called the Tragedy King.At what age did Dileep Kumar get married?",
   ];
 
   let options = [
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
-    ['2.56','2.56','2.56','2.56'],
+    ['75','69','82','44'],
+    ['cousin','mother','Daughter','Aunt'],
+    ['Bones','Tissues','Flesh','Cells'],
+    ['32','35','39','40'],
+    ['Saraswathi','Lakshmi','Parvati','Durga'],
+    ['58','72','64','73'],
+    ['West','South','North-East','South-West'],
+    ['Atul','Pratul','Both','None of them'],
+    ['B2C2D','BC3D','BC3D','BCD7'],
+    ['22','20','44','23'],
   ];
 
-  let answers = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a"];
+  let answers = ["b", "a", "b", "b", "b", "c", "b", "a", "b", "c"];
 
   let situations = [
     "Hey Nagveer, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
