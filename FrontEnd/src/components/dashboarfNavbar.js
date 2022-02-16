@@ -5,13 +5,16 @@ import Bargraphicon from "../media/bargrapghicon.svg";
 import Profileicon from "../media/profileicon.svg";
 import Logouticon from "../media/logouticon.svg";
 import { useNavigate } from "react-router-dom";
+import Loading from "./loading";
 import "../stylesheets/dashboardNavbar.css";
 
 const DashboardNavbar = (props) => {
   let [selected, setSelected] = useState("home");
+  let [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   let logoutButtonHandle = async () => {
+    setLoading(true);
     await fetch(process.env.React_App_Backend_domain + "/logout", {
       method: "get",
       headers: { "Content-Type": "application/json" },
@@ -19,6 +22,7 @@ const DashboardNavbar = (props) => {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+        setLoading(false);
         navigate("/login");
       })
       .catch((error) => {
@@ -114,6 +118,7 @@ const DashboardNavbar = (props) => {
           </div>
         </a>
       </div>
+      {loading && <Loading />}
     </div>
   );
 };

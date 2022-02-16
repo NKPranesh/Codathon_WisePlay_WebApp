@@ -8,6 +8,7 @@ import Footer from "../components/footer";
 import SharePopup from "../components/sharePopup";
 import { Doughnut } from "react-chartjs-2";
 import html2canvas from "html2canvas";
+import Loading from "../components/loading";
 import "../stylesheets/ResultPage2.css";
 
 let certificateimage = "";
@@ -26,10 +27,12 @@ const ResultPage = () => {
       },
     ],
   });
+  let [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const getData = async () => {
+    setLoading(true);
     await fetch(process.env.React_App_Backend_domain + "/resultData", {
       method: "get",
       headers: { "Content-Type": "application/json" },
@@ -55,7 +58,7 @@ const ResultPage = () => {
             },
           ],
         });
-        console.log(responseJson);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("error");
@@ -236,6 +239,7 @@ const ResultPage = () => {
       {popupDisplay && (
         <SharePopup close={setPopupDisplay} image={certificateimage} />
       )}
+      {loading && <Loading />}
     </React.Fragment>
   );
 };

@@ -15,7 +15,7 @@ import {
 
 const SharePopup = (props) => {
   console.log(props.image);
-  const file = new Blob([props.image], { type: "text/plain" });
+  const file = new Blob([props.image], { type: "image/jpeg" });
   let imageurl = URL.createObjectURL(file);
   console.log(imageurl);
   window.onload = function () {

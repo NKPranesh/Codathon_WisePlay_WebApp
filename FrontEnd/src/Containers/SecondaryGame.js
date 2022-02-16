@@ -6,6 +6,7 @@ import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 import "../stylesheets/question.css";
 import Meme from "../components/meme";
+import Loading from "../components/loading";
 import RedirectToHomePage from "../components/redirectToHomePage";
 
 let scores = [0, 0, 0, 0, 0];
@@ -34,7 +35,10 @@ const SecondaryGame = () => {
   const navigate = useNavigate();
   const [isExit, setIsExit] = useState(false);
   const [over, setOver] = useState(false);
+  let [loading, setLoading] = useState(false);
+
   let submitButtonHandle = async () => {
+    setLoading(true);
     await fetch(process.env.React_App_Backend_domain + "/newTestData", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -46,6 +50,7 @@ const SecondaryGame = () => {
       .then((response) => response.json())
       .then((responseJson) => {
         setTimeout(() => {
+          setLoading(false);
           navigate("/resultpage");
         }, 4001);
       })
@@ -133,6 +138,7 @@ const SecondaryGame = () => {
         </div>
       </div>
       {popupDisplay && <Meme memeNumber={questionNumber} />}
+      {loading && <Loading />}
     </React.Fragment>
   );
 };

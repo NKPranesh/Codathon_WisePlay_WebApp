@@ -27,15 +27,27 @@ const footer = () => {
             <img src={DiscordIcon} className="footerDiscordLogo" alt="img" />
           </div>
           <div className="footerLinksCompanyDiv">
-            <span className="footerLinkPrivacyPolicy footerLinkCompany">
+            <a
+              href="https://www.termsfeed.com/live/4d3702e0-93ce-4422-bd98-18ea3df0a2b0"
+              target="_blank"
+              className="footerLinkPrivacyPolicy footerLinkCompany"
+            >
               Privacy Policy
-            </span>
-            <span className="footerLinkSecurity footerLinkCompany">
-              Security
-            </span>
-            <span className="footerLinkTermsOfService footerLinkCompany">
+            </a>
+            <a
+              href="https://www.termsfeed.com/live/26cbf946-5217-4ec4-aa9d-d1943eb39ce9"
+              target="_blank"
+              className="footerLinkSecurity footerLinkCompany"
+            >
+              Cookie Policy
+            </a>
+            <a
+              href="https://www.termsfeed.com/live/ee824d0b-57a7-4438-9535-cc4f20bd1697"
+              target="_blank"
+              className="footerLinkTermsOfService footerLinkCompany"
+            >
               Terms of Service
-            </span>
+            </a>
           </div>
         </div>
         <div className="footerContactDiv">
@@ -43,7 +55,7 @@ const footer = () => {
           <div className="footerContactContent">
             <span className="footerContactPhone">Phone: +91 9063086829</span>
             <span className="footerContactEmail">
-              Email: speakwell@gmail.com
+              Email: nkpranesh@gmail.com
             </span>
           </div>
         </div>

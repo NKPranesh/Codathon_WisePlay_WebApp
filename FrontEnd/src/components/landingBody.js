@@ -14,18 +14,18 @@ import "../stylesheets/landingBody.css";
 const LandingBody = () => {
   return (
     <div className="LBMainDiv">
-      <div class="LBIntroDiv">
-        <div class="LBIntroText">
+      <div className="LBIntroDiv">
+        <div className="LBIntroText">
           <span>Assess your self from any corner of the world</span>
         </div>
-        <div class="LBIntroButton">
+        <div className="LBIntroButton">
           <Link to="/signup">Start Using</Link>
         </div>
         <div className="LBIntroImage">
           <img src={Student} alt="img" />
         </div>
       </div>
-      <div class="LBBannerDiv">
+      <div className="LBBannerDiv">
         <div className="LBBannerTopDiv">
           <span className="LBBannerTopH1">Excited to share your result</span>
           <span className="LBBannerTopH2">You can use these platforms</span>
@@ -105,7 +105,7 @@ const LandingBody = () => {
             </div>
           </div>
         </div>
-        <div class="LBIntroButton">
+        <div className="LBIntroButton">
           <Link to="/signup">Start Using</Link>
         </div>
       </div>
@@ -152,14 +152,14 @@ const LandingBody = () => {
             <span>FAQ</span>
           </div>
         </div>
-        <div class="LBfaqquestionbox">
-          <div class="LBfaqquestion">
+        <div className="LBfaqquestionbox">
+          <div className="LBfaqquestion">
             <span>
               Is it possible for me to take the assessment multiple times?
             </span>
           </div>
-          <div class="LBline"></div>
-          <div class="LBfaqanswer">
+          <div className="LBline"></div>
+          <div className="LBfaqanswer">
             <span>
               Yes, you can take the test as many times as you want. At Wiseplay,
               we believe that constant preparation yields the desired result and
@@ -168,12 +168,12 @@ const LandingBody = () => {
             </span>
           </div>
         </div>
-        <div class="LBfaqquestionbox">
-          <div class="LBfaqquestion">
+        <div className="LBfaqquestionbox">
+          <div className="LBfaqquestion">
             <span>How is the final score determined?</span>
           </div>
-          <div class="LBline"></div>
-          <div class="LBfaqanswer">
+          <div className="LBline"></div>
+          <div className="LBfaqanswer">
             <span>
               The number of questions you correctly answer determines your
               score. You'll be given a score based on how many questions you've
@@ -182,14 +182,14 @@ const LandingBody = () => {
             </span>
           </div>
         </div>
-        <div class="LBfaqquestionbox">
-          <div class="LBfaqquestion">
+        <div className="LBfaqquestionbox">
+          <div className="LBfaqquestion">
             <span>
               In these evaluations, what types of skills are typically tested?
             </span>
           </div>
-          <div class="LBline"></div>
-          <div class="LBfaqanswer">
+          <div className="LBline"></div>
+          <div className="LBfaqanswer">
             <span>
               To evaluate a candidate, we consider a variety of factors. Logical
               reasoning, deep thinking, memory, focus, and speed are some of the

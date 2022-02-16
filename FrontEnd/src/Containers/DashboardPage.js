@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DashboardContent from "../components/dashboardContent";
 import DashboardNavbar from "../components/dashboarfNavbar";
 import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
+import Loading from "../components/loading";
 import "../stylesheets/DashboardPage.css";
 
 const DashboardPage = (props) => {
@@ -12,8 +12,10 @@ const DashboardPage = (props) => {
   let [email, setEmail] = useState("");
   let [difficulty, setDifficulty] = useState("");
   let [testData, setTestData] = useState([]);
+  let [loading, setLoading] = useState(false);
 
   const getData = async () => {
+    setLoading(true);
     await fetch(process.env.React_App_Backend_domain + "/dashboard", {
       method: "get",
       headers: { "Content-Type": "application/json" },
@@ -25,6 +27,7 @@ const DashboardPage = (props) => {
         setTestData(responseJson.testsData);
         setEmail(responseJson.email);
         setDifficulty(responseJson.difficulty);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("error");
@@ -71,6 +74,7 @@ const DashboardPage = (props) => {
         email={email}
         difficulty={difficulty}
       />
+      {loading && <Loading />}
     </div>
   );
 };
