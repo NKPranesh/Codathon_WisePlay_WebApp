@@ -8,7 +8,6 @@ import SubmitButtonHandle from "./questionBox.js";
 
 const CountDown = (props) => {
   const [[m, s], setTime] = useState([props.minutes, props.seconds]);
-  console.log(props.over);
   props.setMin(m);
   props.setSec(s);
   const tick = () => {

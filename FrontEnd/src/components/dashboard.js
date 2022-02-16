@@ -38,7 +38,8 @@ const Dashboard = (props) => {
   for (i = 0; i < linedata.length; i++) {
     sum += linedata[i];
   }
-  sum /= linedata.length;
+  sum-=100;
+  sum /= (linedata.length-2);
   sum = sum.toFixed(2);
   const calculatedoughnutdata = (index) => {
     let avg = 0;

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Certificate from "../media/certificate.jpeg";
 import Facebook from "../media/facebook-share-button.svg";
 import Linkedin from "../media/linkedin-share-button.svg";
 import Twitter from "../media/twitter-share-button.svg";
 import Cancelicon from "../media/cancelicon.svg";
 import "../stylesheets/sharePopup.css";
+import { storage } from "../firebase";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -12,8 +13,10 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-
+let imageuploaded=false;
+let shareurl="";
 const SharePopup = (props) => {
+<<<<<<< HEAD
   console.log(props.image);
   const file = new Blob([props.image], { type: "image/jpeg" });
   let imageurl = URL.createObjectURL(file);
@@ -36,6 +39,38 @@ const SharePopup = (props) => {
     ctx1.fillText("09-02-2022", 120, 275);
   };
   console.log(props);
+=======
+  let [imageurl,setImageurl]=useState("");
+  // if(!imageuploaded)
+    {
+      imageuploaded=true;
+      let data=props.image;;
+  const uploadTask = storage.ref(`images/${props.name+props.date}`).putString(data.split(",")[1], 'base64', {contentType:'image/jpg'});
+  uploadTask.on(
+    "state_changed",
+    snapshot => {
+      const progress = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      // console.log(progress);
+      // setProgress(progress);
+    },
+    error => {
+      console.log(error);
+    },
+    () => {
+      storage
+        .ref("images")
+        .child(props.name+props.date)
+        .getDownloadURL()
+        .then(url => {
+
+             setImageurl(url);
+          shareurl=url;
+        });
+    }
+  );}
+>>>>>>> 4578a533bd95958b130a676e8b8932906248938a
   return (
     <div className="SPOuterDiv">
       <div className="SPMain">
@@ -74,12 +109,14 @@ const SharePopup = (props) => {
         </div>
         <div className="SPLinksDiv">
           <FacebookShareButton
-            url={imageurl}
+            url={shareurl}
             quote={"You can also participate"}
             width="626"
             height="436"
           >
-            <img src={Facebook} alt="img" />
+            <img src={Facebook} alt="img" onClick={()=>{
+              shareurl=imageurl
+            }}/>
           </FacebookShareButton>
           <TwitterShareButton
             url={imageurl}
