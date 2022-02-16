@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Line, Doughnut, Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import "../stylesheets/dashboard.css";
 
 const Dashboard = (props) => {
   let testdata = props.testsData;
-
-  useEffect(() => {
-    console.log(props);
-  }, []);
 
   let i = 0,
     j = 0;
@@ -50,7 +46,7 @@ const Dashboard = (props) => {
       avg += testdata[index][i];
     }
     avg /= 5;
-    avg=avg.toFixed(2);
+    avg = avg.toFixed(2);
     return {
       labels: ["Correct", "Wrong"],
       datasets: [
@@ -141,37 +137,45 @@ const Dashboard = (props) => {
               <span>Average Score</span>
             </div>
             <div className="DBAverageTopChart">
-              <div className="DBDoughnutDiv">
-                <div className="DBAveragepercent">
-                  <span>{sum+"%"}</span>
+              {testdata.length === 0 ? (
+                <div className="DBNoTests">
+                  You haven't taken any tests yet.
                 </div>
-                <Doughnut
-                  className="DBDoughnut"
-                  data={doughnutData}
-                  options={{
-                    cutout: 40,
-                    plugins: {
-                      legend: {
-                        labels: {
-                          boxWidth: 10,
+              ) : (
+                <React.Fragment>
+                  <div className="DBDoughnutDiv">
+                    <div className="DBAveragepercent">
+                      <span>{sum + "%"}</span>
+                    </div>
+                    <Doughnut
+                      className="DBDoughnut"
+                      data={doughnutData}
+                      options={{
+                        cutout: 40,
+                        plugins: {
+                          legend: {
+                            labels: {
+                              boxWidth: 10,
+                            },
+                            display: false,
+                            position: "right",
+                          },
                         },
-                        display: false,
-                        position: "right",
-                      },
-                    },
-                  }}
-                />
-              </div>
-              <div className="DBDoughnutcolorMainDiv">
-                <div className="DbDoughnutcolordiv">
-                  <div className="DbDoughnutcolorboxcorrect"></div>
-                  <span>Points Scored {sum}%</span>
-                </div>
-                <div className="DbDoughnutcolordiv">
-                  <div className="DbDoughnutcolorboxwrong"></div>
-                  <span>Points Lost {100 - sum}%</span>
-                </div>
-              </div>
+                      }}
+                    />
+                  </div>
+                  <div className="DBDoughnutcolorMainDiv">
+                    <div className="DbDoughnutcolordiv">
+                      <div className="DbDoughnutcolorboxcorrect"></div>
+                      <span>Points Scored {sum}%</span>
+                    </div>
+                    <div className="DbDoughnutcolordiv">
+                      <div className="DbDoughnutcolorboxwrong"></div>
+                      <span>Points Lost {100 - sum}%</span>
+                    </div>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
           </div>
           <div className="DBAverageBottomDiv">
@@ -236,7 +240,12 @@ const Dashboard = (props) => {
               <div className="DBHistoryBody">
                 <div className="DBHistoryGraph">
                   <div className="DBHistorypercent">
-                    <span>{(test.reduce((accumulator, curr) => accumulator + curr)/5).toFixed(2)+"%"}</span>
+                    <span>
+                      {(
+                        test.reduce((accumulator, curr) => accumulator + curr) /
+                        5
+                      ).toFixed(2) + "%"}
+                    </span>
                   </div>
                   <Doughnut
                     className="DBDoughnutHistory"
@@ -256,7 +265,9 @@ const Dashboard = (props) => {
                   <span>{"Speed: " + test[0].toFixed(2) + "%"}</span>
                   <span>{"Deep Thinking: " + test[1].toFixed(2) + "%"}</span>
                   <span>{"Memory: " + test[2].toFixed(2) + "%"}</span>
-                  <span>{"Logical Reasoning: " + test[3].toFixed(2) + "%"}</span>
+                  <span>
+                    {"Logical Reasoning: " + test[3].toFixed(2) + "%"}
+                  </span>
                   <span>{"Focus: " + test[4].toFixed(2) + "%"}</span>
                 </div>
               </div>

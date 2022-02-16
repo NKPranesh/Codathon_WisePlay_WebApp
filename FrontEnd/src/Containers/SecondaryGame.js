@@ -106,23 +106,25 @@ const SecondaryGame = () => {
           {!over ? (
             <React.Fragment>
               <div className="SGInnerDiv">
-                <div className="QNQuestion">
-                  {questions[questionNumber - 1]}
+                <div>
+                  <div className="QNQuestion">
+                    {questions[questionNumber - 1]}
+                  </div>
+                  <Options
+                    setPopupDisplay={setPopupDisplay}
+                    setIsExit={setIsExit}
+                    setTimetaken={setTimetaken}
+                    setTrait={setTrait}
+                    setQuestionNumber={setQuestionNumber}
+                    questionNumber={questionNumber}
+                    setMin={setMin}
+                    score={score}
+                    setScore={setScore}
+                    setSec={setSec}
+                    min={min}
+                    sec={sec}
+                  />
                 </div>
-                <Options
-                  setPopupDisplay={setPopupDisplay}
-                  setIsExit={setIsExit}
-                  setTimetaken={setTimetaken}
-                  setTrait={setTrait}
-                  setQuestionNumber={setQuestionNumber}
-                  questionNumber={questionNumber}
-                  setMin={setMin}
-                  score={score}
-                  setScore={setScore}
-                  setSec={setSec}
-                  min={min}
-                  sec={sec}
-                />
               </div>
             </React.Fragment>
           ) : (
@@ -130,7 +132,7 @@ const SecondaryGame = () => {
           )}
         </div>
       </div>
-      {popupDisplay && <Meme memeNumber={questionNumber}/>}
+      {popupDisplay && <Meme memeNumber={questionNumber} />}
     </React.Fragment>
   );
 };

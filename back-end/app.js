@@ -30,12 +30,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(function (req, res, next) {
-  //   res.setHeader(
-  //     "Access-Control-Allow-Origin",
-  //     "https://connectingworldapp.web.app"
-  //   );
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://wiseplay-teamsemicolon.web.app"
+  );
   //test
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
 
   // Request methods you wish to allow
   res.setHeader(
@@ -117,20 +117,12 @@ app.post("/login", async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 1 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
+      domain: "wiseplay-api.herokuapp.com",
+      // domain: "localhost",
       secure: true,
       sameSite: "none",
     });
     const testsData = user.tests;
-    res.cookie("testsData", testsData, {
-      maxAge: 1 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
-      secure: true,
-      sameSite: "none",
-    });
     res.status(200).json({ user: user._id, token, testsData });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -139,10 +131,8 @@ app.post("/login", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   const { email, password, name } = req.body;
-  const tests = [
-    [68, 68, 98, 67, 87],
-    [67, 78, 45, 65, 90],
-  ];
+  const tests = [];
+  const difficulty = "medium";
   const flag = 0;
 
   try {
@@ -151,14 +141,15 @@ app.post("/signup", async (req, res) => {
       password,
       name,
       tests,
+      difficulty,
       flag,
     });
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      //   domain: "connectingworld-api.herokuapp.com",
-      domain: "localhost",
+      domain: "wiseplay-api.herokuapp.com",
+      // domain: "localhost",
       secure: true,
       sameSite: "none",
     });
@@ -172,8 +163,8 @@ app.post("/signup", async (req, res) => {
 app.get("/logout", (req, res) => {
   res.cookie("jwt", "", {
     maxAge: 1,
-    // domain: "connectingworld-api.herokuapp.com",
-    domain: "localhost",
+    domain: "wiseplay-api.herokuapp.com",
+    // domain: "localhost",
     secure: true,
     sameSite: "none",
   });
@@ -212,7 +203,12 @@ app.get("/dashboard", async (req, res) => {
         console.log(err);
       } else {
         let user = await User.findById(decodedToken.id);
-        res.status(200).json({ name: user.name, testsData: user.tests });
+        res.status(200).json({
+          name: user.name,
+          testsData: user.tests,
+          email: user.email,
+          difficulty: user.difficulty,
+        });
       }
     });
   }
@@ -231,4 +227,28 @@ app.get("/resultData", async (req, res) => {
       }
     });
   }
+});
+
+app.post("/saveProfile", async (req, res) => {
+  let token = req.cookies.jwt;
+  let userData = req.body.userData;
+  if (token) {
+    jwt.verify(token, "philanterfakadi", async (err, decodedToken) => {
+      if (err) {
+        console.log(err);
+      } else {
+        let user = await User.findById(decodedToken.id);
+        user.name = userData.name;
+        user.email = userData.email;
+        user.difficulty = userData.difficulty;
+        await user.save().then((data) => {
+          res.status(200).json({ success: "success" });
+        });
+      }
+    });
+  }
+});
+
+app.get("/test", (req, res) => {
+  res.json({ msg: "Working good" });
 });

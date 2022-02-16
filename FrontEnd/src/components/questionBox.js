@@ -5,9 +5,9 @@ import "../stylesheets/questionBox.css";
 let flag = 0;
 var time = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-let ratio=[1,4,2,3,2];
+let ratio = [1, 4, 2, 3, 2];
 const QuestionBox = (props) => {
-  const [[prevMin, prevSec], setPrevTime] = useState([10, 0]);
+  const [[prevMin, prevSec], setPrevTime] = useState([20, 0]);
   let questions = [
     " [72 – 12 ÷ by 3 – 2 ]+ ( 18 – 6) ÷ 4",
     "How is father’s brother daughter related to you?",
@@ -51,7 +51,6 @@ const QuestionBox = (props) => {
 
   const navigate = useNavigate();
 
-
   return (
     <div className="QBMainDiv">
       <div className="QBSituationDiv">
@@ -64,18 +63,22 @@ const QuestionBox = (props) => {
         <div className="QBOptions">
           <div className="QBOptionsTop">
             <span>
-              <input type="radio" value="a" name="options" /> {options[props.questionNumber-1][0]}
+              <input type="radio" value="a" name="options" />{" "}
+              {options[props.questionNumber - 1][0]}
             </span>
             <span>
-              <input type="radio" value="b" name="options" /> {options[props.questionNumber-1][1]}
+              <input type="radio" value="b" name="options" />{" "}
+              {options[props.questionNumber - 1][1]}
             </span>
           </div>
           <div className="QBOptionsBottom">
             <span>
-              <input type="radio" value="c" name="options"/> {options[props.questionNumber-1][2]}
+              <input type="radio" value="c" name="options" />{" "}
+              {options[props.questionNumber - 1][2]}
             </span>
             <span>
-              <input type="radio" value="d" name="options" /> {options[props.questionNumber-1][3]}
+              <input type="radio" value="d" name="options" />{" "}
+              {options[props.questionNumber - 1][3]}
             </span>
           </div>
         </div>
@@ -85,16 +88,24 @@ const QuestionBox = (props) => {
           <button
             className="QBNextButton"
             onClick={() => {
-              if(answers[props.questionNumber - 1]==document.querySelector('input[name="options"]:checked').value){
-                optionsOpted[props.questionNumber - 1]=1;
+              if (
+                answers[props.questionNumber - 1] ==
+                document.querySelector('input[name="options"]:checked').value
+              ) {
+                optionsOpted[props.questionNumber - 1] = 1;
               }
-              
+
               time[props.questionNumber - 1] =
                 prevMin * 60 + prevSec - (props.min * 60 + props.sec);
-                props.setTrait((props.questionNumber-1)%5);
-              let minscore=20;
-              minscore= 105-time[props.questionNumber - 1]>minscore? 105-time[props.questionNumber - 1]:minscore;
-              props.setTimetaken((((minscore)*optionsOpted[props.questionNumber - 1])/(2)));
+              props.setTrait((props.questionNumber - 1) % 5);
+              let minscore = 20;
+              minscore =
+                105 - time[props.questionNumber - 1] > minscore
+                  ? 105 - time[props.questionNumber - 1]
+                  : minscore;
+              props.setTimetaken(
+                (minscore * optionsOpted[props.questionNumber - 1]) / 2
+              );
               setPrevTime([props.min, props.sec]);
               flag = flag + 1;
               if (flag % 2 == 0) {
@@ -107,14 +118,18 @@ const QuestionBox = (props) => {
                   newAnimation.classList.remove("popInLeft");
                 }, 10001);
                 setTimeout(() => {
-                  document.getElementsByClassName('QBNextButton')[0].style.display="none";
+                  document.getElementsByClassName(
+                    "QBNextButton"
+                  )[0].style.display = "none";
                 }, 1000);
                 setTimeout(() => {
                   let animation = document.getElementsByClassName(
                     "Animation" + props.popOut
                   )[0];
                   animation.classList.add("popOutRight");
-                  document.getElementsByClassName('QBNextButton')[0].style.display="";
+                  document.getElementsByClassName(
+                    "QBNextButton"
+                  )[0].style.display = "";
                 }, 4000);
 
                 setTimeout(() => {
@@ -128,15 +143,15 @@ const QuestionBox = (props) => {
                   props.setScore(
                     props.score + (props.min * 60 + props.sec) * 10
                   );
-                  var radList = document.getElementsByName('options');
-                for (var i = 0; i < radList.length; i++) {
-                  radList[i].checked = false;
-                }
+                  var radList = document.getElementsByName("options");
+                  for (var i = 0; i < radList.length; i++) {
+                    radList[i].checked = false;
+                  }
                 }, 4001);
               } else {
-                  props.setQuestionNumber(props.questionNumber + 1);
-                  props.setScore(props.score + (props.min * 60 + props.sec) * 10);
-                  var radList = document.getElementsByName('options');
+                props.setQuestionNumber(props.questionNumber + 1);
+                props.setScore(props.score + (props.min * 60 + props.sec) * 10);
+                var radList = document.getElementsByName("options");
                 for (var i = 0; i < radList.length; i++) {
                   radList[i].checked = false;
                 }
@@ -146,17 +161,28 @@ const QuestionBox = (props) => {
             Next
           </button>
         ) : (
-          <button className="QBNextButton" onClick={()=>{
-            time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
-    if(answers[9]==document.querySelector('input[name="options"]:checked').value){
-      optionsOpted[9]=1;
-          }
-          props.setTrait((props.questionNumber-1)%5);
-          let minscore=20;
-          minscore= 105-time[props.questionNumber - 1]>minscore? 105-time[props.questionNumber - 1]:minscore;
-          props.setTimetaken((((minscore)*optionsOpted[props.questionNumber - 1])/(2)));
-          props.setIsExit(true);
-          }}>
+          <button
+            className="QBNextButton"
+            onClick={() => {
+              time[9] = prevMin * 60 + prevSec - (props.min * 60 + props.sec);
+              if (
+                answers[9] ==
+                document.querySelector('input[name="options"]:checked').value
+              ) {
+                optionsOpted[9] = 1;
+              }
+              props.setTrait((props.questionNumber - 1) % 5);
+              let minscore = 20;
+              minscore =
+                105 - time[props.questionNumber - 1] > minscore
+                  ? 105 - time[props.questionNumber - 1]
+                  : minscore;
+              props.setTimetaken(
+                (minscore * optionsOpted[props.questionNumber - 1]) / 2
+              );
+              props.setIsExit(true);
+            }}
+          >
             Submit
           </button>
         )}

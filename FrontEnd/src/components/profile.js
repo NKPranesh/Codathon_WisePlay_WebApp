@@ -1,63 +1,123 @@
-import React, { Profiler } from 'react';
+import React, { Profiler } from "react";
 import "../stylesheets/profile.css";
 
-const Profile = () => {
-  return (
-      <React.Fragment>
+const Profile = (props) => {
+  let saveHandle = async () => {
+    let name = document.getElementsByClassName("PRInput")[0];
+    let email = document.getElementsByClassName("PRInput")[1];
+    let difficulty = document.getElementsByClassName("PRDropdown")[0];
 
-        <div className="PRHeadDiv" id="PRHeadDivID">
-            <span>Your Profile</span>
-        </div>
-        <div className='PRMainDiv'>
-            <div className='PRInnerDiv'>
-                <div className='PRLeftDiv'>
-                    <div className='PRprofile'>
-                        <div className='PRProfilePic'>
-                            <span>M</span>
-                        </div>
-                        <div className='PRDetails'>
-                            <p>Name: <span>Meghana</span></p>
-                            <p>Email: <span>meghana@gmail.com</span></p>
-                        </div>
-                    </div>
-                    <hr className="PRrounded" />
-                </div>
-                
-                <div className='PRRightDiv'>
-                    <div className='PREdit'>
-                        Edit Profile
-                    </div>
-                    <div className="PREditDetails">
-                        <p>Name:</p> 
-                        <input className="PRInput" type="text" />
-                    </div>
-                    <div className="PREditDetails">
-                    <p>Email:</p>
-                        <input className="PRInput" type="text" />
-                    </div>
-                    <div className="PREditDetails">
-                        <p>Age:</p>
-                        <input className="PRInput" type="text" />
-                    </div>
-                    <div className="PREditDetails">
-                    <p>Difficulty:</p>
-                    <select name="languages" id="lang" className='PRDropdown'> 
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                    </div>
-                </div>
+    await fetch(process.env.React_App_Backend_domain + "/saveProfile", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({
+        userData: {
+          name: name.value,
+          email: email.value,
+          difficulty: difficulty.value,
+        },
+      }),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <React.Fragment>
+      <div className="PRHeadDiv" id="PRHeadDivID">
+        <span>Your Profile</span>
+      </div>
+      <div className="PRMainDiv">
+        <div className="PRInnerDiv">
+          <div className="PRLeftDiv">
+            <div className="PRprofile">
+              <div className="PRProfilePic">
+                <span>{props.name.charAt(0).toUpperCase()}</span>
+              </div>
+              <div className="PRDetails">
+                <p>
+                  Name: <span>{props.name}</span>
+                </p>
+                <p>
+                  Email: <span>{props.email}</span>
+                </p>
+              </div>
             </div>
-            <div className='PRExitButtonDiv'>
-                <div>
-                    <button className="PRExitButton">Save</button>
-                </div>
+            <hr className="PRrounded" />
+          </div>
+
+          <div className="PRRightDiv">
+            <div className="PREdit">Edit Profile</div>
+            <div className="PREditDetails">
+              <p>Name:</p>
+              <input
+                className="PRInput"
+                type="text"
+                defaultValue={props.name}
+              />
             </div>
+            <div className="PREditDetails">
+              <p>Email:</p>
+              <input
+                className="PRInput"
+                type="text"
+                defaultValue={props.email}
+              />
+            </div>
+
+            <div className="PREditDetails">
+              <p>Difficulty:</p>
+              <select
+                name="languages"
+                id="lang"
+                className="PRDropdown"
+                defaultChecked={props.difficulty}
+              >
+                {"easy" === props.difficulty ? (
+                  <option value="easy" name="easy" selected="selected">
+                    Easy
+                  </option>
+                ) : (
+                  <option value="easy" name="easy">
+                    Easy
+                  </option>
+                )}
+                {"medium" === props.difficulty ? (
+                  <option value="medium" name="medium" selected="selected">
+                    Medium
+                  </option>
+                ) : (
+                  <option value="medium" name="medium">
+                    Medium
+                  </option>
+                )}
+                {"hard" === props.difficulty ? (
+                  <option value="hard" name="hard" selected="selected">
+                    Hard
+                  </option>
+                ) : (
+                  <option value="hard" name="hard">
+                    Hard
+                  </option>
+                )}
+              </select>
+            </div>
+          </div>
         </div>
-      </React.Fragment>
-    
-  )
+        <div className="PRExitButtonDiv">
+          <div>
+            <button className="PRExitButton" onClick={saveHandle}>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default Profile;

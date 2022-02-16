@@ -12,9 +12,9 @@ const CountDown = (props) => {
   props.setSec(s);
   const tick = () => {
     if (props.over) return;
-    if (m === 0 && s === 0) 
-    {props.setOver(true);}
-    else if (s == 0) {
+    if (m === 0 && s === 0) {
+      props.setOver(true);
+    } else if (s == 0) {
       setTime([m - 1, 59]);
     } else {
       setTime([m, s - 1]);
@@ -43,13 +43,15 @@ const SecondaryNavbar = (props) => {
           <img src={Logo} alt="logo" />
         </div>
         <div className="SNQuestionnobox">
-          <span className="SNPresentQuestion">{props.questionNumber + "/"}</span>
+          <span className="SNPresentQuestion">
+            {props.questionNumber + "/"}
+          </span>
           <span className="SNTotalQuestions">10</span>
         </div>
       </div>
 
       <div className="SNBox2">
-      {/* <div className="SNStreak">
+        {/* <div className="SNStreak">
           <p className="detailtext">Streak</p>
           <div className="SNStreakScore">
             <img src={Flame} alt="coins" />
@@ -60,8 +62,8 @@ const SecondaryNavbar = (props) => {
         <div className="SNTimer">
           <img src={Clock} alt="Timer" />
           <span className="detailtext">
-          <CountDown
-              minutes={10}
+            <CountDown
+              minutes={20}
               seconds={0}
               setMin={props.setMin}
               setSec={props.setSec}
@@ -71,10 +73,14 @@ const SecondaryNavbar = (props) => {
           </span>
         </div>
 
-        <button className="SNExitButton"
-        onClick={()=>{
-          props.setIsExit(true);
-        }}>Exit</button>
+        <button
+          className="SNExitButton"
+          onClick={() => {
+            props.setIsExit(true);
+          }}
+        >
+          Exit
+        </button>
       </div>
     </div>
   );

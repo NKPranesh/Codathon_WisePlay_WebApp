@@ -44,7 +44,7 @@ const DashboardContent = (props) => {
                         more focused and To keep the students motivated memes
                         will be displayed.
                       </p>
-                      <div className="DBStartButton">
+                      <div className="DBStartButton DBNormalStartButton">
                         <Link to="/secondarygame">
                           <button>Start Test</button>
                         </Link>
@@ -57,7 +57,11 @@ const DashboardContent = (props) => {
             <Dashboard testsData={props.testsData} />
           </React.Fragment>
         ) : (
-          <Profile />
+          <Profile
+            name={props.name}
+            email={props.email}
+            difficulty={props.difficulty}
+          />
         )}
       </div>
     </div>

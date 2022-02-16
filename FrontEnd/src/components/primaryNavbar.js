@@ -13,9 +13,9 @@ const CountDown = (props) => {
   props.setSec(s);
   const tick = () => {
     if (props.over) return;
-    if (m === 0 && s === 0) 
-    {props.setOver(true);}
-    else if (s == 0) {
+    if (m === 0 && s === 0) {
+      props.setOver(true);
+    } else if (s == 0) {
       setTime([m - 1, 59]);
     } else {
       setTime([m, s - 1]);
@@ -52,12 +52,11 @@ const PrimaryNavbar = (props) => {
       </div>
 
       <div className="PNBox2">
-
         <div className="PNTimer">
           <img src={Clock} alt="Timer" />
           <span className="detailtext">
             <CountDown
-              minutes={10}
+              minutes={20}
               seconds={0}
               setMin={props.setMin}
               setSec={props.setSec}
@@ -66,11 +65,14 @@ const PrimaryNavbar = (props) => {
             />
           </span>
         </div>
-        <button className="PNExitButton" onClick={()=>{
-          props.setIsExit(true);
-        }
-          
-        }>Exit</button>
+        <button
+          className="PNExitButton"
+          onClick={() => {
+            props.setIsExit(true);
+          }}
+        >
+          Exit
+        </button>
       </div>
     </div>
   );

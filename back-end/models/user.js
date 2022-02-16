@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
+  difficulty: {
+    type: String,
+    required: true,
+  },
   flag: {
     type: Number,
     required: true,
