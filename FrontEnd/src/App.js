@@ -10,6 +10,7 @@ import Test from "./Containers/Test";
 import "./App.css";
 import { useState } from "react";
 import Profile from "./components/profile";
+import AboutPage from "./Containers/AboutPage";
 
 function App() {
   let [testsData, setTestsData] = useState([]);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/secondarygame" element={<SecondaryGame />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>
     </div>
