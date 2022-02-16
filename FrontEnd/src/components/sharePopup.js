@@ -13,64 +13,41 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-let imageuploaded=false;
-let shareurl="";
+let imageuploaded = false;
+let shareurl = "";
 const SharePopup = (props) => {
-<<<<<<< HEAD
-  console.log(props.image);
-  const file = new Blob([props.image], { type: "image/jpeg" });
-  let imageurl = URL.createObjectURL(file);
-  console.log(imageurl);
-  window.onload = function () {
-    var c1 = document.getElementById("SPCertificate");
-    var ctx1 = c1.getContext("2d");
-    var img = document.getElementById("SPCertificateimg");
-    // console.log(img);
-    ctx1.drawImage(img, 0, 0, img.width, img.height, 0, 0, c1.width, c1.height);
-    ctx1.font = "20px Poppins";
-    ctx1.fillText("Mani Sai", 210, 130);
-    ctx1.font = "15px Poppins";
-    ctx1.fillText("80%", 70, 235);
-    ctx1.fillText("67%", 169, 235);
-    ctx1.fillText("90%", 230, 235);
-    ctx1.fillText("78%", 303, 235);
-    ctx1.fillText("93%", 384, 235);
-    ctx1.font = "10px Poppins";
-    ctx1.fillText("09-02-2022", 120, 275);
-  };
-  console.log(props);
-=======
-  let [imageurl,setImageurl]=useState("");
+  let [imageurl, setImageurl] = useState("");
   // if(!imageuploaded)
-    {
-      imageuploaded=true;
-      let data=props.image;;
-  const uploadTask = storage.ref(`images/${props.name+props.date}`).putString(data.split(",")[1], 'base64', {contentType:'image/jpg'});
-  uploadTask.on(
-    "state_changed",
-    snapshot => {
-      const progress = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-      // console.log(progress);
-      // setProgress(progress);
-    },
-    error => {
-      console.log(error);
-    },
-    () => {
-      storage
-        .ref("images")
-        .child(props.name+props.date)
-        .getDownloadURL()
-        .then(url => {
-
-             setImageurl(url);
-          shareurl=url;
-        });
-    }
-  );}
->>>>>>> 4578a533bd95958b130a676e8b8932906248938a
+  {
+    imageuploaded = true;
+    let data = props.image;
+    const uploadTask = storage
+      .ref(`images/${props.name + props.date}`)
+      .putString(data.split(",")[1], "base64", { contentType: "image/jpg" });
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        // console.log(progress);
+        // setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(props.name + props.date)
+          .getDownloadURL()
+          .then((url) => {
+            setImageurl(url);
+            shareurl = url;
+          });
+      }
+    );
+  }
   return (
     <div className="SPOuterDiv">
       <div className="SPMain">
@@ -114,9 +91,13 @@ const SharePopup = (props) => {
             width="626"
             height="436"
           >
-            <img src={Facebook} alt="img" onClick={()=>{
-              shareurl=imageurl
-            }}/>
+            <img
+              src={Facebook}
+              alt="img"
+              onClick={() => {
+                shareurl = imageurl;
+              }}
+            />
           </FacebookShareButton>
           <TwitterShareButton
             url={imageurl}
