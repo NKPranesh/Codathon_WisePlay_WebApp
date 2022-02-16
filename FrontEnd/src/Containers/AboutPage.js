@@ -1,13 +1,13 @@
 import React from "react";
-import LandingNavbar from "../components/landingNavbar";
 import About from "../components/about";
 import Footer from "../components/footer";
 import "../stylesheets/AboutPage.css";
+import AboutNavbar from "../components/aboutNavbar";
 
 const AboutPage = () => {
   return (
     <div className="ABMainDiv">
-      <LandingNavbar />
+      <AboutNavbar />
       <About />
       <Footer />
     </div>
