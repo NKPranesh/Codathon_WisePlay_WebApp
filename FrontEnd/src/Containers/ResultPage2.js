@@ -107,11 +107,11 @@ const ResultPage = () => {
     ctx.font = "20px Poppins";
     ctx.fillText(name, 210, 130);
     ctx.font = "15px Poppins";
-    ctx.fillText(testData[0] + "%", 70, 235);
-    ctx.fillText(testData[1] + "%", 169, 235);
-    ctx.fillText(testData[2] + "%", 230, 235);
-    ctx.fillText(testData[3] + "%", 303, 235);
-    ctx.fillText(testData[4] + "%", 384, 235);
+    ctx.fillText(testData[3] + "%", 70, 235);
+    ctx.fillText(testData[2] + "%", 169, 235);
+    ctx.fillText(testData[4] + "%", 230, 235);
+    ctx.fillText(testData[0] + "%", 303, 235);
+    ctx.fillText(testData[1] + "%", 384, 235);
     ctx.font = "10px Poppins";
     ctx.fillText(today, 120, 275);
     var data = document.getElementById("rscertificatepreview");
