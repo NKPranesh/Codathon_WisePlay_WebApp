@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Clock from "../media/clock.svg";
-import Coins from "../media/coins.svg";
 import Logo from "../media/logo.svg";
-import Flame from "../media/flame.svg";
-import { Link } from "react-router-dom";
 import "../stylesheets/secondaryNavbar.css";
 
 const CountDown = (props) => {
@@ -66,14 +63,6 @@ const SecondaryNavbar = (props) => {
       </div>
 
       <div className="SNBox2">
-        {/* <div className="SNStreak">
-          <p className="detailtext">Streak</p>
-          <div className="SNStreakScore">
-            <img src={Flame} alt="coins" />
-            <span className="detailtext">2</span>
-          </div>
-        </div> */}
-
         <div className="SNTimer">
           <img src={Clock} alt="Timer" />
           <span className="detailtext">

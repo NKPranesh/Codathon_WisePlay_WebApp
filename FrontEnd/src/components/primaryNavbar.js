@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Clock from "../media/clock.svg";
-import Coins from "../media/coins.svg";
 import Logo from "../media/logo.svg";
-import { Link } from "react-router-dom";
 import "../stylesheets/primaryNavbar.css";
-import SubmitButtonHandle from "./questionBox.js";
 
 let count = 0;
 const CountDown = (props) => {

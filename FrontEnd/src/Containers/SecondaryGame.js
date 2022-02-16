@@ -70,8 +70,6 @@ const SecondaryGame = () => {
   setTimeout(() => {
     setStartLoading(false);
   }, 2000);
-  // let [questionOptions,setQuestionoptions] =useState([]);
-  // let [answers,setAnswers] =useState([]);
 
   const getData = async () => {
     await fetch(process.env.React_App_Backend_domain + "/dashboard", {
@@ -85,18 +83,12 @@ const SecondaryGame = () => {
         setDifficulty(responseJson.difficulty);
         if (responseJson.difficulty == "easy") {
           setQuestions(easyquestions);
-          // setQuestionoptions(easyoptions);
-          // setAnswers(easyanswers);
         }
         if (responseJson.difficulty == "medium") {
           setQuestions(mediumquestions);
-          //  setQuestionoptions(mediumoptions);
-          //  setAnswers(mediumanswers);
         }
         if (responseJson.difficulty == "hard") {
           setQuestions(difficultquestions);
-          //  setQuestionoptions(difficultoptions);
-          //  setAnswers(difficultanswers);
         }
       })
       .catch((error) => {

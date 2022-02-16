@@ -204,9 +204,6 @@ const ResultPage = () => {
             </div>
             <div className="rsscorerow">
               <hr className="rounded" />
-              {/* <div className="rscertificatepreview">
-              <img src={Certificate} />
-            </div> */}
               <img
                 id="rsCertificate"
                 src={Certificate}

@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/options.css";
 
@@ -8,9 +8,8 @@ let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let ratio = [1, 4, 2, 3, 2];
 let selectedOption = "e";
 const Options = (props) => {
-
-  let [questionOptions,setQuestionoptions] =useState([['','','','',]]);
-  let [answers,setAnswers] =useState(['a']);
+  let [questionOptions, setQuestionoptions] = useState([["", "", "", ""]]);
+  let [answers, setAnswers] = useState(["a"]);
   let [name, setName] = useState("");
   let [difficulty, setDifficulty] = useState("");
 
@@ -32,33 +31,29 @@ const Options = (props) => {
     ["2.3 meters", "4.6 meters", "7.8 meters", "9.2 meters"],
     ["Rupees. 1425", "Rupees. 1500", "Rupees. 1537.50", "Rupees. 1576"],
     ["564 ways", "645 ways", "735 ways", "756 ways"],
-    ['144 degrees','150 degrees','168 degrees','180 degrees'],
+    ["144 degrees", "150 degrees", "168 degrees", "180 degrees"],
     ["1  :  3", "3  :  2", "3  :  4", "None of these"],
-    ['9 minutes','10 minutes','12 minutes','20 minutes'],
+    ["9 minutes", "10 minutes", "12 minutes", "20 minutes"],
     ["Rs. 2000", "Rs. 2200", "Rs. 2400", "Data inadequate"],
-    ['24 years','27 years','40 years','42 years'],
+    ["24 years", "27 years", "40 years", "42 years"],
     ["3.6 Kilo grams", "3.696 Kilo grams", "36 Kilo grams", "36.9 Kilo grams"],
-    ['20 hours','25 hours','35 hours','40 hours'],
-
+    ["20 hours", "25 hours", "35 hours", "40 hours"],
   ];
-  let mediumanswers = ['d','b','d','d','b','b','a','a','b','c'];
+  let mediumanswers = ["d", "b", "d", "d", "b", "b", "a", "a", "b", "c"];
 
   let difficultoptions = [
     ["300  kmph", "360  kmph", "600  kmph", "720  kmph"],
     ["Rupees. 1425", "Rupees. 1500", "Rupees. 1537.50", "Rupees. 1576"],
-    ['14 years','19 years','33 years','38 years'],
-    ['144 degrees','150 degrees','168 degrees','180 degrees'],
-    ['5 minutes','9 minutes','10 minutes','15 minutes'],
-    ['9 minutes','10 minutes','12 minutes','20 minutes'],
-    ['8400 Rupees','11900 Rupees','13600 Rupees','14700 Rupees'],
-    ['24 years','27 years','40 years','42 years'],
-    ['2 : 3 : 4','6 : 7 : 8','6 : 8 : 9','None of these'],
-    ['20 hours','25 hours','35 hours','40 hours'],
+    ["14 years", "19 years", "33 years", "38 years"],
+    ["144 degrees", "150 degrees", "168 degrees", "180 degrees"],
+    ["5 minutes", "9 minutes", "10 minutes", "15 minutes"],
+    ["9 minutes", "10 minutes", "12 minutes", "20 minutes"],
+    ["8400 Rupees", "11900 Rupees", "13600 Rupees", "14700 Rupees"],
+    ["24 years", "27 years", "40 years", "42 years"],
+    ["2 : 3 : 4", "6 : 7 : 8", "6 : 8 : 9", "None of these"],
+    ["20 hours", "25 hours", "35 hours", "40 hours"],
   ];
-  let difficultanswers = [
-    "d",'b','a','d','b','b','d','a','a','c'
-  ];
-
+  let difficultanswers = ["d", "b", "a", "d", "b", "b", "d", "a", "a", "c"];
 
   const getData = async () => {
     await fetch(process.env.React_App_Backend_domain + "/dashboard", {
@@ -77,8 +72,8 @@ const Options = (props) => {
         if (responseJson.difficulty == "medium") {
           setQuestionoptions(mediumoptions);
           setAnswers(mediumanswers);
-        } 
-        if(responseJson.difficulty=="hard") {
+        }
+        if (responseJson.difficulty == "hard") {
           setQuestionoptions(difficultoptions);
           setAnswers(difficultanswers);
         }
@@ -89,7 +84,6 @@ const Options = (props) => {
 
     return 1;
   };
-
 
   const [[prevMin, prevSec], setPrevTime] = useState([20, 0]);
   const navigate = useNavigate();
@@ -168,26 +162,7 @@ const Options = (props) => {
                   props.setTimetaken(
                     (minscore * optionsOpted[props.questionNumber - 1]) / 2
                   );
-                  // if((props.questionNumber - 1)%5 == 0)
-                  // {
-                  //   props.setTimetaken((((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
-                  // }
-                  // else if((props.questionNumber - 1)%5 == 1)
-                  // {
-                  //   props.setTimetaken((((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5])));
-                  // }
-                  // else if((props.questionNumber - 1)%5 == 2)
-                  // {
-                  //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-                  // }
-                  // else if((props.questionNumber - 1)%5 == 3)
-                  // {
-                  //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-                  // }
-                  // else if((props.questionNumber - 1)%5 == 4)
-                  // {
-                  //   props.setTimetaken(((100-time[props.questionNumber - 1])*optionsOpted[props.questionNumber - 1])/(2*ratio[(props.questionNumber - 1)%5]));
-                  // }
+
                   setPrevTime([props.min, props.sec]);
                   flag = flag + 1;
                   if (flag % 2 == 0) {
