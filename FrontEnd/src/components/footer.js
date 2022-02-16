@@ -12,8 +12,8 @@ const footer = () => {
         <div className="footerIntroDiv">
           <img src={Logo} className="footerIntroLogo" alt="img" />
           <span className="footerIntroBody">
-            On the other hand, we denounce with righteous indignation and
-            dislike men.
+            A platform using which you can assess your self from any corner of
+            the world.
           </span>
         </div>
         <div className="footerLinksDiv">
