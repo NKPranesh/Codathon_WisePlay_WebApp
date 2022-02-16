@@ -13,9 +13,9 @@ const LandingNavbar = () => {
           </Link>
         </div>
         <div className="LNLinksDiv">
-          <a href="#" className="LNLink">
+          <Link to="/about" className="LNLink">
             <span>About</span>
-          </a>
+          </Link>
           <a href="#LBDashboardID" className="LNLink">
             <span>Overview</span>
           </a>

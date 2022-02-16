@@ -1,0 +1,98 @@
+.ABHeading{
+    margin: 10px;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ABInnerDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.ABLeftDiv img {
+    width: 400px;
+    
+}
+.ABLeftDiv {
+    padding: 50px;
+    padding-right: 0;
+    padding-left: 140px;
+}
+
+.ABRightDiv {
+    padding: 20px;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ABHeadName{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.ABInnerHeading p {
+    font-size: 15px;
+    padding-right: 50px;
+    line-height: 1.5;
+}
+
+.ABInnerHeading {
+    width: 550px;
+    margin-bottom: 20px;
+}
+
+.ABTeamName {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ABTeamMember{
+    padding-left: 5px;
+}
+
+@media screen and (max-width: 1920px) {
+
+    .ABInnerDiv {
+        margin-left: 12%;
+    }
+    
+}
+
+@media screen and (max-width: 1792px) {
+
+    .ABInnerDiv {
+        margin-left: 10%;
+    }
+    
+}
+
+@media screen and (max-width: 1680px) {
+
+    .ABInnerDiv {
+        margin-left: 5%;
+    }
+    
+}
+
+@media screen and (max-width: 1440px) {
+
+    .ABInnerDiv {
+        margin-left: -2%;
+    }
+    
+}
+
+@media screen and (max-width: 1336px) {
+
+    .ABInnerDiv {
+        margin-left: -6%;
+    }
+    
+}
