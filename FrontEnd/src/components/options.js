@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheets/options.css";
 
@@ -8,21 +8,90 @@ let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let ratio = [1, 4, 2, 3, 2];
 let selectedOption = "e";
 const Options = (props) => {
-  const [[prevMin, prevSec], setPrevTime] = useState([20, 0]);
-  let questionOptions = [
-    ['36','38','40','42'],
-    ['Brother','Uncle','Cousin','Father'],
-    ['The idea of evolution is simple','Evolution is important','It tells us about the origin of life.','By evolution, we can make predictions.'],
-    ['15','14','13','12'],
-    ['NASA has a budget of $17 billion','The cost of making one space shuttle can be used for other constructive work.','The money spent on NASA can be used otherwise.','Space exploration is costly and some people are worried.'],
-    ['It is very well written.','Could be better.','It ensures everyone has basic rights.','The marginalized sections of the society don’t enjoy the rights guaranteed by the constitution.'],
-    ['15 m West','30 m East','30 m West','45 m East'],
-    ['13,000','7,000','6 Million','It can’t be determined'],
-    ['OEP','NEO','MEN','PFQ'],
-    ['Sohaib','Harshad','Preksha','Yawer'],
-  ];
-  let answers = ["a", "d", "c", "a", "d", "d", "d", "a", "b", "d  "];
 
+  let [questionOptions,setQuestionoptions] =useState([['','','','',]]);
+  let [answers,setAnswers] =useState(['a']);
+  let [name, setName] = useState("");
+  let [difficulty, setDifficulty] = useState("");
+
+  let easyoptions = [
+    ["45 km/hr", "50 km/hr", "54 km/hr", "55 km/hr"],
+    ["2.3 meters", "4.6 meters", "7.8 meters", "9.2 meters"],
+    ["30 percent", "70 percent", "100 percent", "250 percent"],
+    ["564 ways", "645 ways", "735 ways", "756 ways"],
+    ["60 gallons", "100 gallons", "120 gallons", "180 gallons"],
+    ["1  :  3", "3  :  2", "3  :  4", "None of these"],
+    ["149 meters", "156 meters", "173 meters", "200 meters"],
+    ["Rs. 2000", "Rs. 2200", "Rs. 2400", "Data inadequate"],
+    ["1 hour", "2 hours", "6 hours", "8 hours"],
+    ["3.6 Kilo grams", "3.696 Kilo grams", "36 Kilo grams", "36.9 Kilo grams"],
+  ];
+  let easyanswers = ["b", "d", "b", "d", "c", "b", "c", "a", "c", "b"];
+
+  let mediumoptions = [
+    ["2.3 meters", "4.6 meters", "7.8 meters", "9.2 meters"],
+    ["Rupees. 1425", "Rupees. 1500", "Rupees. 1537.50", "Rupees. 1576"],
+    ["564 ways", "645 ways", "735 ways", "756 ways"],
+    ['144 degrees','150 degrees','168 degrees','180 degrees'],
+    ["1  :  3", "3  :  2", "3  :  4", "None of these"],
+    ['9 minutes','10 minutes','12 minutes','20 minutes'],
+    ["Rs. 2000", "Rs. 2200", "Rs. 2400", "Data inadequate"],
+    ['24 years','27 years','40 years','42 years'],
+    ["3.6 Kilo grams", "3.696 Kilo grams", "36 Kilo grams", "36.9 Kilo grams"],
+    ['20 hours','25 hours','35 hours','40 hours'],
+
+  ];
+  let mediumanswers = ['d','b','d','d','b','b','a','a','b','c'];
+
+  let difficultoptions = [
+    ["300  kmph", "360  kmph", "600  kmph", "720  kmph"],
+    ["Rupees. 1425", "Rupees. 1500", "Rupees. 1537.50", "Rupees. 1576"],
+    ['14 years','19 years','33 years','38 years'],
+    ['144 degrees','150 degrees','168 degrees','180 degrees'],
+    ['5 minutes','9 minutes','10 minutes','15 minutes'],
+    ['9 minutes','10 minutes','12 minutes','20 minutes'],
+    ['8400 Rupees','11900 Rupees','13600 Rupees','14700 Rupees'],
+    ['24 years','27 years','40 years','42 years'],
+    ['2 : 3 : 4','6 : 7 : 8','6 : 8 : 9','None of these'],
+    ['20 hours','25 hours','35 hours','40 hours'],
+  ];
+  let difficultanswers = [
+    "d",'b','a','d','b','b','d','a','a','c'
+  ];
+
+
+  const getData = async () => {
+    await fetch(process.env.React_App_Backend_domain + "/dashboard", {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setName(responseJson.name);
+        setDifficulty(responseJson.difficulty);
+        if (responseJson.difficulty == "easy") {
+          setQuestionoptions(easyoptions);
+          setAnswers(easyanswers);
+        }
+        if (responseJson.difficulty == "medium") {
+          setQuestionoptions(mediumoptions);
+          setAnswers(mediumanswers);
+        } 
+        if(responseJson.difficulty=="hard") {
+          setQuestionoptions(difficultoptions);
+          setAnswers(difficultanswers);
+        }
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+
+    return 1;
+  };
+
+
+  const [[prevMin, prevSec], setPrevTime] = useState([20, 0]);
   const navigate = useNavigate();
   let move = (className) => {
     let options = ["OPA", "OPB", "OPC", "OPD"];
@@ -35,7 +104,9 @@ const Options = (props) => {
       }
     }
   };
-
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <React.Fragment>
       <div className="OPMainDiv">

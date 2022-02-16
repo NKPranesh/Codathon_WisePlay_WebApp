@@ -16,7 +16,7 @@ export default function Meme(props) {
   }
   return (
     <div className='MMImage'>
-    <img src={Memes[(((num)/2)-1).toFixed(0)]} alt={"img"}/>
+    <img src={Memes[Math.floor(((num)/2)-1)]} alt={"img"}/>
     </div>
   )
 }
