@@ -8,8 +8,8 @@ let optionsOpted = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let ratio = [1, 4, 2, 3, 2];
 const QuestionBox = (props) => {
   const [[prevMin, prevSec], setPrevTime] = useState([20, 0]);
-  let [questions, setQuestions] = useState([]);
-    let [options,setOptions] =useState([['','','','',]]);
+  let [questions, setQuestions] = useState(['Loading...']);
+    let [options,setOptions] =useState([['Loading...','Loading...','Loading...','Loading...',]]);
   let [answers,setAnswers] =useState(['a']);
   let easyquestions = [
     "A train 125 m long passes a man, running at 5 km/hr in the same direction in which the train is going, in 10 seconds. The speed of the train is:",

@@ -33,7 +33,7 @@ const About = () => {
                         <p><span className='ABTeamName'>Pranesh</span> <a href="mailto:nkpranesh@gmail.com">nkpranesh@gmail.com</a></p>
                     </div>
                     <div className='ABTeamMember'>
-                    <p><span className='ABTeamName'>ManiSai</span> <a href="mailto:kamutalamanisai26@gmail.com">kamutalamanisai26@gmail.com</a></p>
+                    <p><span className='ABTeamName'>Mani Sai</span> <a href="mailto:kamutalamanisai26@gmail.com">kamutalamanisai26@gmail.com</a></p>
                     </div>
                     <div className='ABTeamMember'>
                     <p><span className='ABTeamName'>Meghana</span> <a href="mailto:meghanamannem163@gmail.com">meghanamannem163@gmail.com</a></p>
