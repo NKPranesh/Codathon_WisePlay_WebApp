@@ -11,13 +11,29 @@ const CountDown = (props) => {
   props.setMin(m);
   props.setSec(s);
   const tick = () => {
-    if (props.over) return;
-    if (m === 0 && s === 0) {
-      props.setOver(true);
-    } else if (s == 0) {
-      setTime([m - 1, 59]);
-    } else {
-      setTime([m, s - 1]);
+    if(count==0)
+    {
+      setTimeout(() => {
+        if (props.over) return;
+        if (m === 0 && s === 0) {
+          props.setOver(true);
+        } else if (s == 0) {
+          setTime([m - 1, 59]);
+        } else {
+          setTime([m, s - 1]);
+        }
+        count+=1;
+      },2000);
+    }
+    else {
+      if (props.over) return;
+        if (m === 0 && s === 0) {
+          props.setOver(true);
+        } else if (s == 0) {
+          setTime([m - 1, 59]);
+        } else {
+          setTime([m, s - 1]);
+        }
     }
   };
 

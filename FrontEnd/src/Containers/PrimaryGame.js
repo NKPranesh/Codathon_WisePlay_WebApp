@@ -154,8 +154,8 @@ const PrimaryGame = () => {
           <RedirectToHomePage />
         )}
       </div>
-      {loading && <Loading />}
-      {animationLoading && <Loading />}
+      {/* {loading && <Loading />}
+      {animationLoading && <Loading />} */}
     </div>
   );
 };
