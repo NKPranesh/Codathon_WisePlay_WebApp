@@ -142,9 +142,9 @@ const QuestionBox = (props) => {
     "Hey Nagveer10, meet John. John likes to explore undiscovered places ,so he decided to visit a hotel today. Unfortunately he couldn’t remember the name of the hotel. Help John in remembering the name of the hotel by answering the question mentioned below.",
   ];
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="QBMainDiv">
       <div className="QBSituationDiv">
