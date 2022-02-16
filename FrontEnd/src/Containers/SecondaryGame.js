@@ -14,16 +14,16 @@ let qno = 0;
 const SecondaryGame = () => {
   const [popupDisplay, setPopupDisplay] = useState(false);
   let questions = [
-    "Father Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father2 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father3 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father4 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father5 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father6 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father7 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father8 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father9 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
-    "Father10 Elephant is aged three times more than his son. After 8 years, he would be two and a half times of his son’s age. After further 8 years, how many times would he be of his son’s age?",
+    "What is the average of first five multiples of 12?",
+    "Pointing to a photograph of a boy Suresh said, He is the son of the only son of my mother. How is Suresh related to that boy?",
+    "And yet it is one of the simplest ideas that anyone ever had. Here I want to persuade you how evolution explains the beginning of life on earth. Darwin uncovered the theory of evolution and the method of natural selection. The idea of evolution is probably one of the most important ideas that anyone has ever had. Today, thanks to Darwin, we know why life is the way it is. We can predict how life will be in the future. We can even postulate about the life on other planets. How amazing is that! What is the topic of the paragraph",
+    "Look at this series: 31,29,24,22, 17, … what number should come next?",
+    "Space exploration is a very exciting field of research. It is the frontier of Physics and no doubt will change the understanding of science. However, it does come at a cost. A normal space shuttle costs about 1.5 billion dollars to make. The annual budget of NASA, which is a premier space exploring organization is about $17 billion. So the question that some people ask is that whether it is worth it? What is the main idea in the paragraph?",
+    "The constitution of India is very well written. It not only defines the need for fundamental human rights but also ensures that we do not abuse these laws. The access to justice is one such law but in the present political scenario, this right like other such rights has been hidden from the marginalized section of the society. As a result, we can say that for such classes of the society, there is no such thing as a constitution.The above paragraph says what about the Indian constitution?",
+    "Sowmya Krishnan walked 20 m towards the north. Then she turned right and walks 30 m. Then she turns right and walks 35 m. Then she turns left and walks 15 m. Finally she turns left and walks 15 m. In which direction and how many meters is she from the starting position?",
+    "An industry trade association found that more than 13,000 martial arts schools exist in the United States with nearly 6 million active members. Of the 13,000 schools, nearly 7,000 offered taekwondo lessons.",
+    "JAK, KBL, LCM, MDN, ____",
+    "Shoaib, Harshad, Preksha, and Yawer are four friends playing poker. In each hand, the individual player has to bet 800 rupees. Preksha wins three hands, Yawer wins two and the others win four hands each. The person who lost the most money is",
   ];
   let [score, setScore] = useState(0);
   let [trait, setTrait] = useState(5);

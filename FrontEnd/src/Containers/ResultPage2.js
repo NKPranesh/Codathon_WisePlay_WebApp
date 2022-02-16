@@ -234,7 +234,7 @@ const ResultPage = () => {
         <Footer />
       </div>
       {popupDisplay && (
-        <SharePopup close={setPopupDisplay} image={certificateimage} />
+        <SharePopup close={setPopupDisplay} image={certificateimage} name={name} date={new Date()}/>
       )}
     </React.Fragment>
   );
