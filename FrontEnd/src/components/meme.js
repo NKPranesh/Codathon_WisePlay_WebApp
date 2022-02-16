@@ -7,15 +7,16 @@ import Meme4 from "../media/meme4.svg";
 import Meme5 from "../media/meme5.svg";
 export default function Meme(props) {
   let Memes=[Meme1,Meme2,Meme3,Meme4,Meme5];
-  console.log(props.memeNumber);
+  // console.log(props.memeNumber);
   let num=props.memeNumber;
+  console.log("num:"+(((num)/2)-1));
   if(props.memeNumber==10)
   {
     num+=1;
   }
   return (
     <div className='MMImage'>
-    <img src={Memes[((num-1)/2)-1]} alt={"img"}/>
+    <img src={Memes[(((num)/2)-1).toFixed(0)]} alt={"img"}/>
     </div>
   )
 }
