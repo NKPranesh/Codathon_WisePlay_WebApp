@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Options from "../components/options";
-import Question from "../components/question";
+// import Question from "../components/question";
 import SecondaryNavbar from "../components/secondaryNavbar";
 import "../stylesheets/SecondaryGame.css";
 import "../stylesheets/question.css";
@@ -119,6 +119,7 @@ const SecondaryGame = () => {
         console.log(error);
       });
   };
+
   if (isExit && count == 0) {
     count++;
     submitButtonHandle();
@@ -180,6 +181,7 @@ const SecondaryGame = () => {
                   <Options
                     // questionOptions={questionOptions}
                     // answers={answers}
+                    submit={submitButtonHandle}
                     setPopupDisplay={setPopupDisplay}
                     setIsExit={setIsExit}
                     setTimetaken={setTimetaken}
