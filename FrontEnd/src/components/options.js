@@ -225,7 +225,6 @@ const Options = (props) => {
                     square.style.height = "";
                     square.style.overflow = "";
                     square.style.pointerEvents = "";
-                    props.submit();
                   }, 2000);
                   setTimeout(() => {
                     props.setIsExit(true);
